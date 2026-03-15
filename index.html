@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AicloudPay — Modern Web Development</title>
+    <title>AI Cloud Studio — Modern Web Development</title>
+    <meta name="description" content="AI Cloud Studio builds clean, fast and professional websites for small and growing businesses.">
 
     <style>
-        /* Global Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
         }
 
         body {
-            background: linear-gradient(to bottom, #f8f8f8, #ffffff);
+            background: linear-gradient(to bottom, #f7f7f7, #ffffff);
             color: #111;
             line-height: 1.6;
         }
@@ -29,102 +29,163 @@
             align-items: center;
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid #eee;
+            z-index: 10;
         }
 
         nav .logo {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #111;
+            font-size: 15px;
         }
 
         nav a.cta {
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 9px 18px;
+            border-radius: 999px;
             background: #111;
             color: #fff;
             text-decoration: none;
             font-size: 14px;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             text-align: center;
-            padding: 120px 20px 100px;
+            padding: 120px 20px 90px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 44px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
+            letter-spacing: -0.5px;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 19px;
             color: #555;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
 
         .hero .btn {
-            padding: 14px 28px;
+            padding: 13px 26px;
             background: #111;
             color: #fff;
-            border-radius: 10px;
+            border-radius: 999px;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 15px;
         }
 
-        /* Packages Section */
+        .hero-subnote {
+            margin-top: 18px;
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* Sections */
         .section {
-            padding: 80px 20px;
+            padding: 70px 20px;
             max-width: 1100px;
-            margin: auto;
+            margin: 0 auto;
         }
 
         .section h2 {
             text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
+            font-size: 32px;
+            margin-bottom: 40px;
         }
 
+        /* What You Get */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 24px;
+        }
+
+        .feature {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+            font-size: 15px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        /* Packages */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
+            gap: 28px;
         }
 
         .card {
             background: #fff;
-            padding: 30px;
-            border-radius: 16px;
+            padding: 28px;
+            border-radius: 18px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            text-align: center;
             transition: 0.2s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
         .card h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 22px;
+            margin-bottom: 6px;
         }
 
         .card p {
             color: #555;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+            font-size: 15px;
         }
 
         .price {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
         }
 
-        /* Why Choose Us */
+        .card ul {
+            list-style: none;
+            text-align: left;
+            font-size: 14px;
+            color: #444;
+            margin-bottom: 16px;
+        }
+
+        .card ul li {
+            margin-bottom: 6px;
+        }
+
+        .card small {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Why Us */
         .why {
             text-align: center;
         }
@@ -132,39 +193,104 @@
         .why-items {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 32px;
             flex-wrap: wrap;
-            margin-top: 40px;
+            margin-top: 30px;
         }
 
         .why-item {
-            font-size: 18px;
+            font-size: 16px;
             color: #333;
+        }
+
+        /* Process */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .step {
+            background: #fff;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+            font-size: 15px;
+        }
+
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .step-number {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 4px;
+        }
+
+        /* About */
+        .about {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 15px;
+            color: #444;
         }
 
         /* Contact */
         .contact {
             text-align: center;
-            padding-bottom: 100px;
+            padding-bottom: 90px;
+        }
+
+        .contact p {
+            margin-bottom: 6px;
+            font-size: 15px;
         }
 
         .contact a.btn {
-            margin-top: 20px;
+            margin-top: 18px;
             display: inline-block;
-            padding: 14px 28px;
+            padding: 13px 26px;
             background: #25D366;
             color: #fff;
-            border-radius: 10px;
+            border-radius: 999px;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 40px;
+            padding: 32px 20px 40px;
             color: #777;
             border-top: 1px solid #eee;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #777;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                padding: 16px 18px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .nav-links {
+                gap: 14px;
+            }
+            .nav-links a {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -173,15 +299,43 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="logo">AicloudPay</div>
-        <a href="#contact" class="cta">Get a Quote</a>
+        <div class="logo">AI Cloud Studio</div>
+        <div class="nav-links">
+            <a href="#packages">Packages</a>
+            <a href="#why">Why Us</a>
+            <a href="#contact" class="cta">Get a Quote</a>
+        </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
-        <h1>Modern Websites for Growing Businesses</h1>
-        <p>Fast, clean and professional websites built with care and precision.</p>
+        <h1>Websites that Build Trust and Convert Clients</h1>
+        <p>Clean, fast and professional websites designed to make your business look world‑class.</p>
         <a href="#packages" class="btn">View Packages</a>
+        <div class="hero-subnote">Based in Dachau — working with small and growing businesses.</div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="section">
+        <h2>What You Get</h2>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-title">Modern & premium design</div>
+                Clean, minimal and professional layouts that make your business look serious and trustworthy.
+            </div>
+            <div class="feature">
+                <div class="feature-title">Fast & mobile‑friendly</div>
+                Optimized for speed and fully responsive, so your website looks great on any device.
+            </div>
+            <div class="feature">
+                <div class="feature-title">SEO‑ready structure</div>
+                Clear structure and best practices that help search engines understand your business.
+            </div>
+            <div class="feature">
+                <div class="feature-title">Easy updates & support</div>
+                Simple structure and ongoing support options so your website can grow with your business.
+            </div>
+        </div>
     </section>
 
     <!-- Packages -->
@@ -191,47 +345,12 @@
         <div class="cards">
             <div class="card">
                 <h3>Starter</h3>
-                <p>Simple landing page with clean design.</p>
+                <p>Perfect for small businesses that need a clean, modern landing page.</p>
                 <div class="price">€99</div>
-            </div>
-
-            <div class="card">
-                <h3>Business</h3>
-                <p>3–5 pages, contact form, gallery, basic SEO.</p>
-                <div class="price">€249</div>
-            </div>
-
-            <div class="card">
-                <h3>Premium</h3>
-                <p>Custom design, integrations, automations.</p>
-                <div class="price">€499+</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="section why">
-        <h2>Why Choose Us</h2>
-
-        <div class="why-items">
-            <div class="why-item">✨ Modern & clean design</div>
-            <div class="why-item">⚡ Fast delivery</div>
-            <div class="why-item">💶 Transparent pricing</div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section contact">
-        <h2>Contact</h2>
-        <p>Email: info@aicloudpay.net</p>
-        <p>WhatsApp: +49 XXX XXX</p>
-        <a href="https://wa.me/49XXXXXXXXX" class="btn">Message on WhatsApp</a>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        © 2026 AicloudPay — All rights reserved.
-    </footer>
-
-</body>
-</html>
+                <ul>
+                    <li>1 page</li>
+                    <li>Mobile‑friendly layout</li>
+                    <li>Contact button</li>
+                    <li>Basic SEO setup</li>
+                </ul>
+                <small>Ideal if
