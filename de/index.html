@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Cloud Studio — Moderne Webseiten für Ihr Business</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-soft: #0b0b12;
+      --card: #11111a;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.12);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --danger: #dc2626;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --radius-pill: 999px;
+      --transition: 200ms ease-out;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text","Inter", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+    .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+
+    header {
+      position: sticky; top: 0; z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2,6,23,0.96), rgba(2,6,23,0.85), transparent);
+      border-bottom: 1px solid rgba(148,163,184,0.12);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0; gap: 1.5rem; }
+    .nav-left { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-mark {
+      width: 32px; height: 32px; border-radius: 12px;
+      background: radial-gradient(circle at 20% 0, #4f46e5, #0ea5e9);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 12px 30px rgba(79,70,229,0.6);
+      font-size: 0.9rem; font-weight: 600;
+    }
+    .logo-text { display: flex; flex-direction: column; gap: 0.05rem; }
+    .logo-text span:first-child { font-weight: 600; letter-spacing: 0.03em; font-size: 0.9rem; }
+    .logo-text span:last-child { font-size: 0.75rem; color: var(--muted); }
+
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; font-size: 0.9rem; color: var(--muted); }
+    .nav-links a { position: relative; padding-bottom: 0.1rem; }
+    .nav-links a:hover { color: #e5e7eb; }
+    .nav-links a::after {
+      content: ""; position: absolute; left: 0; bottom: -0.2rem;
+      width: 0; height: 2px;
+      background: linear-gradient(to right, #4f46e5, #0ea5e9);
+      border-radius: 999px; transition: width var(--transition);
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+
+    .lang-switcher {
+      display: flex; align-items: center; gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.85);
+      border: 1px solid rgba(148,163,184,0.35);
+    }
+    .lang-flag {
+      width: 20px; height: 14px; border-radius: 3px;
+      overflow: hidden;
+      border: 1px solid rgba(15,23,42,0.9);
+      box-shadow: 0 0 0 1px rgba(15,23,42,0.9);
+      background: #020617;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lang-flag img { width: 100%; height: 100%; object-fit: cover; }
+
+    .lang-links { display: flex; align-items: center; gap: 0.25rem; font-size: 0.75rem; }
+    .lang-links a {
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+    }
+    .lang-links a.active {
+      background: rgba(79,70,229,0.16);
+      border-color: rgba(79,70,229,0.7);
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+    .lang-links a:hover {
+      border-color: rgba(148,163,184,0.6);
+      color: #e5e7eb;
+    }
+
+    .nav-cta {
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      background: radial-gradient(circle at top left, #111827, #020617);
+      display: flex; align-items: center; gap: 0.4rem;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.8);
+    }
+    .nav-cta:hover {
+      border-color: rgba(79,70,229,0.9);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.95);
+      transform: translateY(-1px);
+      transition: all var(--transition);
+    }
+
+    main { flex: 1; }
+    .section { padding: 3.5rem 0; }
+    .hero { padding-top: 3.5rem; padding-bottom: 3rem; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+    }
+    .eyebrow-dot {
+      width: 6px; height: 6px; border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+    .hero h1 span {
+      background: linear-gradient(to right, #e5e7eb, #9ca3af);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 32rem;
+      line-height: 1.6;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.4rem; }
+    .btn-primary {
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 18px 40px rgba(37,99,235,0.6);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(37,99,235,0.75);
+      transition: all var(--transition);
+    }
+
+    .btn-ghost {
+      padding: 0.7rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(79,70,229,0.9);
+      background: rgba(15,23,42,1);
+      transition: all var(--transition);
+    }
+
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.78rem; color: var(--muted); }
+    .hero-meta span strong { color: #e5e7eb; font-weight: 500; }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .hero-card-header { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; }
+    .hero-card-title { font-size: 0.9rem; color: #e5e7eb; font-weight: 500; }
+    .hero-card-pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(22,163,74,0.12);
+      color: #bbf7d0;
+      font-size: 0.7rem;
+      border: 1px solid rgba(34,197,94,0.5);
+    }
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.4rem;
+    }
+    .hero-mini {
+      border-radius: 14px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 0.7rem 0.8rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .hero-mini strong { display: block; color: #e5e7eb; font-size: 0.8rem; margin-bottom: 0.1rem; }
+
+    .section-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      gap: 1.5rem; margin-bottom: 1.8rem;
+    }
+    .section-header h2 { font-size: 1.4rem; letter-spacing: -0.03em; }
+    .section-header p {
+      font-size: 0.9rem; color: var(--muted);
+      max-width: 26rem; line-height: 1.6;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+    .why-card {
+      border-radius: var(--radius-lg);
+      background: rgba(15,23,42,0.96);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 1.1rem 1.1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      box-shadow: 0 16px 40px rgba(15,23,42,0.9);
+    }
+    .why-card h3 { font-size: 0.95rem; margin-bottom: 0.4rem; color: #e5e7eb; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+    .card {
+      border-radius: var(--radius-lg);
+      background: rgba(15,23,42,0.96);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 1.2rem 1.2rem;
+      box-shadow: 0 18px 45px rgba(15,23,42,0.95);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .card h3 { font-size: 1rem; margin-bottom: 0.2rem; color: #e5e7eb; }
+    .card ul { list-style: none; display: flex; flex-direction: column; gap: 0.25rem; }
+    .card li strong { color: #e5e7eb; font-weight: 500; }
+    .card-price { margin-top: 0.4rem; font-size: 1.1rem; font-weight: 600; color: #e5e7eb; }
+    .card-tag {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(79,70,229,0.16);
+      border: 1px solid rgba(79,70,229,0.7);
+      color: #c7d2fe;
+      font-size: 0.7rem;
+      margin-left: 0.4rem;
+    }
+
+    .maintenance { margin-top: 2.4rem; }
+    .maintenance .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+    .portfolio-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, #111827, #020617);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 1rem 1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      box-shadow: 0 18px 45px rgba(15,23,42,0.95);
+    }
+    .portfolio-card h3 { font-size: 0.95rem; margin-bottom: 0.3rem; color: #e5e7eb; }
+    .portfolio-pill {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .faq-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      font-size: 0.85rem;
+    }
+    .faq-item {
+      border-radius: var(--radius-lg);
+      background: rgba(15,23,42,0.96);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 0.9rem 1rem;
+      color: var(--muted);
+    }
+    .faq-item h3 { font-size: 0.9rem; margin-bottom: 0.25rem; color: #e5e7eb; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: center;
+    }
+    .contact-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 1.4rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .contact-card h3 { font-size: 1rem; margin-bottom: 0.4rem; color: #e5e7eb; }
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.4rem; }
+    .contact-list li strong { color: #e5e7eb; font-weight: 500; }
+    .contact-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.7rem; }
+    .contact-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.9rem; }
+    .contact-cta a { font-size: 0.8rem; }
+
+    footer {
+      border-top: 1px solid rgba(148,163,184,0.2);
+      padding: 1.4rem 0 1.6rem;
+      margin-top: 2rem;
+      background: radial-gradient(circle at bottom, #020617, #020617);
+    }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem; font-size: 0.78rem; color: var(--muted); flex-wrap: wrap;
+    }
+    .footer-links { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+    .footer-links a:hover { color: #e5e7eb; }
+
+    @media (max-width: 960px) {
+      .hero-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+      .why-grid, .cards, .portfolio-grid, .faq-list { grid-template-columns: minmax(0, 1fr); }
+      header { backdrop-filter: blur(14px); }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      .section { padding: 2.6rem 0; }
+      .hero { padding-top: 2.6rem; }
+      .nav { padding: 0.7rem 0; }
+      .hero-card { border-radius: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="nav-left">
+            <div class="logo-mark">AI</div>
+            <div class="logo-text">
+              <span>AI Cloud Studio</span>
+              <span>Moderne Webentwicklung</span>
+            </div>
+          </div>
+
+          <div class="nav-links">
+            <a href="#packages">Pakete</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Kontakt</a>
+          </div>
+
+          <div class="nav-right">
+            <div class="lang-switcher">
+              <div class="lang-flag">
+                <img src="/flags/de.svg" alt="Deutsch" />
+              </div>
+              <div class="lang-links">
+                <a href="/">EN</a>
+                <a href="/de/" class="active">DE</a>
+                <a href="/al/">AL</a>
+                <a href="/es/">ES</a>
+                <a href="/tr/">TR</a>
+                <a href="/ar/">AR</a>
+              </div>
+            </div>
+            <a href="#contact" class="nav-cta">
+              <span>Angebot anfragen</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                <span>Webseiten, die Vertrauen schaffen und Kunden gewinnen</span>
+              </div>
+              <h1>
+                Klare, schnelle und professionelle Webseiten
+                <span>mit modernen, effizienten Workflows.</span>
+              </h1>
+              <p>
+                AI Cloud Studio ist ein modernes Digitalstudio mit Fokus auf
+                klares Design, Geschwindigkeit und langfristigen Nutzen.
+                Wir bauen Webseiten, die hochwertig aussehen, schnell laden
+                und Ihrem Unternehmen helfen, seriös aufzutreten und zu wachsen.
+              </p>
+              <div class="hero-actions">
+                <a href="#packages" class="btn-primary">
+                  <span>Pakete ansehen</span>
+                  <span>↓</span>
+                </a>
+                <a href="#contact" class="btn-ghost">
+                  <span>Projekt besprechen</span>
+                </a>
+              </div>
+              <div class="hero-meta">
+                <span><strong>Basis in Bayern</strong> · lokal & remote</span>
+                <span><strong>AI‑orientiertes Studio</strong> · effiziente, zukunftsfähige Lösungen</span>
+              </div>
+            </div>
+
+            <aside class="hero-card">
+              <div class="hero-card-header">
+                <div class="hero-card-title">Fokus auf das, was Kunden wirklich wichtig ist</div>
+                <div class="hero-card-pill">Klarheit · Geschwindigkeit · Vertrauen</div>
+              </div>
+              <div>
+                Keine unnötige Komplexität, keine überladenen Funktionen.
+                Nur eine saubere, moderne Webseite, die schnell lädt,
+                professionell wirkt und mit Ihrem Unternehmen mitwachsen kann.
+              </div>
+              <div class="hero-card-grid">
+                <div class="hero-mini">
+                  <strong>Modernes Design</strong>
+                  Klare Struktur, gute Lesbarkeit und ein Layout,
+                  das hochwertig wirkt, ohne übertrieben zu sein.
+                </div>
+                <div class="hero-mini">
+                  <strong>Bereit für Automatisierung</strong>
+                  Einfache Integrationen für Kontaktformulare, E‑Mail
+                  oder WhatsApp‑Flows, die Zeit sparen.
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="why">
+        <div class="container">
+          <div class="section-header">
+            <div><h2>Warum AI Cloud Studio</h2></div>
+            <p>
+              Als junges, AI‑orientiertes Studio liefern wir moderne,
+              effiziente Lösungen ohne unnötige Komplexität.
+              Sie erhalten eine klare, professionelle Webseite,
+              die leicht zu verstehen, leicht zu bedienen
+              und langfristig nutzbar ist.
+            </p>
+          </div>
+
+          <div class="why-grid">
+            <div class="why-card">
+              <h3>Sauberes, modernes Design</h3>
+              <p>
+                Wir gestalten mit Fokus auf Klarheit und Vertrauen –
+                klare Abschnitte, gute Typografie und ein ruhiges,
+                seriöses Erscheinungsbild.
+              </p>
+            </div>
+            <div class="why-card">
+              <h3>Schnell & SEO‑bereit</h3>
+              <p>
+                Ihre Seite wird so aufgebaut, dass sie schnell lädt
+                und eine saubere Struktur für zukünftige SEO‑Arbeit bietet.
+              </p>
+            </div>
+            <div class="why-card">
+              <h3>Workflows & Automatisierung</h3>
+              <p>
+                Von Kontaktformularen bis zu einfachen Automationen:
+                wir helfen, Abläufe zu vereinfachen und Anfragen
+                übersichtlich zu halten.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="packages">
+        <div class="container">
+          <div class="section-header">
+            <div><h2>Unsere Pakete</h2></div>
+            <p>
+              Drei klare Pakete für unterschiedliche Phasen Ihres Unternehmens –
+              vom einfachen One‑Pager bis zur individuellen,
+              erweiterbaren Business‑Website.
+            </p>
+          </div>
+
+          <div class="cards">
+            <div class="card">
+              <h3>Basic — Der digitale Start</h3>
+              <ul>
+                <li><strong>Umfang:</strong> 1‑seitige Landingpage</li>
+                <li><strong>Struktur:</strong> Modernes, mobiloptimiertes Layout</li>
+                <li><strong>Technik:</strong> Schnelles Laden, SEO‑Basis, Kontakt‑Button</li>
+              </ul>
+              <div class="card-price">349 €</div>
+            </div>
+
+            <div class="card" style="border: 2px solid #111827;">
+              <h3>
+                Standard — Das Business‑Paket
+                <span class="card-tag">Empfohlen</span>
+              </h3>
+              <ul>
+                <li><strong>Umfang:</strong> 3–5 Seiten (Start, Über uns, Leistungen, Kontakt, …)</li>
+                <li><strong>Struktur:</strong> Professionelle Navigation, klares Layout</li>
+                <li><strong>Technik:</strong> Kontaktformular, SEO‑Optimierung, WhatsApp/E‑Mail‑Integration</li>
+              </ul>
+              <div class="card-price">749 €</div>
+            </div>
+
+            <div class="card">
+              <h3>Premium — Die Komplettlösung</h3>
+              <ul>
+                <li><strong>Umfang:</strong> Beliebig viele Seiten</li>
+                <li><strong>Design:</strong> Voll individuell, Premium‑Look</li>
+                <li><strong>Extras:</strong> Automationen (z.B. WhatsApp API, CRM, E‑Mail‑Flows), erweiterte Funktionen</li>
+              </ul>
+              <div class="card-price">ab 1.499 €</div>
+            </div>
+          </div>
+
+          <div class="maintenance">
+            <div class="section-header" style="margin-bottom: 1.4rem;">
+              <div><h2>Optionale Wartungspakete</h2></div>
+              <p>
+                Halten Sie Ihre Webseite sicher, aktuell und performant
+                mit einem einfachen monatlichen Wartungsplan.
+              </p>
+            </div>
+
+            <div class="cards">
+              <div class="card">
+                <h3>Basic Wartung</h3>
+                <ul>
+                  <li>Sicherheits‑Updates</li>
+                  <li>Monatliche Backups</li>
+                  <li>Kleine Fehlerkorrekturen</li>
+                  <li>39 €/Monat</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>Standard Wartung</h3>
+                <ul>
+                  <li>Wöchentliche Backups</li>
+                  <li>Performance‑Optimierung</li>
+                  <li>Kleine Text‑/Bild‑Anpassungen</li>
+                  <li>Uptime‑Monitoring</li>
+                  <li>69 €/Monat</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>Premium Wartung</h3>
+                <ul>
+                  <li>Alle Standard‑Leistungen</li>
+                  <li>Regelmäßige Inhalts‑Updates</li>
+                  <li>Priorisierter Support</li>
+                  <li>SEO‑Checks</li>
+                  <li>24/7‑Monitoring</li>
+                  <li>99 €/Monat</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="portfolio">
+        <div class="container">
+          <div class="section-header">
+            <div><h2>Portfolio‑Einblicke</h2></div>
+            <p>
+              Beispiele für klare, fokussierte Layouts – modern,
+              vertrauenswürdig und leicht zu bedienen.
+            </p>
+          </div>
+
+          <div class="portfolio-grid">
+            <div class="portfolio-card">
+              <div class="portfolio-pill">Dienstleistung · Landingpage</div>
+              <h3>Lokaler Service‑One‑Pager</h3>
+              <p>
+                Eine fokussierte Seite für lokale Dienstleistungen
+                mit klaren Abschnitten, Vertrauenselementen
+                und deutlichem Call‑to‑Action.
+              </p>
+            </div>
+            <div class="portfolio-card">
+              <div class="portfolio-pill">Beratung · Mehrseitig</div>
+              <h3>Beratungs‑Website</h3>
+              <p>
+                Struktur mit Startseite, Über uns, Leistungen und Kontakt –
+                ideal, um Kompetenz zu zeigen und Anfragen zu erleichtern.
+              </p>
+            </div>
+            <div class="portfolio-card">
+              <div class="portfolio-pill">Automatisierung · Premium</div>
+              <h3>Business‑Website mit Workflows</h3>
+              <p>
+                Individuelles Layout mit integrierten Kontakt‑Flows,
+                WhatsApp‑Einstiegspunkten und E‑Mail‑Automatisierung
+                für eine saubere Lead‑Bearbeitung.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-header">
+            <div><h2>FAQ</h2></div>
+            <p>
+              Häufige Fragen – wenn Sie etwas Spezielles im Kopf haben,
+              schreiben Sie uns einfach direkt.
+            </p>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3>Wie lange dauert die Erstellung einer Webseite?</h3>
+              <p>
+                Einfache Seiten benötigen meist 2–4 Tage.
+                Standard‑ und Premium‑Projekte liegen je nach Umfang
+                und Inhalten bei etwa 1–2 Wochen.
+              </p>
+            </div>
+            <div class="faq-item">
+              <h3>Kann ich nachträglich Änderungen wünschen?</h3>
+              <p>
+                Ja. In jedem Paket sind Anpassungen während des Projekts enthalten.
+                Danach können wir Wartung oder Updates nach Bedarf vereinbaren.
+              </p>
+            </div>
+            <div class="faq-item">
+              <h3>Bieten Sie Wartung an?</h3>
+              <p>
+                Ja. Sie können eines der Wartungspakete wählen
+                oder bei Bedarf einzelne Updates anfragen.
+              </p>
+            </div>
+            <div class="faq-item">
+              <h3>Ist die Seite für Google optimiert?</h3>
+              <p>
+                Ja. Wir achten auf eine saubere Struktur, schnelle Ladezeiten
+                und sauberen Code – eine gute Basis für SEO.
+              </p>
+            </div>
+            <div class="faq-item">
+              <h3>Können später neue Funktionen ergänzt werden?</h3>
+              <p>
+                Natürlich. Die Seite ist so aufgebaut, dass neue Seiten,
+                Bereiche oder Automationen später ergänzt werden können.
+              </p>
+            </div>
+            <div class="faq-item">
+              <h3>Arbeiten Sie auch komplett remote?</h3>
+              <p>
+                Ja. Wir arbeiten mit Kunden in Bayern und darüber hinaus
+                und halten den Prozess klar und unkompliziert.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="section-header">
+            <div><h2>Lassen Sie uns Ihre Webseite aufbauen</h2></div>
+            <p>
+              Schreiben Sie kurz, was Sie machen und was Sie brauchen.
+              Wir melden uns mit einem klaren Vorschlag – ohne Druck,
+              ohne Verkaufstricks.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h3>Kontakt</h3>
+              <ul class="contact-list">
+                <li><strong>E‑Mail:</strong> info@aicloudpay.net</li>
+                <li><strong>WhatsApp:</strong> +49 XXX XXX</li>
+              </ul>
+              <p class="contact-note">
+                Am schnellsten geht es mit einer kurzen Nachricht:
+                Branche, grober Bedarf, evtl. bestehende Seite.
+                Wir melden uns mit einem klaren nächsten Schritt.
+              </p>
+              <div class="contact-cta">
+                <a href="mailto:info@aicloudpay.net" class="btn-primary">
+                  <span>E‑Mail senden</span>
+                  <span>✉</span>
+                </a>
+                <a href="https://wa.me/" class="btn-ghost">
+                  <span>WhatsApp‑Chat starten</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <h3>Was Sie erwarten können</h3>
+              <p>
+                Ein kurzes, strukturiertes Gespräch über Ihre Ziele,
+                eine klare Empfehlung zum passenden Paket
+                und transparente Preise ohne versteckte Kosten.
+              </p>
+              <p class="contact-note">
+                Wenn Sie nicht genau wissen, wo Sie anfangen sollen:
+                Schreiben Sie einfach „Ich brauche eine Webseite für mein Unternehmen“
+                – wir führen Sie durch die nächsten Schritte.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-row">
+          <div>© 2026 AI Cloud Studio — Mit Sorgfalt umgesetzt.</div>
+          <div class="footer-links">
+            <span>Start · Pakete · Kontakt</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
