@@ -35,7 +35,7 @@
       scroll-behavior: smooth;
     }
     a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
+    img, video { max-width: 100%; display: block; border-radius: 18px; }
 
     h1, h2, h3 {
       letter-spacing: -0.02em;
@@ -54,11 +54,75 @@
     .shadow-soft { box-shadow: var(--shadow-soft); }
     .shadow-hover:hover { box-shadow: var(--shadow-hover); transition: 0.25s ease; }
 
+    .shadow-3d {
+      box-shadow:
+        0 4px 8px rgba(0,0,0,0.03),
+        0 12px 28px rgba(0,0,0,0.06),
+        0 18px 48px rgba(0,0,0,0.08);
+      transition: 0.25s ease;
+    }
+    .shadow-3d:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 6px 12px rgba(0,0,0,0.04),
+        0 18px 36px rgba(0,0,0,0.08),
+        0 28px 60px rgba(0,0,0,0.12);
+    }
+
+    .glow-4d {
+      position: relative;
+      z-index: 1;
+    }
+    .glow-4d::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at 50% 0%, rgba(56,189,248,0.35), transparent 70%);
+      filter: blur(22px);
+      z-index: -1;
+      opacity: 0.9;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(18px) saturate(180%);
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+
     .card-clean {
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 1.4rem;
+    }
+
+    .section {
+      padding: 4.5rem 0;
+    }
+    .section-header {
+      margin-bottom: 2.4rem;
+    }
+    .section-header h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+    .section-header p {
+      max-width: 48rem;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #475569;
+    }
+
+    .section-header p,
+    .hero p,
+    .card p,
+    .card li,
+    .faq-item p {
+      max-width: 48rem;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #475569;
     }
 
     /* HEADER */
@@ -177,7 +241,6 @@
     }
 
     main { flex: 1; }
-    .section { padding: 3.5rem 0; }
 
     /* HERO */
     .hero {
@@ -186,8 +249,8 @@
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 2.5rem;
+      grid-template-columns: 1.4fr 1.1fr;
+      gap: 2.8rem;
       align-items: center;
     }
     .eyebrow {
@@ -220,9 +283,7 @@
     }
     .hero p {
       color: var(--muted);
-      font-size: 0.98rem;
-      max-width: 32rem;
-      line-height: 1.6;
+      max-width: 46rem;
       margin-bottom: 1.6rem;
     }
     .hero-actions {
@@ -259,10 +320,7 @@
 
     .hero-card {
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(148, 163, 184, 0.4);
       padding: 1.4rem;
-      background: #ffffff;
-      box-shadow: var(--shadow-soft);
     }
     .hero-card h3 {
       font-size: 1rem;
@@ -274,18 +332,40 @@
       color: var(--muted);
     }
 
-    .section-header {
-      margin-bottom: 1.8rem;
+    .hero-media {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      padding: 0.18rem;
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.5), transparent 55%);
     }
-    .section-header h2 {
-      font-size: 1.4rem;
-      color: #020617;
-      margin-bottom: 0.3rem;
+    .hero-media-inner {
+      border-radius: 22px;
+      background: #020617;
+      padding: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
     }
-    .section-header p {
-      color: var(--muted);
-      max-width: 26rem;
+    .hero-media-tag {
+      font-size: 0.75rem;
+      color: #e5e7eb;
+      opacity: 0.8;
+    }
+    .hero-media-title {
       font-size: 0.95rem;
+      color: #f9fafb;
+      font-weight: 500;
+    }
+    .hero-media-frame {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.5);
+    }
+    .hero-media-note {
+      font-size: 0.75rem;
+      color: #cbd5f5;
+      opacity: 0.85;
     }
 
     /* WHY */
@@ -299,10 +379,6 @@
       gap: 1.2rem;
     }
     .why-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      padding: 1.1rem;
-      border-radius: var(--radius-lg);
       color: var(--muted);
       font-size: 0.9rem;
     }
@@ -323,13 +399,8 @@
       gap: 1.2rem;
     }
     .card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      padding: 1.2rem;
-      border-radius: var(--radius-lg);
       color: var(--muted);
       font-size: 0.9rem;
-      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.08);
     }
     .card h3 {
       color: #0f172a;
@@ -419,10 +490,6 @@
       gap: 1rem;
     }
     .faq-item {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      padding: 0.9rem;
-      border-radius: var(--radius-lg);
       color: var(--muted);
       font-size: 0.9rem;
     }
@@ -617,12 +684,11 @@
               </h1>
 
               <p>
-                AI Cloud Studio focuses on clean, fast and professional websites with clear structure,
-                modern design and the option to integrate automation when you are ready.
+                AI Cloud Studio focuses on clean, fast and professional websites with clear structure, modern design and the option to integrate automation when you are ready.
               </p>
 
               <div class="hero-actions">
-                <a href="#packages" class="btn-primary">View packages</a>
+                <a href="#packages" class="btn-primary glow-4d">View packages</a>
                 <a href="#contact" class="btn-ghost">Discuss your project</a>
               </div>
 
@@ -632,16 +698,25 @@
               </div>
             </div>
 
-            <aside class="hero-card shadow-soft">
-              <h3>Clarity over complexity</h3>
-              <p>
-                No bloated features, no confusing structure. Just a clear, modern website that
-                builds trust and supports your business goals.
-              </p>
-              <p style="margin-top:0.6rem;">
-                <strong>Design:</strong> clean, structured, professional.<br />
-                <strong>Tech:</strong> fast, SEO-friendly, automation-ready.
-              </p>
+            <aside class="hero-media shadow-3d">
+              <div class="hero-media-inner">
+                <div>
+                  <div class="hero-media-tag">Preview</div>
+                  <div class="hero-media-title">Example of a clean, structured homepage layout</div>
+                </div>
+                <div class="hero-media-frame">
+                  <!-- Zëvendësoje këtë me një imazh real, p.sh. /assets/hero-ionos-style.webp -->
+                  <img src="/assets/hero-preview.webp" alt="Modern website preview" loading="lazy" />
+                  <!-- Ose përdor video:
+                  <video autoplay muted loop playsinline>
+                    <source src="/assets/hero-preview.mp4" type="video/mp4" />
+                  </video>
+                  -->
+                </div>
+                <div class="hero-media-note">
+                  This is a visual example — your website will be tailored to your brand and content.
+                </div>
+              </div>
             </aside>
           </div>
         </div>
@@ -653,33 +728,29 @@
           <div class="section-header">
             <h2>Why AI Cloud Studio</h2>
             <p>
-              A modern website should be clear, fast and trustworthy. We focus on exactly that —
-              without unnecessary complexity.
+              A modern website should be clear, fast and trustworthy. We focus on exactly that — without unnecessary complexity, so your visitors understand quickly what you offer and why they should trust you.
             </p>
           </div>
 
           <div class="why-grid">
-            <div class="why-card card-clean shadow-soft shadow-hover">
+            <div class="why-card card-clean shadow-3d">
               <h3>Modern, clean design</h3>
               <p>
-                Structured sections, strong typography and a premium look that feels professional
-                and easy to understand.
+                Structured sections, strong typography and a premium look that feels professional and easy to understand — without visual noise.
               </p>
             </div>
 
-            <div class="why-card card-clean shadow-soft shadow-hover">
+            <div class="why-card card-clean shadow-3d">
               <h3>Fast & SEO-friendly</h3>
               <p>
-                Lightweight pages, clean code and a structure that helps both users and search engines
-                understand your offer.
+                Lightweight pages, clean code and a structure that helps both users and search engines understand your offer and find you more easily.
               </p>
             </div>
 
-            <div class="why-card card-clean shadow-soft shadow-hover">
+            <div class="why-card card-clean shadow-3d">
               <h3>Automation-ready</h3>
               <p>
-                When you are ready, we can connect your website to WhatsApp, email flows or other tools
-                to save time.
+                When you are ready, we can connect your website to WhatsApp, email flows or other tools to reduce manual work and save time.
               </p>
             </div>
           </div>
@@ -692,13 +763,12 @@
           <div class="section-header">
             <h2>Packages</h2>
             <p>
-              Three clear options depending on where your business is — from a focused one-page site
-              to a fully tailored setup.
+              Three clear options depending on where your business is — from a focused one-page site to a fully tailored setup that can grow with you.
             </p>
           </div>
 
           <div class="cards">
-            <div class="card card-clean shadow-soft shadow-hover">
+            <div class="card card-clean shadow-3d">
               <h3>Basic — Digital start</h3>
               <ul>
                 <li><strong>Content:</strong> Single-page website (landing page)</li>
@@ -710,7 +780,7 @@
               <div class="card-cta">Good for: first online presence, simple service overview.</div>
             </div>
 
-            <div class="card card-clean shadow-soft shadow-hover" style="border: 1px solid #c4d3ff; box-shadow: 0 18px 40px rgba(37, 99, 235, 0.18);">
+            <div class="card card-clean shadow-3d" style="border: 1px solid #c4d3ff; box-shadow: 0 18px 40px rgba(37, 99, 235, 0.18);">
               <h3>
                 Standard — Business website
                 <span class="card-tag">Most chosen</span>
@@ -725,7 +795,7 @@
               <div class="card-cta">Good for: small businesses that want a solid, professional presence.</div>
             </div>
 
-            <div class="card card-clean shadow-soft shadow-hover">
+            <div class="card card-clean shadow-3d">
               <h3>Premium — Tailored setup</h3>
               <ul>
                 <li><strong>Content:</strong> Multiple pages based on your business needs</li>
@@ -742,12 +812,12 @@
             <div class="section-header">
               <h2>Optional monthly maintenance</h2>
               <p>
-                Keep your website secure, updated and fast with a simple maintenance plan.
+                Keep your website secure, updated and fast with a simple maintenance plan — so you can focus on your business instead of technical details.
               </p>
             </div>
 
             <div class="cards">
-              <div class="card card-clean shadow-soft shadow-hover">
+              <div class="card card-clean shadow-3d">
                 <h3>Basic</h3>
                 <ul>
                   <li>Security and platform updates</li>
@@ -757,7 +827,7 @@
                 <div class="card-price">€29 / month</div>
               </div>
 
-              <div class="card card-clean shadow-soft shadow-hover" style="border: 1px solid #c4d3ff;">
+              <div class="card card-clean shadow-3d" style="border: 1px solid #c4d3ff;">
                 <h3>
                   Standard
                   <span class="card-tag">Recommended</span>
@@ -771,7 +841,7 @@
                 <div class="card-price">€59 / month</div>
               </div>
 
-              <div class="card card-clean shadow-soft shadow-hover">
+              <div class="card card-clean shadow-3d">
                 <h3>Premium</h3>
                 <ul>
                   <li>Everything from Standard</li>
@@ -792,7 +862,7 @@
           <div class="section-header">
             <h2>Example scenarios</h2>
             <p>
-              A few concrete ways a modern website can support your business and build trust.
+              A few concrete ways a modern website can support your business and build trust — from local services to consulting and automation-focused setups.
             </p>
           </div>
 
@@ -801,8 +871,7 @@
               <span class="portfolio-pill">Local business</span>
               <h3>Clear service overview</h3>
               <p>
-                A structured page with your main services, service area, testimonials and a clear
-                contact call-to-action.
+                A structured page with your main services, service area, testimonials and a clear contact call-to-action, so visitors know quickly what you offer.
               </p>
             </div>
 
@@ -810,8 +879,7 @@
               <span class="portfolio-pill">Consulting & services</span>
               <h3>Professional profile</h3>
               <p>
-                Present your expertise, services and way of working in a way that feels trustworthy
-                and easy to understand.
+                Present your expertise, services and way of working in a way that feels trustworthy and easy to understand — without overwhelming visitors.
               </p>
             </div>
 
@@ -819,8 +887,7 @@
               <span class="portfolio-pill">Automation</span>
               <h3>Website as a process entry point</h3>
               <p>
-                Forms that send directly to WhatsApp, email or other tools — reducing manual steps
-                and saving time.
+                Forms that send directly to WhatsApp, email or other tools — reducing manual steps and saving time for both you and your clients.
               </p>
             </div>
           </div>
@@ -833,40 +900,36 @@
           <div class="section-header">
             <h2>FAQ — Frequently asked questions</h2>
             <p>
-              Short, clear answers to the most common questions before starting a project.
+              Short, clear answers to the most common questions before starting a project, so you know what to expect.
             </p>
           </div>
 
           <div class="faq-list">
-            <div class="faq-item card-clean">
+            <div class="faq-item card-clean shadow-soft">
               <h3>How long does it take to build a website?</h3>
               <p>
-                It depends on the package. Basic usually 1–2 weeks, Standard around 2–3 weeks,
-                Premium depends on complexity and integrations.
+                It depends on the package. Basic usually takes around 1–2 weeks, Standard around 2–3 weeks, and Premium depends on complexity and integrations.
               </p>
             </div>
 
-            <div class="faq-item card-clean">
+            <div class="faq-item card-clean shadow-soft">
               <h3>Can I update the website myself later?</h3>
               <p>
-                Yes. We can structure it so that basic text changes are easy, or you can use a
-                maintenance plan where we handle updates for you.
+                Yes. We can structure it so that basic text changes are easy, or you can use a maintenance plan where we handle updates for you.
               </p>
             </div>
 
-            <div class="faq-item card-clean">
+            <div class="faq-item card-clean shadow-soft">
               <h3>Is the website optimized for mobile?</h3>
               <p>
-                Yes, all packages include responsive design — your website will look good on mobile,
-                tablet and desktop.
+                Yes, all packages include responsive design — your website will look good on mobile, tablet and desktop.
               </p>
             </div>
 
-            <div class="faq-item card-clean">
+            <div class="faq-item card-clean shadow-soft">
               <h3>What happens after the website goes live?</h3>
               <p>
-                You get a fully working website and can optionally add a maintenance plan for
-                ongoing updates and optimizations.
+                You get a fully working website and can optionally add a maintenance plan for ongoing updates and optimizations.
               </p>
             </div>
           </div>
@@ -879,13 +942,12 @@
           <div class="section-header">
             <h2>Let’s talk about your project</h2>
             <p>
-              Share a few details about your business and what you have in mind — we can then
-              suggest a structure and a suitable package.
+              Share a few details about your business and what you have in mind — we can then suggest a structure and a suitable package that fits your situation.
             </p>
           </div>
 
           <div class="contact-grid">
-            <div class="contact-card">
+            <div class="contact-card glass shadow-soft">
               <h3>How the process works</h3>
               <p><strong>1. Initial message</strong> — send a short description of your business and what you want the website to achieve.</p>
               <p><strong>2. Structure proposal</strong> — we suggest the main sections and the package that fits best.</p>
@@ -903,7 +965,7 @@
               </div>
             </div>
 
-            <div class="contact-card">
+            <div class="contact-card shadow-soft">
               <h3>What to include in your message</h3>
               <p>• Type of business (e.g. services, consulting, local business)</p>
               <p>• If you already have a website</p>
