@@ -67,25 +67,40 @@
 
         /* HERO */
         .hero {
-            padding-top: 160px;
-            padding-bottom: 140px;
-            text-align: center;
-            background: linear-gradient(135deg, #f5f7ff, #eef2ff);
+            padding: 160px 5% 120px;
+            background: linear-gradient(135deg, #f7f9ff, #eef1ff);
         }
 
-        .hero h1 {
-            font-size: 3.4rem;
-            margin-bottom: 20px;
+        .hero-content {
+            max-width: 1300px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
             background: linear-gradient(135deg, #007aff, #5e5ce6);
             -webkit-background-clip: text;
             color: transparent;
+            margin-bottom: 20px;
         }
 
-        .hero p {
+        .hero-text p {
             font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
             color: #444;
+            max-width: 550px;
+            margin-bottom: 40px;
+            line-height: 1.6;
         }
 
         .btn-primary {
@@ -101,6 +116,19 @@
 
         .btn-primary:hover {
             background: #005fcc;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 320px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 520px;
+            border-radius: 22px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
         }
 
         /* SECTION WRAPPER */
@@ -251,9 +279,21 @@
 
     <!-- HERO -->
     <section class="hero">
-        <h1>Web‑faqe Premium & Automatizim</h1>
-        <p>Ne ndërtojmë web‑faqe moderne, të shpejta dhe të automatizuara me dizajn Apple‑style — për biznese që duan një prezencë të pastër, profesionale dhe të besueshme online.</p>
-        <a href="#contact" class="btn-primary">Fillo Projektin</a>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Zgjidhje Moderne për Web & Automatizim</h1>
+                <p>
+                    Ne ndërtojmë web‑faqe premium dhe sisteme automatizimi për biznese që kërkojnë
+                    profesionalizëm, shpejtësi dhe dizajn modern Apple‑style. Bazuar në München,
+                    punojmë me klientë lokalë dhe ndërkombëtarë.
+                </p>
+                <a href="#contact" class="btn-primary">Fillo Projektin</a>
+            </div>
+
+            <div class="hero-image">
+                <img src="/assets/hero-mockup.png" alt="AI Cloud Studio Mockup">
+            </div>
+        </div>
     </section>
 
     <!-- VALUE PROPOSITION -->
@@ -371,7 +411,7 @@
 
         <div class="contact-box">
             <p>Email: <a href="mailto:aicloud.studio@gmail.com">aicloud.studio@gmail.com</a></p>
-            <p>Lokacioni: Dachau, Bavari, Gjermani</p>
+            <p>Lokacioni: München, Gjermani</p>
         </div>
     </section>
 
