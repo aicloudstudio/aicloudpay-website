@@ -1,1000 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>AI Cloud Studio — Modern Web Development</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="AI Cloud Studio builds clean, fast and modern websites with automation-ready processes." />
-  <style>
-    :root {
-      --bg: #ffffff;
-      --bg-soft: #f8fafc;
-      --bg-dark: #020617;
-      --bg-dark-soft: #020617;
-      --primary: #2563eb;
-      --primary-soft: rgba(37, 99, 235, 0.12);
-      --primary-strong: #1d4ed8;
-      --accent-neon: rgba(56, 189, 248, 0.5);
-      --text: #0f172a;
-      --muted: #64748b;
-      --border: #e5e7eb;
-      --shadow-soft: 0 8px 28px rgba(15, 23, 42, 0.08);
-      --shadow-hover: 0 12px 32px rgba(15, 23, 42, 0.12);
-      --radius-lg: 18px;
-      --radius-xl: 26px;
-      --transition: 180ms ease-out;
-      --max-width: 1120px;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Cloud Studio — Premium Web Development</title>
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
-    }
-    a { text-decoration: none; color: inherit; }
-    img, video { max-width: 100%; display: block; border-radius: 18px; }
+    <!-- Apple Style + Neon Glow CSS -->
+    <style>
+        /* GLOBAL RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
 
-    h1, h2, h3 {
-      letter-spacing: -0.02em;
-      font-weight: 600;
-      color: #0f172a;
-    }
-    p {
-      line-height: 1.65;
-      color: #475569;
-      font-size: 1rem;
-    }
+        body {
+            background: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
 
-    .page { min-height: 100vh; display: flex; flex-direction: column; }
-    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+        /* NAVIGATION */
+        nav {
+            width: 100%;
+            padding: 22px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 999;
+            backdrop-filter: blur(12px);
+            background: rgba(10, 10, 10, 0.55);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-    .shadow-soft { box-shadow: var(--shadow-soft); }
-    .shadow-hover:hover { box-shadow: var(--shadow-hover); transition: 0.25s ease; }
+        nav .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00c6ff, #b400ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
 
-    .shadow-3d {
-      box-shadow:
-        0 4px 8px rgba(0,0,0,0.03),
-        0 12px 28px rgba(0,0,0,0.06),
-        0 18px 48px rgba(0,0,0,0.08);
-      transition: 0.25s ease;
-    }
-    .shadow-3d:hover {
-      transform: translateY(-4px);
-      box-shadow:
-        0 6px 12px rgba(0,0,0,0.04),
-        0 18px 36px rgba(0,0,0,0.08),
-        0 28px 60px rgba(0,0,0,0.12);
-    }
+        nav .languages a {
+            margin-left: 18px;
+            color: #cfcfcf;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.25s;
+        }
 
-    .glow-4d {
-      position: relative;
-      z-index: 1;
-    }
-    .glow-4d::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: radial-gradient(circle at 50% 0%, rgba(56,189,248,0.35), transparent 70%);
-      filter: blur(22px);
-      z-index: -1;
-      opacity: 0.9;
-    }
+        nav .languages a:hover {
+            color: #00c6ff;
+            text-shadow: 0 0 12px #00c6ff;
+        }
 
-    .glass {
-      background: rgba(255,255,255,0.55);
-      backdrop-filter: blur(18px) saturate(180%);
-      border: 1px solid rgba(255,255,255,0.35);
-    }
+        /* HERO SECTION */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 140px;
+            text-align: center;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0,198,255,0.25), transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(180,0,255,0.25), transparent 60%),
+                #050505;
+        }
 
-    .card-clean {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.4rem;
-    }
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00c6ff, #b400ff);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
 
-    .section {
-      padding: 4.5rem 0;
-    }
-    .section-header {
-      margin-bottom: 2.4rem;
-    }
-    .section-header h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.6rem;
-    }
-    .section-header p {
-      max-width: 48rem;
-      font-size: 1rem;
-      line-height: 1.65;
-      color: #475569;
-    }
+        .hero p {
+            font-size: 1.35rem;
+            color: #c7c7c7;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
 
-    .section-header p,
-    .hero p,
-    .card p,
-    .card li,
-    .faq-item p {
-      max-width: 48rem;
-      font-size: 1rem;
-      line-height: 1.65;
-      color: #475569;
-    }
+        .btn-primary {
+            padding: 16px 38px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #00c6ff, #b400ff);
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 0 22px rgba(0,198,255,0.6);
+            transition: 0.25s;
+        }
 
-    /* HEADER */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(18px);
-      background: rgba(255, 255, 255, 0.92);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-    }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.9rem 0;
-      gap: 1rem;
-    }
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 20% 0, #2563eb, #38bdf8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #f9fafb;
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.06);
-    }
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-    }
-    .logo-text span:first-child {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: #0f172a;
-    }
-    .logo-text span:last-child {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 32px rgba(180,0,255,0.8);
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    .nav-links a {
-      position: relative;
-      padding-bottom: 0.1rem;
-    }
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), #38bdf8);
-      transition: width var(--transition);
-    }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-links a:hover { color: #0f172a; }
+        /* SECTION WRAPPER */
+        section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+        section h2 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00c6ff, #b400ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
 
-    .lang-switcher {
-      display: flex;
-      align-items: center;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      gap: 0.35rem;
-    }
-    .lang-links {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      font-size: 0.75rem;
-    }
-    .lang-links a {
-      padding: 0.15rem 0.4rem;
-      border-radius: 999px;
-      color: #64748b;
-    }
-    .lang-links a.active {
-      background: var(--primary-soft);
-      color: var(--primary-strong);
-      font-weight: 500;
-    }
+        section p {
+            color: #c7c7c7;
+            margin-bottom: 40px;
+            font-size: 1.15rem;
+        }
 
-    .nav-cta {
-      padding: 0.45rem 0.95rem;
-      border-radius: 999px;
-      border: 1px solid rgba(37, 99, 235, 0.2);
-      background: #0f172a;
-      color: #f9fafb;
-      font-size: 0.8rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
 
-    main { flex: 1; }
+        .service-card {
+            padding: 32px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            transition: 0.3s;
+        }
 
-    /* HERO */
-    .hero {
-      background: radial-gradient(circle at top, #e0f2fe 0, #ffffff 55%);
-      border-bottom: 1px solid #e5e7eb;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1.1fr;
-      gap: 2.8rem;
-      align-items: center;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.18rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(255, 255, 255, 0.9);
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin-bottom: 1.1rem;
-    }
-    .eyebrow-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-    h1 {
-      font-size: clamp(2.4rem, 4vw, 3.1rem);
-      line-height: 1.05;
-      margin-bottom: 1rem;
-      color: #020617;
-    }
-    h1 span {
-      display: block;
-      color: #0f172a;
-    }
-    .hero p {
-      color: var(--muted);
-      max-width: 46rem;
-      margin-bottom: 1.6rem;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 0.75rem;
-      margin-bottom: 1.4rem;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      padding: 0.7rem 1.4rem;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--primary), #38bdf8);
-      color: #f9fafb;
-      font-weight: 500;
-      font-size: 0.9rem;
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.04),
-                  0 18px 35px rgba(37, 99, 235, 0.35);
-    }
-    .btn-ghost {
-      padding: 0.7rem 1.1rem;
-      border-radius: 999px;
-      border: 1px solid #cbd5f5;
-      background: rgba(255, 255, 255, 0.9);
-      color: #1d4ed8;
-      font-size: 0.85rem;
-    }
-    .hero-meta {
-      display: flex;
-      gap: 1.5rem;
-      font-size: 0.78rem;
-      color: var(--muted);
-      flex-wrap: wrap;
-    }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 22px rgba(0,198,255,0.3);
+        }
 
-    .hero-media {
-      position: relative;
-      border-radius: 26px;
-      overflow: hidden;
-      padding: 0.18rem;
-      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.5), transparent 55%);
-    }
-    .hero-media-inner {
-      border-radius: 22px;
-      background: #020617;
-      padding: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-    .hero-media-tag {
-      font-size: 0.75rem;
-      color: #e5e7eb;
-      opacity: 0.8;
-    }
-    .hero-media-title {
-      font-size: 0.95rem;
-      color: #f9fafb;
-      font-weight: 500;
-    }
-    .hero-media-frame {
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(148,163,184,0.5);
-    }
-    .hero-media-note {
-      font-size: 0.75rem;
-      color: #cbd5f5;
-      opacity: 0.85;
-    }
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
 
-    /* WHY */
-    .why {
-      background: var(--bg-soft);
-      border-bottom: 1px solid #e5e7eb;
-    }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-    }
-    .why-card {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    .why-card h3 {
-      color: #0f172a;
-      margin-bottom: 0.4rem;
-      font-size: 1rem;
-    }
+        /* PRICING */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
 
-    /* PACKAGES */
-    .packages {
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-    }
-    .card {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    .card h3 {
-      color: #0f172a;
-      margin-bottom: 0.4rem;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-    .card ul {
-      list-style: none;
-      margin-top: 0.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-    .card-price {
-      margin-top: 0.7rem;
-      font-size: 1.1rem;
-      color: #0f172a;
-      font-weight: 600;
-    }
-    .card-tag {
-      background: rgba(37, 99, 235, 0.08);
-      border: 1px solid rgba(37, 99, 235, 0.4);
-      color: #1d4ed8;
-      padding: 0.18rem 0.55rem;
-      border-radius: 999px;
-      font-size: 0.7rem;
-    }
-    .card-cta {
-      margin-top: 0.8rem;
-      font-size: 0.8rem;
-      color: #1d4ed8;
-    }
+        .price-card {
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(14px);
+            transition: 0.3s;
+        }
 
-    .maintenance {
-      margin-top: 3rem;
-    }
+        .price-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 28px rgba(180,0,255,0.4);
+        }
 
-    /* PORTFOLIO */
-    .portfolio {
-      background: var(--bg-dark-soft);
-      color: #e5e7eb;
-    }
-    .portfolio .section-header h2 { color: #f9fafb; }
-    .portfolio .section-header p { color: #cbd5f5; }
+        .price-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
 
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-    }
-    .portfolio-card {
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 1rem;
-      border-radius: var(--radius-lg);
-      color: #cbd5f5;
-      font-size: 0.9rem;
-    }
-    .portfolio-card h3 {
-      color: #e5e7eb;
-      margin-bottom: 0.3rem;
-      font-size: 0.98rem;
-    }
-    .portfolio-pill {
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      padding: 0.18rem 0.55rem;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      margin-bottom: 0.4rem;
-      display: inline-block;
-      color: #e5e7eb;
-    }
+        .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 18px 0;
+            background: linear-gradient(135deg, #00c6ff, #b400ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
 
-    /* FAQ */
-    .faq {
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-    }
-    .faq-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-    .faq-item {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    .faq-item h3 {
-      color: #0f172a;
-      margin-bottom: 0.25rem;
-      font-size: 0.95rem;
-    }
+        /* CONTACT */
+        .contact-box {
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(14px);
+            text-align: center;
+        }
 
-    /* CONTACT */
-    .contact {
-      background: var(--bg-soft);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 1.8rem;
-    }
-    .contact-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      padding: 1.4rem;
-      border-radius: var(--radius-xl);
-      color: var(--muted);
-      font-size: 0.9rem;
-      box-shadow: var(--shadow-soft);
-    }
-    .contact-card h3 {
-      color: #0f172a;
-      margin-bottom: 0.4rem;
-      font-size: 1rem;
-    }
-    .contact-card p + p { margin-top: 0.35rem; }
-    .contact-meta {
-      margin-top: 0.8rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      font-size: 0.85rem;
-    }
-    .contact-meta strong { color: #0f172a; }
+        .contact-box a {
+            color: #00c6ff;
+            font-weight: 600;
+            text-decoration: none;
+        }
 
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-    .social-links a {
-      color: #2563eb;
-      font-weight: 500;
-      border-bottom: 1px solid transparent;
-      transition: 0.2s;
-      font-size: 0.9rem;
-    }
-    .social-links a:hover {
-      border-bottom: 1px solid #2563eb;
-    }
-
-    footer {
-      border-top: 1px solid #e5e7eb;
-      padding: 1.4rem 0;
-      margin-top: 2rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.8rem;
-      background: #ffffff;
-    }
-    .footer-links {
-      margin-top: 0.4rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      font-size: 0.8rem;
-    }
-    .footer-links a {
-      color: #64748b;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    /* COOKIE BANNER */
-    #cookie-banner {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      right: 20px;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      padding: 1rem 1.4rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 9999;
-      gap: 1rem;
-    }
-    #cookie-banner p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #475569;
-    }
-    #cookie-banner a {
-      color: #2563eb;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-    #cookie-accept {
-      background: #2563eb;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      white-space: nowrap;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .why-grid,
-      .cards,
-      .portfolio-grid,
-      .faq-list,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .nav { flex-wrap: wrap; }
-      .nav-links { display: none; }
-      #cookie-banner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+        /* FOOTER */
+        footer {
+            padding: 40px 5%;
+            text-align: center;
+            color: #888;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 80px;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="page">
-    <header>
-      <div class="container">
-        <nav class="nav">
-          <div class="nav-left">
-            <div class="logo-mark">AI</div>
-            <div class="logo-text">
-              <span>AI Cloud Studio</span>
-              <span>Modern Web Development</span>
-            </div>
-          </div>
 
-          <div class="nav-links">
-            <a href="#packages">Packages</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Contact</a>
-          </div>
-
-          <div class="nav-right">
-            <div class="lang-switcher">
-              <div class="lang-links">
-                <a href="/" class="active">EN</a>
-                <a href="/de/">DE</a>
-                <a href="/al/">AL</a>
-                <a href="/es/">ES</a>
-                <a href="/tr/">TR</a>
-                <a href="/ar/">AR</a>
-              </div>
-            </div>
-            <a href="#contact" class="nav-cta">
-              Get an offer
-              <span>↗</span>
-            </a>
-          </div>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <!-- HERO -->
-      <section class="section hero">
-        <div class="container">
-          <div class="hero-grid">
-            <div>
-              <div class="eyebrow">
-                <span class="eyebrow-dot"></span>
-                <span>Clean, modern websites with automation-ready processes</span>
-              </div>
-
-              <h1>
-                Modern websites that look premium
-                <span>and are built to support your business.</span>
-              </h1>
-
-              <p>
-                AI Cloud Studio focuses on clean, fast and professional websites with clear structure, modern design and the option to integrate automation when you are ready.
-              </p>
-
-              <div class="hero-actions">
-                <a href="#packages" class="btn-primary glow-4d">View packages</a>
-                <a href="#contact" class="btn-ghost">Discuss your project</a>
-              </div>
-
-              <div class="hero-meta">
-                <span><strong>Based in Bavaria</strong> · working locally & remotely</span>
-                <span><strong>AI-focused studio</strong> · efficient, modern solutions</span>
-              </div>
-            </div>
-
-            <aside class="hero-media shadow-3d">
-              <div class="hero-media-inner">
-                <div>
-                  <div class="hero-media-tag">Preview</div>
-                  <div class="hero-media-title">Example of a clean, structured homepage layout</div>
-                </div>
-                <div class="hero-media-frame">
-                  <!-- Zëvendësoje këtë me një imazh real, p.sh. /assets/hero-preview.webp -->
-                  <img src="/assets/hero-preview.webp" alt="Modern website preview" loading="lazy" />
-                  <!-- Ose përdor video:
-                  <video autoplay muted loop playsinline>
-                    <source src="/assets/hero-preview.mp4" type="video/mp4" />
-                  </video>
-                  -->
-                </div>
-                <div class="hero-media-note">
-                  This is a visual example — your website will be tailored to your brand and content.
-                </div>
-              </div>
-            </aside>
-          </div>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">AI Cloud Studio</div>
+        <div class="languages">
+            <a href="/en">EN</a>
+            <a href="/de">DE</a>
+            <a href="/al">AL</a>
         </div>
-      </section>
+    </nav>
 
-      <!-- WHY -->
-      <section class="section why" id="why">
-        <div class="container">
-          <div class="section-header">
-            <h2>Why AI Cloud Studio</h2>
-            <p>
-              A modern website should be clear, fast and trustworthy. We focus on exactly that — without unnecessary complexity, so your visitors understand quickly what you offer and why they should trust you.
-            </p>
-          </div>
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Premium Websites & Automation</h1>
+        <p>We build modern, fast, and automated websites with Apple‑style design and neon glow aesthetics — tailored for businesses that want to stand out.</p>
+        <a href="#contact" class="btn-primary">Start Your Project</a>
+    </section>
 
-          <div class="why-grid">
-            <div class="why-card card-clean shadow-3d">
-              <h3>Modern, clean design</h3>
-              <p>
-                Structured sections, strong typography and a premium look that feels professional and easy to understand — without visual noise.
-              </p>
+    <!-- SERVICES -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>High‑quality, modern, and automated solutions for small businesses and professionals.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Website Development</h3>
+                <p>Premium, fast, responsive websites with modern Apple‑style UI and neon glow effects.</p>
             </div>
 
-            <div class="why-card card-clean shadow-3d">
-              <h3>Fast & SEO-friendly</h3>
-              <p>
-                Lightweight pages, clean code and a structure that helps both users and search engines understand your offer and find you more easily.
-              </p>
+            <div class="service-card">
+                <h3>Automation Systems</h3>
+                <p>Integrations with WhatsApp, Make.com, Google Sheets, and more — fully automated workflows.</p>
             </div>
 
-            <div class="why-card card-clean shadow-3d">
-              <h3>Automation-ready</h3>
-              <p>
-                When you are ready, we can connect your website to WhatsApp, email flows or other tools to reduce manual work and save time.
-              </p>
+            <div class="service-card">
+                <h3>Branding & Structure</h3>
+                <p>Professional content, structure, and offer design for your business.</p>
             </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <!-- PACKAGES -->
-      <section class="section packages" id="packages">
-        <div class="container">
-          <div class="section-header">
-            <h2>Packages</h2>
-            <p>
-              Three clear options depending on where your business is — from a focused one-page site to a fully tailored setup that can grow with you.
-            </p>
-          </div>
+    <!-- PRICING -->
+    <section id="pricing">
+        <h2>Pricing</h2>
+        <p>Transparent, simple, and fair pricing — no hidden fees.</p>
 
-          <div class="cards">
-            <div class="card card-clean shadow-3d">
-              <h3>Basic — Digital start</h3>
-              <ul>
-                <li><strong>Content:</strong> Single-page website (landing page)</li>
-                <li><strong>Structure:</strong> Hero, services, about, contact</li>
-                <li><strong>Design:</strong> Clean, mobile-optimized layout</li>
-                <li><strong>Tech:</strong> Fast loading, basic SEO, contact button</li>
-              </ul>
-              <div class="card-price">€349</div>
-              <div class="card-cta">Good for: first online presence, simple service overview.</div>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Starter Website</h3>
+                <div class="price">€299</div>
+                <p>Perfect for small businesses that need a clean and modern online presence.</p>
             </div>
 
-            <div class="card card-clean shadow-3d" style="border: 1px solid #c4d3ff; box-shadow: 0 18px 40px rgba(37, 99, 235, 0.18);">
-              <h3>
-                Standard — Business website
-                <span class="card-tag">Most chosen</span>
-              </h3>
-              <ul>
-                <li><strong>Content:</strong> 3–5 pages (Home, About, Services, Projects, Contact…)</li>
-                <li><strong>Structure:</strong> Clear navigation, trust-building sections</li>
-                <li><strong>Design:</strong> More details, more premium feel</li>
-                <li><strong>Tech:</strong> Contact form, extended SEO, WhatsApp/Email integration</li>
-              </ul>
-              <div class="card-price">€749</div>
-              <div class="card-cta">Good for: small businesses that want a solid, professional presence.</div>
+            <div class="price-card">
+                <h3>Business Website</h3>
+                <div class="price">€499</div>
+                <p>Includes automation, premium design, and multilingual support.</p>
             </div>
 
-            <div class="card card-clean shadow-3d">
-              <h3>Premium — Tailored setup</h3>
-              <ul>
-                <li><strong>Content:</strong> Multiple pages based on your business needs</li>
-                <li><strong>Design:</strong> Fully tailored layout and sections</li>
-                <li><strong>Extras:</strong> Blog, offer pages, sector-specific pages</li>
-                <li><strong>Automation:</strong> WhatsApp API, CRM, email flows and more</li>
-              </ul>
-              <div class="card-price">€1,499+</div>
-              <div class="card-cta">Good for: businesses that want a long-term, scalable setup.</div>
+            <div class="price-card">
+                <h3>Full Automation</h3>
+                <div class="price">€799</div>
+                <p>Complete automation system with WhatsApp, Make.com, and CRM integration.</p>
             </div>
-          </div>
-
-          <div class="maintenance">
-            <div class="section-header">
-              <h2>Optional monthly maintenance</h2>
-              <p>
-                Keep your website secure, updated and fast with a simple maintenance plan — so you can focus on your business instead of technical details.
-              </p>
-            </div>
-
-            <div class="cards">
-              <div class="card card-clean shadow-3d">
-                <h3>Basic</h3>
-                <ul>
-                  <li>Security and platform updates</li>
-                  <li>Monthly backup</li>
-                  <li>Small text adjustments</li>
-                </ul>
-                <div class="card-price">€29 / month</div>
-              </div>
-
-              <div class="card card-clean shadow-3d" style="border: 1px solid #c4d3ff;">
-                <h3>
-                  Standard
-                  <span class="card-tag">Recommended</span>
-                </h3>
-                <ul>
-                  <li>Everything from Basic</li>
-                  <li>Weekly backup</li>
-                  <li>Small section updates (prices, services)</li>
-                  <li>Basic performance monitoring</li>
-                </ul>
-                <div class="card-price">€59 / month</div>
-              </div>
-
-              <div class="card card-clean shadow-3d">
-                <h3>Premium</h3>
-                <ul>
-                  <li>Everything from Standard</li>
-                  <li>More frequent content changes</li>
-                  <li>Periodic UX and structure review</li>
-                  <li>Priority support</li>
-                </ul>
-                <div class="card-price">€99+ / month</div>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <!-- PORTFOLIO -->
-      <section class="section portfolio" id="portfolio">
-        <div class="container">
-          <div class="section-header">
-            <h2>Example scenarios</h2>
-            <p>
-              A few concrete ways a modern website can support your business and build trust — from local services to consulting and automation-focused setups.
-            </p>
-          </div>
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Ready to start your project? Get in touch.</p>
 
-          <div class="portfolio-grid">
-            <div class="portfolio-card">
-              <span class="portfolio-pill">Local business</span>
-              <h3>Clear service overview</h3>
-              <p>
-                A structured page with your main services, service area, testimonials and a clear contact call-to-action, so visitors know quickly what you offer.
-              </p>
-            </div>
-
-            <div class="portfolio-card">
-              <span class="portfolio-pill">Consulting & services</span>
-              <h3>Professional profile</h3>
-              <p>
-                Present your expertise, services and way of working in a way that feels trustworthy and easy to understand — without overwhelming visitors.
-              </p>
-            </div>
-
-            <div class="portfolio-card">
-              <span class="portfolio-pill">Automation</span>
-              <h3>Website as a process entry point</h3>
-              <p>
-                Forms that send directly to WhatsApp, email or other tools — reducing manual steps and saving time for both you and your clients.
-              </p>
-            </div>
-          </div>
+        <div class="contact-box">
+            <p>Email: <a href="mailto:aicloud.studio@gmail.com">aicloud.studio@gmail.com</a></p>
+            <p>Location: Dachau, Bavaria, Germany</p>
         </div>
-      </section>
+    </section>
 
-      <!-- FAQ -->
-      <section class="section faq" id="faq">
-        <div class="container">
-          <div class="section-header">
-            <h2>FAQ — Frequently asked questions</h2>
-            <p>
-              Short, clear answers to the most common questions before starting a project, so you know what to expect.
-            </p>
-          </div>
-
-          <div class="faq-list">
-            <div class="faq-item card-clean shadow-soft">
-              <h3>How long does it take to build a website?</h3>
-              <p>
-                It depends on the package. Basic usually takes around 1–2 weeks, Standard around 2–3 weeks, and Premium depends on complexity and integrations.
-              </p>
-            </div>
-
-            <div class="faq-item card-clean shadow-soft">
-              <h3>Can I update the website myself later?</h3>
-              <p>
-                Yes. We can structure it so that basic text changes are easy, or you can use a maintenance plan where we handle updates for you.
-              </p>
-            </div>
-
-            <div class="faq-item card-clean shadow-soft">
-              <h3>Is the website optimized for mobile?</h3>
-              <p>
-                Yes, all packages include responsive design — your website will look good on mobile, tablet and desktop.
-              </p>
-            </div>
-
-            <div class="faq-item card-clean shadow-soft">
-              <h3>What happens after the website goes live?</h3>
-              <p>
-                You get a fully working website and can optionally add a maintenance plan for ongoing updates and optimizations.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section class="section contact" id="contact">
-        <div class="container">
-          <div class="section-header">
-            <h2>Let’s talk about your project</h2>
-            <p>
-              Share a few details about your business and what you have in mind — we can then suggest a structure and a suitable package that fits your situation.
-            </p>
-          </div>
-
-          <div class="contact-grid">
-            <div class="contact-card glass shadow-soft">
-              <h3>How the process works</h3>
-              <p><strong>1. Initial message</strong> — send a short description of your business and what you want the website to achieve.</p>
-              <p><strong>2. Structure proposal</strong> — we suggest the main sections and the package that fits best.</p>
-              <p><strong>3. Implementation</strong> — once we agree, we build, refine and launch the website.</p>
-
-              <div class="contact-meta">
-                <p><strong>Email:</strong> info@aicloudpay.net</p>
-                <p><strong>Location:</strong> Bavaria, Germany · working locally & remotely</p>
-              </div>
-
-              <div class="social-links">
-                <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-                <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-                <a href="https://www.facebook.com" target="_blank" rel="noreferrer">Facebook</a>
-              </div>
-            </div>
-
-            <div class="contact-card shadow-soft">
-              <h3>What to include in your message</h3>
-              <p>• Type of business (e.g. services, consulting, local business)</p>
-              <p>• If you already have a website</p>
-              <p>• Whether you only need a presentation site or also automation (WhatsApp, email, etc.)</p>
-              <p>• Rough timeline for when you’d like the website to be ready</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
+    <!-- FOOTER -->
     <footer>
-      © <span id="year"></span> AI Cloud Studio — Clean, modern and professional websites.
-      <div class="footer-links">
-        <a href="/impressum/">Impressum</a>
-        <a href="/datenschutz/">Datenschutz</a>
-      </div>
+        © 2024 AI Cloud Studio — Premium Web Development & Automation
     </footer>
-  </div>
 
-  <!-- COOKIE BANNER -->
-  <div id="cookie-banner">
-    <p>
-      Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Mehr dazu in unserer
-      <a href="/datenschutz/">Datenschutzerklärung</a>.
-    </p>
-    <button id="cookie-accept">OK</button>
-  </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const banner = document.getElementById('cookie-banner');
-    const btn = document.getElementById('cookie-accept');
-
-    if (localStorage.getItem('cookiesAccepted')) {
-      banner.style.display = 'none';
-    }
-
-    btn.onclick = () => {
-      banner.style.display = 'none';
-      localStorage.setItem('cookiesAccepted', 'true');
-    };
-  </script>
 </body>
 </html>
