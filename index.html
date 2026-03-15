@@ -1,51 +1,379 @@
-<section id="packages" class="section fade-in">
-    <h2>Our Packages</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Cloud Studio — Modern Web Development</title>
+    <meta name="description" content="AI Cloud Studio builds clean, fast and professional websites using modern design and AI-powered workflows.">
 
-    <div class="cards">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
+        }
 
-        <!-- Basic -->
-        <div class="card">
-            <h3>Basic — The Digital Starter</h3>
-            <ul>
-                <li><strong>Scope:</strong> 1-page landing website</li>
-                <li><strong>Structure:</strong> Clean, modern, mobile‑optimized layout</li>
-                <li><strong>Technology:</strong> Fast loading, SEO‑ready, contact button</li>
-                <li><strong>Price:</strong> €349</li>
-            </ul>
+        body {
+            background: linear-gradient(to bottom, #f7f7f7, #ffffff);
+            color: #111;
+            line-height: 1.6;
+        }
+
+        /* Smooth fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation */
+        nav {
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #eee;
+            z-index: 10;
+        }
+
+        nav .logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #111;
+            font-size: 15px;
+        }
+
+        nav a.cta {
+            padding: 9px 18px;
+            border-radius: 999px;
+            background: #111;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 120px 20px 90px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #555;
+            margin-bottom: 32px;
+        }
+
+        .hero .btn {
+            padding: 13px 26px;
+            background: #111;
+            color: #fff;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 70px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        /* Why Us */
+        .why-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 17px;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        /* Packages */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 28px;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .card ul {
+            list-style: none;
+            text-align: left;
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 16px;
+        }
+
+        .card ul li {
+            margin-bottom: 6px;
+        }
+
+        .price {
+            font-size: 26px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .portfolio-item {
+            background: #fff;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            font-size: 16px;
+            color: #777;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h4 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .faq-item p {
+            font-size: 15px;
+            color: #555;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+            padding-bottom: 90px;
+        }
+
+        .contact p {
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .contact a.btn {
+            margin-top: 18px;
+            display: inline-block;
+            padding: 13px 26px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 32px 20px 40px;
+            color: #777;
+            border-top: 1px solid #eee;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #777;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">AI Cloud Studio</div>
+        <div class="nav-links">
+            <a href="#packages">Packages</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact" class="cta">Get a Quote</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero fade-in">
+        <h1>Websites that Build Trust and Convert Clients</h1>
+        <p>Clean, fast and professional websites designed with modern design principles and AI‑powered workflows.</p>
+        <a href="#packages" class="btn">View Packages</a>
+    </section>
+
+    <!-- Why Us -->
+    <section id="why" class="section fade-in">
+        <h2>Why Choose AI Cloud Studio</h2>
+        <div class="why-text">
+            AI Cloud Studio is a modern digital studio combining clean design, automation and AI‑enhanced workflows.
+            We focus on clarity, speed and long‑term value — building websites that look premium, load fast and help your business grow.
+            As a new AI‑driven studio, we deliver efficient, future‑ready solutions without unnecessary complexity.
+        </div>
+    </section>
+
+    <!-- Packages -->
+    <section id="packages" class="section fade-in">
+        <h2>Our Packages</h2>
+
+        <div class="cards">
+
+            <!-- Basic -->
+            <div class="card">
+                <h3>Basic — The Digital Starter</h3>
+                <ul>
+                    <li><strong>Scope:</strong> 1 page (Landing Page)</li>
+                    <li><strong>Structure:</strong> Clean, modern, mobile‑optimized</li>
+                    <li><strong>Technology:</strong> Fast loading, SEO‑ready</li>
+                    <li><strong>Price:</strong> €99</li>
+                </ul>
+            </div>
+
+            <!-- Standard -->
+            <div class="card" style="border: 2px solid #111;">
+                <h3>Standard — The Business All‑Rounder (Recommended)</h3>
+                <ul>
+                    <li><strong>Scope:</strong> 3–5 pages (Home, About, Services, Contact, etc.)</li>
+                    <li><strong>Structure:</strong> Professional layout, clear navigation</li>
+                    <li><strong>Technology:</strong> Contact form, SEO optimization, fast performance</li>
+                    <li><strong>Price:</strong> €249</li>
+                </ul>
+            </div>
+
+            <!-- Premium -->
+            <div class="card">
+                <h3>Premium — The Complete Care Package</h3>
+                <ul>
+                    <li><strong>Scope:</strong> Unlimited pages</li>
+                    <li><strong>Design:</strong> Fully custom premium design</li>
+                    <li><strong>Custom:</strong> Automations (WhatsApp, Email, CRM), special features</li>
+                    <li><strong>Price:</strong> €499+</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="section fade-in">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">Project Placeholder</div>
+            <div class="portfolio-item">Project Placeholder</div>
+            <div class="portfolio-item">Project Placeholder</div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section fade-in">
+        <h2>FAQ</h2>
+
+        <div class="faq-item">
+            <h4>How long does it take to build a website?</h4>
+            <p>Basic pages take 2–4 days. Standard and Premium projects take 1–2 weeks depending on complexity.</p>
         </div>
 
-        <!-- Standard -->
-        <div class="card" style="border: 2px solid #111;">
-            <h3>Standard — The Business All‑Rounder <span style="color:#111; font-weight:600;">(Recommended)</span></h3>
-            <ul>
-                <li><strong>Scope:</strong> 3–5 pages (Home, About, Services, Contact, etc.)</li>
-                <li><strong>Structure:</strong> Professional navigation, premium layout</li>
-                <li><strong>Technology:</strong> Contact form, SEO optimization, WhatsApp/Email integration</li>
-                <li><strong>Price:</strong> €749</li>
-            </ul>
+        <div class="faq-item">
+            <h4>Can I request changes after delivery?</h4>
+            <p>Yes. All packages include revisions and optional long‑term support.</p>
         </div>
 
-        <!-- Premium -->
-        <div class="card">
-            <h3>Premium — The Complete Care Package</h3>
-            <ul>
-                <li><strong>Scope:</strong> Unlimited pages</li>
-                <li><strong>Design:</strong> Fully custom premium design</li>
-                <li><strong>Custom:</strong> Automations (WhatsApp API, CRM, Email workflows), advanced features</li>
-                <li><strong>Price:</strong> €1,499+</li>
-            </ul>
+        <div class="faq-item">
+            <h4>Do you offer maintenance?</h4>
+            <p>Yes. We offer monthly or on‑demand maintenance depending on your needs.</p>
         </div>
 
-    </div>
+        <div class="faq-item">
+            <h4>Is my website optimized for Google?</h4>
+            <p>Yes. All websites include SEO‑ready structure and fast loading times.</p>
+        </div>
 
-    <!-- Maintenance Plans -->
-    <h2 style="margin-top:60px;">Optional Monthly Maintenance</h2>
+        <div class="faq-item">
+            <h4>Can we add new features later?</h4>
+            <p>Absolutely. Your website is built to grow with your business.</p>
+        </div>
+    </section>
 
-    <div class="cards">
+    <!-- Contact -->
+    <section id="contact" class="section contact fade-in">
+        <h2>Let’s Build Your Website</h2>
+        <p>Email: info@aicloudpay.net</p>
+        <p>WhatsApp: +49 XXX XXX</p>
+        <a href="https://wa.me/49XXXXXXXXX" class="btn">Chat on WhatsApp</a>
+    </section>
 
-        <div class="card">
-            <h3>Basic Maintenance</h3>
-            <ul>
-                <li>Security updates</li>
-                <li>Monthly backups</li>
-                <li>Minor fixes</li>
+    <!-- Footer -->
+    <footer>
+        <div>
+            <a href="#top">Home</a> ·
+            <a href="#packages">Packages</a> ·
+            <a href="#contact">Contact</a>
+        </div>
+        <div style="margin-top: 8px;">
+            © 2026 AI Cloud Studio — Made with care.
+        </div>
+    </footer>
+
+</body>
+</html>
