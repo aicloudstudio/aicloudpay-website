@@ -18,7 +18,8 @@
       --text: #0f172a;
       --muted: #64748b;
       --border: #e5e7eb;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --shadow-soft: 0 8px 28px rgba(15, 23, 42, 0.08);
+      --shadow-hover: 0 12px 32px rgba(15, 23, 42, 0.12);
       --radius-lg: 18px;
       --radius-xl: 26px;
       --transition: 180ms ease-out;
@@ -36,8 +37,29 @@
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
 
+    h1, h2, h3 {
+      letter-spacing: -0.02em;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    p {
+      line-height: 1.65;
+      color: #475569;
+      font-size: 1rem;
+    }
+
     .page { min-height: 100vh; display: flex; flex-direction: column; }
     .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+
+    .shadow-soft { box-shadow: var(--shadow-soft); }
+    .shadow-hover:hover { box-shadow: var(--shadow-hover); transition: 0.25s ease; }
+
+    .card-clean {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.4rem;
+    }
 
     /* HEADER */
     header {
@@ -107,12 +129,8 @@
       background: linear-gradient(90deg, var(--primary), #38bdf8);
       transition: width var(--transition);
     }
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-    .nav-links a:hover {
-      color: #0f172a;
-    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: #0f172a; }
 
     .nav-right {
       display: flex;
@@ -158,7 +176,6 @@
       gap: 0.25rem;
     }
 
-    /* SECTIONS */
     main { flex: 1; }
     .section { padding: 3.5rem 0; }
 
@@ -241,10 +258,10 @@
     }
 
     .hero-card {
-      background: rgba(255, 255, 255, 0.9);
       border-radius: var(--radius-xl);
       border: 1px solid rgba(148, 163, 184, 0.4);
       padding: 1.4rem;
+      background: #ffffff;
       box-shadow: var(--shadow-soft);
     }
     .hero-card h3 {
@@ -257,7 +274,6 @@
       color: var(--muted);
     }
 
-    /* SECTION HEADER */
     .section-header {
       margin-bottom: 1.8rem;
     }
@@ -355,17 +371,14 @@
       margin-top: 3rem;
     }
 
-    /* PORTFOLIO (DARK BLOCK IONOS STYLE) */
+    /* PORTFOLIO */
     .portfolio {
       background: var(--bg-dark-soft);
       color: #e5e7eb;
     }
-    .portfolio .section-header h2 {
-      color: #f9fafb;
-    }
-    .portfolio .section-header p {
-      color: #cbd5f5;
-    }
+    .portfolio .section-header h2 { color: #f9fafb; }
+    .portfolio .section-header p { color: #cbd5f5; }
+
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -419,7 +432,7 @@
       font-size: 0.95rem;
     }
 
-    /* CONTACT (SPLIT LIGHT) */
+    /* CONTACT */
     .contact {
       background: var(--bg-soft);
     }
@@ -442,9 +455,7 @@
       margin-bottom: 0.4rem;
       font-size: 1rem;
     }
-    .contact-card p + p {
-      margin-top: 0.35rem;
-    }
+    .contact-card p + p { margin-top: 0.35rem; }
     .contact-meta {
       margin-top: 0.8rem;
       display: flex;
@@ -452,8 +463,23 @@
       gap: 0.25rem;
       font-size: 0.85rem;
     }
-    .contact-meta strong {
-      color: #0f172a;
+    .contact-meta strong { color: #0f172a; }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .social-links a {
+      color: #2563eb;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: 0.2s;
+      font-size: 0.9rem;
+    }
+    .social-links a:hover {
+      border-bottom: 1px solid #2563eb;
     }
 
     footer {
@@ -465,6 +491,56 @@
       font-size: 0.8rem;
       background: #ffffff;
     }
+    .footer-links {
+      margin-top: 0.4rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 0.8rem;
+    }
+    .footer-links a {
+      color: #64748b;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* COOKIE BANNER */
+    #cookie-banner {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 1rem 1.4rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 9999;
+      gap: 1rem;
+    }
+    #cookie-banner p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    #cookie-banner a {
+      color: #2563eb;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    #cookie-accept {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
 
     @media (max-width: 900px) {
       .hero-grid,
@@ -475,11 +551,11 @@
       .contact-grid {
         grid-template-columns: 1fr;
       }
-      .nav {
-        flex-wrap: wrap;
-      }
-      .nav-links {
-        display: none;
+      .nav { flex-wrap: wrap; }
+      .nav-links { display: none; }
+      #cookie-banner {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -556,7 +632,7 @@
               </div>
             </div>
 
-            <aside class="hero-card">
+            <aside class="hero-card shadow-soft">
               <h3>Clarity over complexity</h3>
               <p>
                 No bloated features, no confusing structure. Just a clear, modern website that
@@ -583,7 +659,7 @@
           </div>
 
           <div class="why-grid">
-            <div class="why-card">
+            <div class="why-card card-clean shadow-soft shadow-hover">
               <h3>Modern, clean design</h3>
               <p>
                 Structured sections, strong typography and a premium look that feels professional
@@ -591,7 +667,7 @@
               </p>
             </div>
 
-            <div class="why-card">
+            <div class="why-card card-clean shadow-soft shadow-hover">
               <h3>Fast & SEO-friendly</h3>
               <p>
                 Lightweight pages, clean code and a structure that helps both users and search engines
@@ -599,7 +675,7 @@
               </p>
             </div>
 
-            <div class="why-card">
+            <div class="why-card card-clean shadow-soft shadow-hover">
               <h3>Automation-ready</h3>
               <p>
                 When you are ready, we can connect your website to WhatsApp, email flows or other tools
@@ -622,7 +698,7 @@
           </div>
 
           <div class="cards">
-            <div class="card">
+            <div class="card card-clean shadow-soft shadow-hover">
               <h3>Basic — Digital start</h3>
               <ul>
                 <li><strong>Content:</strong> Single-page website (landing page)</li>
@@ -634,7 +710,7 @@
               <div class="card-cta">Good for: first online presence, simple service overview.</div>
             </div>
 
-            <div class="card" style="border: 1px solid #c4d3ff; box-shadow: 0 18px 40px rgba(37, 99, 235, 0.18);">
+            <div class="card card-clean shadow-soft shadow-hover" style="border: 1px solid #c4d3ff; box-shadow: 0 18px 40px rgba(37, 99, 235, 0.18);">
               <h3>
                 Standard — Business website
                 <span class="card-tag">Most chosen</span>
@@ -649,7 +725,7 @@
               <div class="card-cta">Good for: small businesses that want a solid, professional presence.</div>
             </div>
 
-            <div class="card">
+            <div class="card card-clean shadow-soft shadow-hover">
               <h3>Premium — Tailored setup</h3>
               <ul>
                 <li><strong>Content:</strong> Multiple pages based on your business needs</li>
@@ -671,7 +747,7 @@
             </div>
 
             <div class="cards">
-              <div class="card">
+              <div class="card card-clean shadow-soft shadow-hover">
                 <h3>Basic</h3>
                 <ul>
                   <li>Security and platform updates</li>
@@ -681,7 +757,7 @@
                 <div class="card-price">€29 / month</div>
               </div>
 
-              <div class="card" style="border: 1px solid #c4d3ff;">
+              <div class="card card-clean shadow-soft shadow-hover" style="border: 1px solid #c4d3ff;">
                 <h3>
                   Standard
                   <span class="card-tag">Recommended</span>
@@ -695,7 +771,7 @@
                 <div class="card-price">€59 / month</div>
               </div>
 
-              <div class="card">
+              <div class="card card-clean shadow-soft shadow-hover">
                 <h3>Premium</h3>
                 <ul>
                   <li>Everything from Standard</li>
@@ -710,7 +786,7 @@
         </div>
       </section>
 
-      <!-- PORTFOLIO (DARK BLOCK) -->
+      <!-- PORTFOLIO -->
       <section class="section portfolio" id="portfolio">
         <div class="container">
           <div class="section-header">
@@ -762,7 +838,7 @@
           </div>
 
           <div class="faq-list">
-            <div class="faq-item">
+            <div class="faq-item card-clean">
               <h3>How long does it take to build a website?</h3>
               <p>
                 It depends on the package. Basic usually 1–2 weeks, Standard around 2–3 weeks,
@@ -770,7 +846,7 @@
               </p>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item card-clean">
               <h3>Can I update the website myself later?</h3>
               <p>
                 Yes. We can structure it so that basic text changes are easy, or you can use a
@@ -778,7 +854,7 @@
               </p>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item card-clean">
               <h3>Is the website optimized for mobile?</h3>
               <p>
                 Yes, all packages include responsive design — your website will look good on mobile,
@@ -786,7 +862,7 @@
               </p>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item card-clean">
               <h3>What happens after the website goes live?</h3>
               <p>
                 You get a fully working website and can optionally add a maintenance plan for
@@ -819,6 +895,12 @@
                 <p><strong>Email:</strong> info@aicloudpay.net</p>
                 <p><strong>Location:</strong> Bavaria, Germany · working locally & remotely</p>
               </div>
+
+              <div class="social-links">
+                <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="https://www.facebook.com" target="_blank" rel="noreferrer">Facebook</a>
+              </div>
             </div>
 
             <div class="contact-card">
@@ -835,11 +917,36 @@
 
     <footer>
       © <span id="year"></span> AI Cloud Studio — Clean, modern and professional websites.
+      <div class="footer-links">
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+      </div>
     </footer>
+  </div>
+
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner">
+    <p>
+      Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Mehr dazu in unserer
+      <a href="/datenschutz/">Datenschutzerklärung</a>.
+    </p>
+    <button id="cookie-accept">OK</button>
   </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const banner = document.getElementById('cookie-banner');
+    const btn = document.getElementById('cookie-accept');
+
+    if (localStorage.getItem('cookiesAccepted')) {
+      banner.style.display = 'none';
+    }
+
+    btn.onclick = () => {
+      banner.style.display = 'none';
+      localStorage.setItem('cookiesAccepted', 'true');
+    };
   </script>
 </body>
 </html>
