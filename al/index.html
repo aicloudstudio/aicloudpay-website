@@ -5,7 +5,7 @@
   <title>AI Cloud Studio — Zhvillim Modern i Faqeve Web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    /* ——— STYLES IDENTIKE SI VERSIONI EN/DE (i njëjti dizajn premium) ——— */
+    /* ——— Dizajni identik me EN/DE ——— */
     :root {
       --bg: #050509;
       --bg-soft: #0b0b12;
@@ -15,49 +15,46 @@
       --text: #f9fafb;
       --muted: #9ca3af;
       --border: #1f2933;
-      --danger: #dc2626;
       --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
       --radius-lg: 18px;
       --radius-xl: 26px;
-      --radius-pill: 999px;
       --transition: 200ms ease-out;
       --max-width: 1120px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text","Inter", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
       background: radial-gradient(circle at top, #111827 0, #020617 55%);
       color: var(--text);
       -webkit-font-smoothing: antialiased;
       scroll-behavior: smooth;
     }
-    a { color: inherit; text-decoration: none; }
+    a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
     .page { min-height: 100vh; display: flex; flex-direction: column; }
-    .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
 
     /* NAVBAR */
     header {
       position: sticky; top: 0; z-index: 40;
       backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(2,6,23,0.96), rgba(2,6,23,0.85), transparent);
+      background: rgba(2,6,23,0.9);
       border-bottom: 1px solid rgba(148,163,184,0.12);
     }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0; gap: 1.5rem; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 0; }
     .nav-left { display: flex; align-items: center; gap: 0.75rem; }
     .logo-mark {
       width: 32px; height: 32px; border-radius: 12px;
       background: radial-gradient(circle at 20% 0, #4f46e5, #0ea5e9);
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 12px 30px rgba(79,70,229,0.6);
-      font-size: 0.9rem; font-weight: 600;
+      font-weight: 600; font-size: 0.9rem;
     }
-    .logo-text { display: flex; flex-direction: column; gap: 0.05rem; }
-    .logo-text span:first-child { font-weight: 600; letter-spacing: 0.03em; font-size: 0.9rem; }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-text span:first-child { font-weight: 600; font-size: 0.9rem; }
     .logo-text span:last-child { font-size: 0.75rem; color: var(--muted); }
 
-    .nav-links { display: flex; align-items: center; gap: 1.5rem; font-size: 0.9rem; color: var(--muted); }
-    .nav-links a:hover { color: #e5e7eb; }
+    .nav-links { display: flex; gap: 1.5rem; color: var(--muted); }
+    .nav-links a:hover { color: #fff; }
 
     .nav-right { display: flex; align-items: center; gap: 1rem; }
 
@@ -69,19 +66,16 @@
       border: 1px solid rgba(148,163,184,0.35);
     }
     .lang-flag {
-      width: 20px; height: 14px; border-radius: 3px;
-      overflow: hidden;
+      width: 20px; height: 14px; border-radius: 3px; overflow: hidden;
       border: 1px solid rgba(15,23,42,0.9);
-      background: #020617;
-      display: flex; align-items: center; justify-content: center;
     }
-    .lang-flag img { width: 100%; height: 100%; object-fit: cover; }
+    .lang-flag img { width: 100%; height: 100%; }
 
-    .lang-links { display: flex; align-items: center; gap: 0.25rem; font-size: 0.75rem; }
+    .lang-links { display: flex; gap: 0.25rem; font-size: 0.75rem; }
     .lang-links a.active {
       background: rgba(79,70,229,0.16);
       border: 1px solid rgba(79,70,229,0.7);
-      color: #e5e7eb;
+      color: #fff;
       border-radius: 999px;
       padding: 0.1rem 0.4rem;
     }
@@ -90,30 +84,26 @@
       padding: 0.45rem 0.95rem;
       border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.9);
+      color: #fff;
       font-size: 0.8rem;
-      color: #e5e7eb;
-      background: radial-gradient(circle at top left, #111827, #020617);
-      display: flex; align-items: center; gap: 0.4rem;
     }
 
     /* HERO */
     main { flex: 1; }
     .section { padding: 3.5rem 0; }
-    .hero { padding-top: 3.5rem; padding-bottom: 3rem; }
-
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      grid-template-columns: 1.4fr 1fr;
       gap: 2.5rem;
       align-items: center;
     }
-
     .eyebrow {
       display: inline-flex; align-items: center; gap: 0.4rem;
       padding: 0.18rem 0.6rem;
       border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.4);
-      background: radial-gradient(circle at top left, #111827, #020617);
+      background: rgba(15,23,42,0.9);
       font-size: 0.7rem;
       color: var(--muted);
       margin-bottom: 1.1rem;
@@ -121,21 +111,17 @@
     .eyebrow-dot {
       width: 6px; height: 6px; border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
     }
-
-    .hero h1 {
+    h1 {
       font-size: clamp(2.4rem, 4vw, 3.1rem);
       line-height: 1.05;
-      letter-spacing: -0.04em;
       margin-bottom: 1rem;
     }
-    .hero h1 span {
+    h1 span {
       background: linear-gradient(to right, #e5e7eb, #9ca3af);
       -webkit-background-clip: text;
       color: transparent;
     }
-
     .hero p {
       color: var(--muted);
       font-size: 0.98rem;
@@ -143,32 +129,127 @@
       line-height: 1.6;
       margin-bottom: 1.6rem;
     }
-
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.4rem; }
+    .hero-actions { display: flex; gap: 0.75rem; margin-bottom: 1.4rem; }
     .btn-primary {
       padding: 0.7rem 1.4rem;
       border-radius: 999px;
       background: linear-gradient(135deg, #4f46e5, #0ea5e9);
-      color: white;
-      font-size: 0.9rem;
+      color: #fff;
       font-weight: 500;
-      display: inline-flex; align-items: center; gap: 0.45rem;
     }
-
     .btn-ghost {
       padding: 0.7rem 1.1rem;
       border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.5);
       background: rgba(15,23,42,0.9);
-      color: #e5e7eb;
-      font-size: 0.85rem;
-      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: #fff;
+    }
+    .hero-meta { display: flex; gap: 1.5rem; font-size: 0.78rem; color: var(--muted); }
+
+    /* WHY US */
+    .section-header { margin-bottom: 1.8rem; }
+    .section-header h2 { font-size: 1.4rem; }
+    .section-header p { color: var(--muted); max-width: 26rem; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+    .why-card {
+      background: rgba(15,23,42,0.96);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 1.1rem;
+      border-radius: var(--radius-lg);
+      color: var(--muted);
+    }
+    .why-card h3 { color: #fff; margin-bottom: 0.4rem; }
+
+    /* PACKAGES */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+    .card {
+      background: rgba(15,23,42,0.96);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 1.2rem;
+      border-radius: var(--radius-lg);
+      color: var(--muted);
+    }
+    .card h3 { color: #fff; margin-bottom: 0.4rem; }
+    .card-price { margin-top: 0.4rem; font-size: 1.1rem; color: #fff; font-weight: 600; }
+    .card-tag {
+      background: rgba(79,70,229,0.16);
+      border: 1px solid rgba(79,70,229,0.7);
+      color: #c7d2fe;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
     }
 
-    .hero-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.78rem; color: var(--muted); }
-    .hero-meta strong { color: #e5e7eb; }
+    /* PORTFOLIO */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+    .portfolio-card {
+      background: rgba(15,23,42,0.96);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      color: var(--muted);
+    }
+    .portfolio-card h3 { color: #fff; margin-bottom: 0.3rem; }
+    .portfolio-pill {
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.4);
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      margin-bottom: 0.4rem;
+    }
 
-    /* WHY US, PACKAGES, MAINTENANCE, PORTFOLIO, FAQ, CONTACT — identike si EN/DE */
+    /* FAQ */
+    .faq-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .faq-item {
+      background: rgba(15,23,42,0.96);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 0.9rem;
+      border-radius: var(--radius-lg);
+      color: var(--muted);
+    }
+    .faq-item h3 { color: #fff; margin-bottom: 0.25rem; }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1.8rem;
+    }
+    .contact-card {
+      background: rgba(15,23,42,0.96);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 1.4rem;
+      border-radius: var(--radius-xl);
+      color: var(--muted);
+    }
+    .contact-card h3 { color: #fff; margin-bottom: 0.4rem; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(148,163,184,0.2);
+      padding: 1.4rem 0;
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--muted);
+    }
   </style>
 </head>
 
@@ -202,177 +283,3 @@
               <div class="lang-links">
                 <a href="/">EN</a>
                 <a href="/de/">DE</a>
-                <a href="/al/" class="active">AL</a>
-                <a href="/es/">ES</a>
-                <a href="/tr/">TR</a>
-                <a href="/ar/">AR</a>
-              </div>
-            </div>
-            <a href="#contact" class="nav-cta">
-              <span>Kërko ofertë</span>
-              <span>↗</span>
-            </a>
-          </div>
-        </nav>
-      </div>
-    </header>
-
-    <!-- HERO -->
-    <main>
-      <section class="section hero">
-        <div class="container">
-          <div class="hero-grid">
-            <div>
-              <div class="eyebrow">
-                <span class="eyebrow-dot"></span>
-                <span>Faqe që krijojnë besim dhe sjellin klientë</span>
-              </div>
-
-              <h1>
-                Faqe të pastra, të shpejta dhe profesionale
-                <span>me procese moderne dhe efikase.</span>
-              </h1>
-
-              <p>
-                AI Cloud Studio është një studio moderne digjitale që kombinon dizajn të pastër,
-                automatizim dhe procese të optimizuara. Ne ndërtojmë faqe që duken premium,
-                ngarkohen shpejt dhe ndihmojnë biznesin tuaj të rritet.
-              </p>
-
-              <div class="hero-actions">
-                <a href="#packages" class="btn-primary">Shiko paketat ↓</a>
-                <a href="#contact" class="btn-ghost">Diskuto projektin</a>
-              </div>
-
-              <div class="hero-meta">
-                <span><strong>Bazuar në Bavari</strong> · punojmë lokal & remote</span>
-                <span><strong>Studio me fokus në AI</strong> · zgjidhje efikase dhe moderne</span>
-              </div>
-            </div>
-
-            <aside class="hero-card">
-              <div class="hero-card-header">
-                <div class="hero-card-title">Fokus te ajo që klientët vërtet duan</div>
-                <div class="hero-card-pill">Qartësi · Shpejtësi · Besim</div>
-              </div>
-
-              <div>
-                Pa kompleksitet të panevojshëm, pa funksione të tepërta.
-                Vetëm një faqe moderne, e pastër dhe e shpejtë që duket profesionale
-                dhe rritet bashkë me biznesin tuaj.
-              </div>
-
-              <div class="hero-card-grid">
-                <div class="hero-mini">
-                  <strong>Dizajn modern</strong>
-                  Strukturë e qartë, hapësira të balancuara dhe tipografi që duket premium.
-                </div>
-                <div class="hero-mini">
-                  <strong>Gati për automatizim</strong>
-                  Integrime për WhatsApp, email dhe procese që kursejnë kohë.
-                </div>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-      <!-- WHY US -->
-      <section class="section" id="why">
-        <div class="container">
-          <div class="section-header">
-            <h2>Pse të zgjedhësh AI Cloud Studio</h2>
-            <p>
-              Si një studio moderne me fokus në AI, ne ofrojmë zgjidhje efikase dhe të qarta.
-              Ju merrni një faqe profesionale, të lehtë për t’u përdorur dhe të ndërtuar për të zgjatur.
-            </p>
-          </div>
-
-          <div class="why-grid">
-            <div class="why-card">
-              <h3>Dizajn i pastër dhe modern</h3>
-              <p>
-                Seksione të qarta, tipografi e fortë dhe një pamje profesionale pa zhurmë vizuale.
-              </p>
-            </div>
-
-            <div class="why-card">
-              <h3>Shpejtësi & SEO</h3>
-              <p>
-                Faqja juaj ngarkohet shpejt dhe ka strukturë të pastër për rezultate më të mira në Google.
-              </p>
-            </div>
-
-            <div class="why-card">
-              <h3>Automatizim & procese</h3>
-              <p>
-                Nga formularët te WhatsApp dhe email, ne shtojmë procese që kursejnë kohë dhe rrisin efikasitetin.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PACKAGES -->
-      <section class="section" id="packages">
-        <div class="container">
-          <div class="section-header">
-            <h2>Paketat tona</h2>
-            <p>
-              Tre paketa të qarta për faza të ndryshme të biznesit — nga një faqe e thjeshtë
-              deri te një faqe e personalizuar me automatizime.
-            </p>
-          </div>
-
-          <div class="cards">
-            <div class="card">
-              <h3>Basic — Fillimi digjital</h3>
-              <ul>
-                <li><strong>Përmbajtja:</strong> Faqe 1‑faqëshe (landing page)</li>
-                <li><strong>Struktura:</strong> Dizajn modern, i optimizuar për celular</li>
-                <li><strong>Teknologji:</strong> Ngarkim i shpejtë, SEO bazë, buton kontakti</li>
-              </ul>
-              <div class="card-price">€349</div>
-            </div>
-
-            <div class="card" style="border: 2px solid #111827;">
-              <h3>
-                Standard — Paketa e biznesit
-                <span class="card-tag">Rekomanduar</span>
-              </h3>
-              <ul>
-                <li><strong>Përmbajtja:</strong> 3–5 faqe (Kreu, Rreth nesh, Shërbimet, Kontakt…)</li>
-                <li><strong>Struktura:</strong> Navigim profesional, dizajn premium</li>
-                <li><strong>Teknologji:</strong> Formular kontakti, SEO, integrim WhatsApp/Email</li>
-              </ul>
-              <div class="card-price">€749</div>
-            </div>
-
-            <div class="card">
-              <h3>Premium — Paketa e plotë</h3>
-              <ul>
-                <li><strong>Përmbajtja:</strong> Faqe të pakufizuara</li>
-                <li><strong>Dizajn:</strong> Totalisht i personalizuar</li>
-                <li><strong>Ekstra:</strong> Automatizime (WhatsApp API, CRM, email flows)</li>
-              </ul>
-              <div class="card-price">€1,499+</div>
-            </div>
-          </div>
-
-          <!-- MAINTENANCE -->
-          <div class="maintenance">
-            <div class="section-header">
-              <h2>Mirëmbajtje mujore (opsionale)</h2>
-              <p>
-                Mbani faqen tuaj të sigurt, të përditësuar dhe të shpejtë me një plan të thjeshtë mirëmbajtjeje.
-              </p>
-            </div>
-
-            <div class="cards">
-              <div class="card">
-                <h3>Basic</h3>
-                <ul>
-                  <li>Përditësime sigurie</li>
-                  <li>Backup mujor</li>
-                  <li>Rregullime të vogla</li>
-                  <li>
