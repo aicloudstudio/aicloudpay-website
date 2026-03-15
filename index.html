@@ -1,379 +1,1159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Cloud Studio — Modern Web Development</title>
-    <meta name="description" content="AI Cloud Studio builds clean, fast and professional websites using modern design and AI-powered workflows.">
+  <meta charset="UTF-8" />
+  <title>AI Cloud Studio — Modern Web Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-soft: #0b0b12;
+      --card: #11111a;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.12);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --danger: #dc2626;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --radius-pill: 999px;
+      --transition: 200ms ease-out;
+      --max-width: 1120px;
+    }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            background: linear-gradient(to bottom, #f7f7f7, #ffffff);
-            color: #111;
-            line-height: 1.6;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Inter", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
 
-        /* Smooth fade-in animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.8s ease forwards;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-        /* Navigation */
-        nav {
-            width: 100%;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #eee;
-            z-index: 10;
-        }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        nav .logo {
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: -0.4px;
-        }
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-        }
+    /* NAVBAR */
 
-        .nav-links a {
-            text-decoration: none;
-            color: #111;
-            font-size: 15px;
-        }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.96),
+        rgba(2, 6, 23, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    }
 
-        nav a.cta {
-            padding: 9px 18px;
-            border-radius: 999px;
-            background: #111;
-            color: #fff;
-            text-decoration: none;
-            font-size: 14px;
-        }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      gap: 1.5rem;
+    }
 
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 120px 20px 90px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
 
-        .hero h1 {
-            font-size: 44px;
-            font-weight: 700;
-            margin-bottom: 18px;
-            letter-spacing: -0.5px;
-        }
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 20% 0, #4f46e5, #0ea5e9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(79, 70, 229, 0.6);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
 
-        .hero p {
-            font-size: 19px;
-            color: #555;
-            margin-bottom: 32px;
-        }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
 
-        .hero .btn {
-            padding: 13px 26px;
-            background: #111;
-            color: #fff;
-            border-radius: 999px;
-            text-decoration: none;
-            font-size: 15px;
-        }
+    .logo-text span:first-child {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 0.9rem;
+    }
 
-        /* Sections */
-        .section {
-            padding: 70px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+    .logo-text span:last-child {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
 
-        .section h2 {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 40px;
-        }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
 
-        /* Why Us */
-        .why-text {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 17px;
-            color: #444;
-            line-height: 1.7;
-        }
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
 
-        /* Packages */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-        }
+    .nav-links a:hover {
+      color: #e5e7eb;
+    }
 
-        .card {
-            background: #fff;
-            padding: 28px;
-            border-radius: 18px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            transition: 0.2s ease;
-        }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.2rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #4f46e5, #0ea5e9);
+      border-radius: 999px;
+      transition: width var(--transition);
+    }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
-        .card h3 {
-            font-size: 22px;
-            margin-bottom: 6px;
-        }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-        .card ul {
-            list-style: none;
-            text-align: left;
-            font-size: 15px;
-            color: #444;
-            margin-bottom: 16px;
-        }
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
 
-        .card ul li {
-            margin-bottom: 6px;
-        }
+    .lang-flag {
+      width: 20px;
+      height: 14px;
+      border-radius: 3px;
+      overflow: hidden;
+      border: 1px solid rgba(15, 23, 42, 0.9);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9);
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .price {
-            font-size: 26px;
-            font-weight: 600;
-            margin-top: 10px;
-        }
+    .lang-flag img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-        /* Portfolio */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
+    .lang-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.75rem;
+    }
 
-        .portfolio-item {
-            background: #fff;
-            padding: 40px;
-            border-radius: 18px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            text-align: center;
-            font-size: 16px;
-            color: #777;
-        }
+    .lang-links a {
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+    }
 
-        /* FAQ */
-        .faq-item {
-            margin-bottom: 20px;
-        }
+    .lang-links a.active {
+      background: rgba(79, 70, 229, 0.16);
+      border-color: rgba(79, 70, 229, 0.7);
+      color: #e5e7eb;
+      font-weight: 500;
+    }
 
-        .faq-item h4 {
-            font-size: 18px;
-            margin-bottom: 6px;
-        }
+    .lang-links a:hover {
+      border-color: rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
 
-        .faq-item p {
-            font-size: 15px;
-            color: #555;
-        }
+    .nav-cta {
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      background: radial-gradient(circle at top left, #111827, #020617);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
+    }
 
-        /* Contact */
-        .contact {
-            text-align: center;
-            padding-bottom: 90px;
-        }
+    .nav-cta span {
+      font-size: 0.9rem;
+    }
 
-        .contact p {
-            margin-bottom: 6px;
-            font-size: 15px;
-        }
+    .nav-cta:hover {
+      border-color: rgba(79, 70, 229, 0.9);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
+      transform: translateY(-1px);
+      transition: all var(--transition);
+    }
 
-        .contact a.btn {
-            margin-top: 18px;
-            display: inline-block;
-            padding: 13px 26px;
-            background: #25D366;
-            color: #fff;
-            border-radius: 999px;
-            text-decoration: none;
-            font-size: 15px;
-        }
+    /* HERO */
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 32px 20px 40px;
-            color: #777;
-            border-top: 1px solid #eee;
-            font-size: 13px;
-        }
+    main {
+      flex: 1;
+    }
 
-        footer a {
-            color: #777;
-            text-decoration: none;
-            margin: 0 8px;
-        }
-    </style>
+    .section {
+      padding: 3.5rem 0;
+    }
+
+    .hero {
+      padding-top: 3.5rem;
+      padding-bottom: 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(to right, #e5e7eb, #9ca3af);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 32rem;
+      line-height: 1.6;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-primary {
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.6);
+    }
+
+    .btn-primary span:last-child {
+      font-size: 1rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(37, 99, 235, 0.75);
+      transition: all var(--transition);
+    }
+
+    .btn-ghost {
+      padding: 0.7rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(79, 70, 229, 0.9);
+      background: rgba(15, 23, 42, 1);
+      transition: all var(--transition);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-card-pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.12);
+      color: #bbf7d0;
+      font-size: 0.7rem;
+      border: 1px solid rgba(34, 197, 94, 0.5);
+    }
+
+    .hero-card-body {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.4rem;
+    }
+
+    .hero-mini {
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 0.7rem 0.8rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .hero-mini strong {
+      display: block;
+      color: #e5e7eb;
+      font-size: 0.8rem;
+      margin-bottom: 0.1rem;
+    }
+
+    /* GENERIC SECTION HEADINGS */
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.4rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-header p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 26rem;
+      line-height: 1.6;
+    }
+
+    /* WHY US */
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .why-card {
+      border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 1.1rem 1.1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .why-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      color: #e5e7eb;
+    }
+
+    /* PACKAGES */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 1.2rem 1.2rem;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.95);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+      color: #e5e7eb;
+    }
+
+    .card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .card li strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .card-price {
+      margin-top: 0.4rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(79, 70, 229, 0.16);
+      border: 1px solid rgba(79, 70, 229, 0.7);
+      color: #c7d2fe;
+      font-size: 0.7rem;
+      margin-left: 0.4rem;
+    }
+
+    /* MAINTENANCE */
+
+    .maintenance {
+      margin-top: 2.4rem;
+    }
+
+    .maintenance .cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .maintenance .card li:last-child {
+      margin-top: 0.4rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    /* PORTFOLIO */
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .portfolio-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, #111827, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 1rem 1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.95);
+    }
+
+    .portfolio-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      color: #e5e7eb;
+    }
+
+    .portfolio-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    /* FAQ */
+
+    .faq-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .faq-item {
+      border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 0.9rem 1rem;
+      color: var(--muted);
+    }
+
+    .faq-item h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      color: #e5e7eb;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 1.4rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      color: #e5e7eb;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+
+    .contact-list li strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .contact-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.7rem;
+    }
+
+    .contact-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.9rem;
+    }
+
+    .contact-cta a {
+      font-size: 0.8rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      padding: 1.4rem 0 1.6rem;
+      margin-top: 2rem;
+      background: radial-gradient(circle at bottom, #020617, #020617);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: #e5e7eb;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .why-grid,
+      .cards,
+      .portfolio-grid,
+      .faq-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      header {
+        backdrop-filter: blur(14px);
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 2.6rem 0;
+      }
+      .hero {
+        padding-top: 2.6rem;
+      }
+      .nav {
+        padding: 0.7rem 0;
+      }
+      .hero-card {
+        border-radius: 18px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="nav-left">
+            <div class="logo-mark">AI</div>
+            <div class="logo-text">
+              <span>AI Cloud Studio</span>
+              <span>Modern Web Development</span>
+            </div>
+          </div>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">AI Cloud Studio</div>
-        <div class="nav-links">
+          <div class="nav-links">
             <a href="#packages">Packages</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#faq">FAQ</a>
-            <a href="#contact" class="cta">Get a Quote</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <div class="nav-right">
+            <div class="lang-switcher">
+              <div class="lang-flag">
+                <img src="/flags/en.svg" alt="English" />
+              </div>
+              <div class="lang-links">
+                <a href="/" class="active">EN</a>
+                <a href="/de/">DE</a>
+                <a href="/al/">AL</a>
+                <a href="/es/">ES</a>
+                <a href="/tr/">TR</a>
+                <a href="/ar/">AR</a>
+              </div>
+            </div>
+            <a href="#contact" class="nav-cta">
+              <span>Get a Quote</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="section hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                <span>Websites that build trust and convert clients</span>
+              </div>
+              <h1>
+                Clean, fast and professional websites
+                <span>with AI‑powered workflows.</span>
+              </h1>
+              <p>
+                AI Cloud Studio is a modern digital studio combining clean design,
+                automation and AI‑enhanced workflows. We focus on clarity, speed
+                and long‑term value — building websites that look premium, load
+                fast and help your business grow.
+              </p>
+              <div class="hero-actions">
+                <a href="#packages" class="btn-primary">
+                  <span>View Packages</span>
+                  <span>↓</span>
+                </a>
+                <a href="#contact" class="btn-ghost">
+                  <span>Discuss a project</span>
+                </a>
+              </div>
+              <div class="hero-meta">
+                <span><strong>Based in Bavaria</strong> · working locally & remotely</span>
+                <span><strong>AI‑driven studio</strong> · efficient, future‑ready solutions</span>
+              </div>
+            </div>
+
+            <aside class="hero-card">
+              <div class="hero-card-header">
+                <div class="hero-card-title">Focused on what clients actually care about</div>
+                <div class="hero-card-pill">Clarity · Speed · Trust</div>
+              </div>
+              <div class="hero-card-body">
+                No unnecessary complexity, no bloated features. Just a clean,
+                modern website that loads fast, looks premium and is ready to
+                grow with your business.
+              </div>
+              <div class="hero-card-grid">
+                <div class="hero-mini">
+                  <strong>Modern design</strong>
+                  Built with clear hierarchy, spacing and typography that feels
+                  premium and trustworthy.
+                </div>
+                <div class="hero-mini">
+                  <strong>Automation‑ready</strong>
+                  Integrations for WhatsApp, email and workflows that save time
+                  for you and your clients.
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
-    </nav>
+      </section>
 
-    <!-- Hero -->
-    <section class="hero fade-in">
-        <h1>Websites that Build Trust and Convert Clients</h1>
-        <p>Clean, fast and professional websites designed with modern design principles and AI‑powered workflows.</p>
-        <a href="#packages" class="btn">View Packages</a>
-    </section>
+      <!-- WHY US -->
+      <section class="section" id="why">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2>Why choose AI Cloud Studio</h2>
+            </div>
+            <p>
+              As a new AI‑driven studio, we deliver efficient, future‑ready
+              solutions without unnecessary complexity. You get a clean,
+              professional website that is easy to understand, easy to use and
+              built to last.
+            </p>
+          </div>
 
-    <!-- Why Us -->
-    <section id="why" class="section fade-in">
-        <h2>Why Choose AI Cloud Studio</h2>
-        <div class="why-text">
-            AI Cloud Studio is a modern digital studio combining clean design, automation and AI‑enhanced workflows.
-            We focus on clarity, speed and long‑term value — building websites that look premium, load fast and help your business grow.
-            As a new AI‑driven studio, we deliver efficient, future‑ready solutions without unnecessary complexity.
+          <div class="why-grid">
+            <div class="why-card">
+              <h3>Clean, modern design</h3>
+              <p>
+                We design with clarity and trust in mind — clear sections,
+                strong typography and layouts that feel premium without being
+                loud or confusing.
+              </p>
+            </div>
+            <div class="why-card">
+              <h3>Fast and SEO‑ready</h3>
+              <p>
+                Your website is built to load quickly and follow modern
+                structure best practices, so it’s ready for Google and future
+                SEO work.
+              </p>
+            </div>
+            <div class="why-card">
+              <h3>Automation & AI workflows</h3>
+              <p>
+                From contact forms to WhatsApp and email flows, we integrate
+                simple automations that save time and make your client journey
+                smoother.
+              </p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Packages -->
-    <section id="packages" class="section fade-in">
-        <h2>Our Packages</h2>
+      <!-- PACKAGES -->
+      <section class="section" id="packages">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2>Our Packages</h2>
+            </div>
+            <p>
+              Three clear packages designed for different stages of your
+              business — from a simple landing page to a fully custom,
+              automation‑ready website.
+            </p>
+          </div>
 
-        <div class="cards">
-
+          <div class="cards">
             <!-- Basic -->
             <div class="card">
-                <h3>Basic — The Digital Starter</h3>
-                <ul>
-                    <li><strong>Scope:</strong> 1 page (Landing Page)</li>
-                    <li><strong>Structure:</strong> Clean, modern, mobile‑optimized</li>
-                    <li><strong>Technology:</strong> Fast loading, SEO‑ready</li>
-                    <li><strong>Price:</strong> €99</li>
-                </ul>
+              <h3>Basic — The Digital Starter</h3>
+              <ul>
+                <li><strong>Scope:</strong> 1‑page landing website</li>
+                <li><strong>Structure:</strong> Clean, modern, mobile‑optimized layout</li>
+                <li><strong>Technology:</strong> Fast loading, SEO‑ready, contact button</li>
+              </ul>
+              <div class="card-price">€349</div>
             </div>
 
             <!-- Standard -->
-            <div class="card" style="border: 2px solid #111;">
-                <h3>Standard — The Business All‑Rounder (Recommended)</h3>
-                <ul>
-                    <li><strong>Scope:</strong> 3–5 pages (Home, About, Services, Contact, etc.)</li>
-                    <li><strong>Structure:</strong> Professional layout, clear navigation</li>
-                    <li><strong>Technology:</strong> Contact form, SEO optimization, fast performance</li>
-                    <li><strong>Price:</strong> €249</li>
-                </ul>
+            <div class="card" style="border: 2px solid #111827;">
+              <h3>
+                Standard — The Business All‑Rounder
+                <span class="card-tag">Recommended</span>
+              </h3>
+              <ul>
+                <li><strong>Scope:</strong> 3–5 pages (Home, About, Services, Contact, etc.)</li>
+                <li><strong>Structure:</strong> Professional navigation, premium layout</li>
+                <li><strong>Technology:</strong> Contact form, SEO optimization, WhatsApp/Email integration</li>
+              </ul>
+              <div class="card-price">€749</div>
             </div>
 
             <!-- Premium -->
             <div class="card">
-                <h3>Premium — The Complete Care Package</h3>
-                <ul>
-                    <li><strong>Scope:</strong> Unlimited pages</li>
-                    <li><strong>Design:</strong> Fully custom premium design</li>
-                    <li><strong>Custom:</strong> Automations (WhatsApp, Email, CRM), special features</li>
-                    <li><strong>Price:</strong> €499+</li>
-                </ul>
+              <h3>Premium — The Complete Care Package</h3>
+              <ul>
+                <li><strong>Scope:</strong> Unlimited pages</li>
+                <li><strong>Design:</strong> Fully custom premium design</li>
+                <li><strong>Custom:</strong> Automations (WhatsApp API, CRM, Email workflows), advanced features</li>
+              </ul>
+              <div class="card-price">€1,499+</div>
+            </div>
+          </div>
+
+          <!-- MAINTENANCE -->
+          <div class="maintenance">
+            <div class="section-header" style="margin-bottom: 1.4rem;">
+              <div>
+                <h2>Optional Monthly Maintenance</h2>
+              </div>
+              <p>
+                Keep your website secure, up‑to‑date and performing well with a
+                simple monthly maintenance plan. Optional, but highly
+                recommended.
+              </p>
             </div>
 
+            <div class="cards">
+              <div class="card">
+                <h3>Basic Maintenance</h3>
+                <ul>
+                  <li>Security updates</li>
+                  <li>Monthly backups</li>
+                  <li>Minor fixes</li>
+                  <li>€39/month</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>Standard Maintenance</h3>
+                <ul>
+                  <li>Weekly backups</li>
+                  <li>Performance optimization</li>
+                  <li>Small text/image updates</li>
+                  <li>Uptime monitoring</li>
+                  <li>€69/month</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>Premium Maintenance</h3>
+                <ul>
+                  <li>All Standard features</li>
+                  <li>Regular content updates</li>
+                  <li>Priority support</li>
+                  <li>SEO check‑ups</li>
+                  <li>24/7 monitoring</li>
+                  <li>€99/month</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="section fade-in">
-        <h2>Portfolio</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">Project Placeholder</div>
-            <div class="portfolio-item">Project Placeholder</div>
-            <div class="portfolio-item">Project Placeholder</div>
+      <!-- PORTFOLIO -->
+      <section class="section" id="portfolio">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2>Portfolio preview</h2>
+            </div>
+            <p>
+              A selection of clean, conversion‑focused layouts — designed to
+              feel modern, trustworthy and easy to navigate.
+            </p>
+          </div>
+
+          <div class="portfolio-grid">
+            <div class="portfolio-card">
+              <div class="portfolio-pill">Service business · Landing</div>
+              <h3>Local Service Landing Page</h3>
+              <p>
+                A focused one‑page layout for local services, with clear
+                sections, trust elements and a strong call‑to‑action.
+              </p>
+            </div>
+            <div class="portfolio-card">
+              <div class="portfolio-pill">Consulting · Multi‑page</div>
+              <h3>Consulting Website</h3>
+              <p>
+                A 4‑page structure (Home, About, Services, Contact) designed to
+                communicate expertise and make it easy to get in touch.
+              </p>
+            </div>
+            <div class="portfolio-card">
+              <div class="portfolio-pill">Automation · Premium</div>
+              <h3>Automation‑Ready Business Site</h3>
+              <p>
+                A fully custom layout with integrated contact flows, WhatsApp
+                entry points and email automation for lead handling.
+              </p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section fade-in">
-        <h2>FAQ</h2>
+      <!-- FAQ -->
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2>FAQ</h2>
+            </div>
+            <p>
+              A few common questions. If you have something specific in mind,
+              just reach out and we can discuss it directly.
+            </p>
+          </div>
 
-        <div class="faq-item">
-            <h4>How long does it take to build a website?</h4>
-            <p>Basic pages take 2–4 days. Standard and Premium projects take 1–2 weeks depending on complexity.</p>
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3>How long does it take to build a website?</h3>
+              <p>
+                Basic pages usually take around 2–4 days. Standard and Premium
+                projects take about 1–2 weeks, depending on content and
+                complexity.
+              </p>
+            </div>
+            <div class="faq-item">
+              <h3>Can I request changes after delivery?</h3>
+              <p>
+                Yes. All packages include revisions during the project and we
+                can also agree on long‑term support or maintenance if needed.
+              </p>
+            </div>
+            <div class="faq-item">
+              <h3>Do you offer maintenance?</h3>
+              <p>
+                Yes. You can choose one of the monthly maintenance plans or
+                request on‑demand updates when required.
+              </p>
+            </div>
+            <div class="faq-item">
+              <h3>Is my website optimized for Google?</h3>
+              <p>
+                Yes. All websites include an SEO‑ready structure, clean HTML and
+                fast loading times as a solid base for future SEO work.
+              </p>
+            </div>
+            <div class="faq-item">
+              <h3>Can we add new features later?</h3>
+              <p>
+                Absolutely. Your website is built to grow with your business.
+                New pages, sections or automations can be added over time.
+              </p>
+            </div>
+            <div class="faq-item">
+              <h3>Do you work with clients remotely?</h3>
+              <p>
+                Yes. We work with clients in Bavaria and beyond, using clear
+                communication and simple processes to keep everything on track.
+              </p>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div class="faq-item">
-            <h4>Can I request changes after delivery?</h4>
-            <p>Yes. All packages include revisions and optional long‑term support.</p>
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2>Let’s build your website</h2>
+            </div>
+            <p>
+              Share a short description of your business and what you need. We
+             ’ll respond with a clear, simple plan — no pressure, no hard sell.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h3>Contact details</h3>
+              <ul class="contact-list">
+                <li><strong>Email:</strong> info@aicloudpay.net</li>
+                <li><strong>WhatsApp:</strong> +49 XXX XXX</li>
+              </ul>
+              <p class="contact-note">
+                Prefer a quick message? Send a short WhatsApp or email with your
+                business type and what you’re looking for. We’ll get back to you
+                with a clear next step.
+              </p>
+              <div class="contact-cta">
+                <a href="mailto:info@aicloudpay.net" class="btn-primary">
+                  <span>Email us</span>
+                  <span>✉</span>
+                </a>
+                <a href="https://wa.me/" class="btn-ghost">
+                  <span>Chat on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <h3>What you can expect</h3>
+              <p>
+                A short, structured conversation about your needs, a clear
+                recommendation on which package fits best, and transparent
+                pricing with no hidden extras.
+              </p>
+              <p class="contact-note">
+                If you’re not sure where to start, just say “I need a website
+                for my business” and we’ll guide you from there.
+              </p>
+            </div>
+          </div>
         </div>
+      </section>
+    </main>
 
-        <div class="faq-item">
-            <h4>Do you offer maintenance?</h4>
-            <p>Yes. We offer monthly or on‑demand maintenance depending on your needs.</p>
-        </div>
-
-        <div class="faq-item">
-            <h4>Is my website optimized for Google?</h4>
-            <p>Yes. All websites include SEO‑ready structure and fast loading times.</p>
-        </div>
-
-        <div class="faq-item">
-            <h4>Can we add new features later?</h4>
-            <p>Absolutely. Your website is built to grow with your business.</p>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section contact fade-in">
-        <h2>Let’s Build Your Website</h2>
-        <p>Email: info@aicloudpay.net</p>
-        <p>WhatsApp: +49 XXX XXX</p>
-        <a href="https://wa.me/49XXXXXXXXX" class="btn">Chat on WhatsApp</a>
-    </section>
-
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        <div>
-            <a href="#top">Home</a> ·
-            <a href="#packages">Packages</a> ·
-            <a href="#contact">Contact</a>
+      <div class="container">
+        <div class="footer-row">
+          <div>© 2026 AI Cloud Studio — Made with care.</div>
+          <div class="footer-links">
+            <span>Home · Packages · Contact</span>
+          </div>
         </div>
-        <div style="margin-top: 8px;">
-            © 2026 AI Cloud Studio — Made with care.
-        </div>
+      </div>
     </footer>
-
+  </div>
 </body>
 </html>
