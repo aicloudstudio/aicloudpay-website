@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design Studio — Premium Webentwicklung & Automatisierung</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Cloud Studio — Premium Webentwicklung & Automatisierung</title>
 
     <style>
         /* GLOBAL */
@@ -17,15 +17,21 @@
         body {
             background: #ffffff;
             color: #111;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            color: #555;
             line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-        }
-
-        /* HEADER */
-        header {
+        /* NAVIGATION */
+        nav {
             width: 100%;
             padding: 22px 5%;
             display: flex;
@@ -33,280 +39,346 @@
             align-items: center;
             position: fixed;
             top: 0;
-            left: 0;
-            background: rgba(255,255,255,0.8);
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .logo {
+        nav .logo {
             font-size: 1.4rem;
-            font-weight: 800;
+            font-weight: 700;
             background: linear-gradient(135deg, #007aff, #5e5ce6);
             -webkit-background-clip: text;
             color: transparent;
         }
 
-        nav a {
-            margin-left: 22px;
-            font-weight: 500;
+        nav .languages a {
+            margin-left: 18px;
             color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.25s;
+        }
+
+        nav .languages a:hover {
+            color: #007aff;
         }
 
         /* HERO */
         .hero {
-            padding: 180px 5% 140px;
-            background: linear-gradient(135deg, #f8faff, #eef2ff);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            animation: fadeIn 1.2s ease-out;
+            padding-top: 160px;
+            padding-bottom: 140px;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7ff, #eef2ff);
         }
 
-        .hero-text {
-            max-width: 550px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: rgba(0, 122, 255, 0.08);
-            border: 1px solid rgba(0, 122, 255, 0.15);
-            color: #007aff;
-            font-weight: 600;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            margin-bottom: 22px;
-            backdrop-filter: blur(6px);
-        }
-
-        .hero-title {
-            font-size: 3.2rem;
-            font-weight: 800;
+        .hero h1 {
+            font-size: 3.4rem;
+            margin-bottom: 20px;
             background: linear-gradient(135deg, #007aff, #5e5ce6);
             -webkit-background-clip: text;
             color: transparent;
-            margin-bottom: 20px;
-            animation: slideUp 1s ease-out;
         }
 
-        .hero-subtitle {
+        .hero p {
             font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
             color: #444;
-            margin-bottom: 40px;
-            animation: slideUp 1.2s ease-out;
         }
 
         .btn-primary {
-            display: inline-block;
-            padding: 14px 28px;
-            background: #007aff;
-            color: #fff;
+            padding: 16px 38px;
             border-radius: 12px;
+            background: #007aff;
+            color: white;
             font-weight: 600;
-            transition: 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.25s;
         }
 
         .btn-primary:hover {
             background: #005fcc;
         }
 
-        .hero-image img {
-            width: 100%;
-            max-width: 520px;
-            border-radius: 22px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            animation: fadeIn 1.4s ease-out;
+        /* SECTION WRAPPER */
+        section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section h2 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+            color: #111;
+        }
+
+        section p.section-subtitle {
+            font-size: 1.15rem;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        /* VALUE PROPOSITION */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .value-card {
+            padding: 32px;
+            border-radius: 16px;
+            background: #fafafa;
+            border: 1px solid #eee;
+            transition: 0.25s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            border-color: #007aff;
         }
 
         /* SERVICES */
-        .services {
-            padding: 120px 5%;
-            text-align: center;
-        }
-
-        .services h2 {
-            font-size: 2.4rem;
-            margin-bottom: 40px;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 40px;
-        }
-
-        .service-box {
-            padding: 30px;
-            border-radius: 16px;
-            background: #f9f9ff;
-            transition: 0.2s;
-        }
-
-        .service-box:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-        }
-
-        /* PRICING */
-        .pricing {
-            padding: 120px 5%;
-            background: #f8faff;
-            text-align: center;
-        }
-
-        .pricing h2 {
-            font-size: 2.4rem;
-            margin-bottom: 40px;
-        }
-
-        .pricing-grid {
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            gap: 28px;
         }
 
-        .price-box {
-            padding: 40px;
-            background: #fff;
-            border-radius: 20px;
+        .service-card {
+            padding: 32px;
+            border-radius: 18px;
+            background: #ffffff;
             border: 1px solid #eee;
-            transition: 0.2s;
+            transition: 0.3s;
         }
 
-        .price-box:hover {
+        .service-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            border-color: #007aff;
         }
 
-        .price-box h3 {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
+        /* PROCESS */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
         }
 
-        .price-box ul {
-            list-style: none;
-            margin-bottom: 30px;
-            text-align: left;
+        .step {
+            padding: 32px;
+            border-radius: 16px;
+            background: #fafafa;
+            border: 1px solid #eee;
         }
 
-        .price-box ul li {
+        .step-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #007aff;
             margin-bottom: 10px;
         }
 
+        /* PRICING */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .price-card {
+            padding: 40px;
+            border-radius: 20px;
+            background: #ffffff;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-6px);
+            border-color: #007aff;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 18px 0;
+            color: #007aff;
+        }
+
         /* CONTACT */
-        .contact {
-            padding: 120px 5%;
+        .contact-box {
+            padding: 40px;
+            border-radius: 20px;
+            background: #f8f9ff;
+            border: 1px solid #e0e4ff;
             text-align: center;
+        }
+
+        .contact-box a {
+            color: #007aff;
+            font-weight: 600;
+            text-decoration: none;
         }
 
         /* FOOTER */
         footer {
             padding: 40px 5%;
             text-align: center;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        /* ANIMATIONS */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            color: #777;
+            font-size: 0.95rem;
+            border-top: 1px solid #eee;
+            margin-top: 80px;
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">WEB DESIGN STUDIO</div>
+    <!-- NAVIGATION -->
     <nav>
-        <a href="#services">Leistungen</a>
-        <a href="#pricing">Preise</a>
-        <a href="#contact">Kontakt</a>
+        <div class="logo">AI Cloud Studio</div>
+        <div class="languages">
+            <a href="/en">EN</a>
+            <a href="/de">DE</a>
+            <a href="/al">AL</a>
+        </div>
     </nav>
-</header>
 
-<section class="hero">
-    <div class="hero-text">
-        <div class="hero-badge">Based in Munich — Working Worldwide</div>
-
-        <h1 class="hero-title">Premium Webdesign & Automatisierung</h1>
-
-        <p class="hero-subtitle">
-            Moderne Websites. Klare Struktur. Schnelle Umsetzung.
-        </p>
-
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Premium Websites & Automatisierung</h1>
+        <p>Wir erstellen moderne, schnelle und automatisierte Websites mit Apple‑Style Design — für Unternehmen, die einen klaren, professionellen und vertrauenswürdigen Online‑Auftritt wollen.</p>
         <a href="#contact" class="btn-primary">Projekt starten</a>
-    </div>
+    </section>
 
-    <div class="hero-image">
-        <img src="/assets/hero-mockup.png" alt="Web Design Studio Mockup">
-    </div>
-</section>
+    <!-- VALUE PROPOSITION -->
+    <section>
+        <h2>Warum AI Cloud Studio</h2>
+        <p class="section-subtitle">Ein moderner Ansatz für Webentwicklung — clean, schnell, automatisiert und auf Wachstum ausgelegt.</p>
 
-<section id="services" class="services">
-    <h2>Unsere Leistungen</h2>
+        <div class="value-grid">
+            <div class="value-card">
+                <h3>Premium Apple‑Style Design</h3>
+                <p>Klare, elegante und moderne Oberflächen, die Vertrauen schaffen und Ihre Marke stärken.</p>
+            </div>
 
-    <div class="service-grid">
-        <div class="service-box">Webdesign</div>
-        <div class="service-box">Automatisierung</div>
-        <div class="service-box">SEO Optimierung</div>
-        <div class="service-box">Wartung & Support</div>
-    </div>
-</section>
+            <div class="value-card">
+                <h3>Automatisierung inklusive</h3>
+                <p>Integrationen mit WhatsApp, Make.com, Google Sheets und mehr.</p>
+            </div>
 
-<section id="pricing" class="pricing">
-    <h2>Preise</h2>
+            <div class="value-card">
+                <h3>Schnelle Umsetzung</h3>
+                <p>Optimierte Abläufe sorgen dafür, dass Ihre Website schnell und professionell online geht.</p>
+            </div>
 
-    <div class="pricing-grid">
-        <div class="price-box">
-            <h3>Starter</h3>
-            <ul>
-                <li>1 Seite</li>
-                <li>Modernes Design</li>
-                <li>Kontaktformular</li>
-            </ul>
-            <a class="btn-primary" href="#contact">Anfragen</a>
+            <div class="value-card">
+                <h3>Transparente Preise</h3>
+                <p>Keine versteckten Kosten — einfache, klare und faire Preise für jedes Unternehmen.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="price-box">
-            <h3>Business</h3>
-            <ul>
-                <li>Bis zu 5 Seiten</li>
-                <li>Premium Design</li>
-                <li>Automatisierung</li>
-            </ul>
-            <a class="btn-primary" href="#contact">Anfragen</a>
+    <!-- SERVICES -->
+    <section id="services">
+        <h2>Unsere Leistungen</h2>
+        <p class="section-subtitle">Alles, was Sie für eine starke digitale Präsenz brauchen.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Webseiten‑Entwicklung</h3>
+                <p>Premium, responsive Websites mit cleanem Apple‑Style UI.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Automatisierungssysteme</h3>
+                <p>WhatsApp‑Bots, Make.com‑Workflows, CRM‑Integrationen und mehr.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Struktur & Inhalte</h3>
+                <p>Professionelle Struktur, Texte und Angebotsaufbau für Ihr Unternehmen.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Mehrsprachige Websites</h3>
+                <p>Klare, natürliche Übersetzungen für EN, DE, AL — optimiert für Verständlichkeit.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="price-box">
-            <h3>Enterprise</h3>
-            <ul>
-                <li>Unbegrenzte Seiten</li>
-                <li>Individuelles Design</li>
-                <li>Volle Automatisierung</li>
-            </ul>
-            <a class="btn-primary" href="#contact">Anfragen</a>
+    <!-- PROCESS -->
+    <section>
+        <h2>So arbeiten wir</h2>
+        <p class="section-subtitle">Ein einfacher und effizienter Prozess, der auf Ihr Ergebnis fokussiert ist.</p>
+
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Planung</h3>
+                <p>Wir definieren Ziele, Struktur und Design‑Richtung Ihrer Website.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Entwicklung</h3>
+                <p>Wir entwickeln Ihre Website mit sauberem Code und modernem Design.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Automatisierung</h3>
+                <p>Wir integrieren Workflows, die Zeit sparen und Prozesse vereinfachen.</p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="contact" class="contact">
-    <h2>Kontakt</h2>
-    <p>Schreiben Sie uns: info@aicloudpay.net</p>
-</section>
+    <!-- PRICING -->
+    <section id="pricing">
+        <h2>Preise</h2>
+        <p class="section-subtitle">Einfache, transparente und faire Preisstruktur.</p>
 
-<footer>
-    © 2024 Web Design Studio. Alle Rechte vorbehalten.
-</footer>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Starter Website</h3>
+                <div class="price">€299</div>
+                <p>Ideal für kleine Unternehmen, die einen klaren und modernen Online‑Auftritt brauchen.</p>
+            </div>
+
+            <div class="price-card">
+                <h3>Business Website</h3>
+                <div class="price">€499</div>
+                <p>Inklusive Automatisierung, Premium‑Design und Mehrsprachigkeit.</p>
+            </div>
+
+            <div class="price-card">
+                <h3>Full Automation</h3>
+                <div class="price">€799</div>
+                <p>Komplettes Automatisierungssystem mit WhatsApp, Make.com und CRM‑Integration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <p class="section-subtitle">Bereit für den Start? Lassen Sie uns gemeinsam etwas Starkes aufbauen.</p>
+
+        <div class="contact-box">
+            <p>E‑Mail: <a href="mailto:aicloud.studio@gmail.com">aicloud.studio@gmail.com</a></p>
+            <p>Standort: Dachau, Bayern, Deutschland</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2024 AI Cloud Studio — Premium Webentwicklung & Automatisierung
+    </footer>
 
 </body>
 </html>
