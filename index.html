@@ -3,310 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design Studio — Premium Web Development & Automation</title>
-
-    <style>
-        /* GLOBAL */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Inter", sans-serif;
-        }
-
-        body {
-            background: #ffffff;
-            color: #111;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        /* HEADER */
-        header {
-            width: 100%;
-            padding: 22px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #007aff, #5e5ce6);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        nav a {
-            margin-left: 22px;
-            font-weight: 500;
-            color: #333;
-        }
-
-        /* HERO */
-        .hero {
-            padding: 180px 5% 140px;
-            background: linear-gradient(135deg, #f8faff, #eef2ff);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        .hero-text {
-            max-width: 550px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: rgba(0, 122, 255, 0.08);
-            border: 1px solid rgba(0, 122, 255, 0.15);
-            color: #007aff;
-            font-weight: 600;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            margin-bottom: 22px;
-            backdrop-filter: blur(6px);
-        }
-
-        .hero-title {
-            font-size: 3.2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #007aff, #5e5ce6);
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 20px;
-            animation: slideUp 1s ease-out;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: #444;
-            margin-bottom: 40px;
-            animation: slideUp 1.2s ease-out;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            padding: 14px 28px;
-            background: #007aff;
-            color: #fff;
-            border-radius: 12px;
-            font-weight: 600;
-            transition: 0.2s;
-        }
-
-        .btn-primary:hover {
-            background: #005fcc;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 520px;
-            border-radius: 22px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            animation: fadeIn 1.4s ease-out;
-        }
-
-        /* SERVICES */
-        .services {
-            padding: 120px 5%;
-            text-align: center;
-        }
-
-        .services h2 {
-            font-size: 2.4rem;
-            margin-bottom: 40px;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 40px;
-        }
-
-        .service-box {
-            padding: 30px;
-            border-radius: 16px;
-            background: #f9f9ff;
-            transition: 0.2s;
-        }
-
-        .service-box:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-        }
-
-        /* PRICING */
-        .pricing {
-            padding: 120px 5%;
-            background: #f8faff;
-            text-align: center;
-        }
-
-        .pricing h2 {
-            font-size: 2.4rem;
-            margin-bottom: 40px;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-
-        .price-box {
-            padding: 40px;
-            background: #fff;
-            border-radius: 20px;
-            border: 1px solid #eee;
-            transition: 0.2s;
-        }
-
-        .price-box:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-        }
-
-        .price-box h3 {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-        }
-
-        .price-box ul {
-            list-style: none;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-
-        .price-box ul li {
-            margin-bottom: 10px;
-        }
-
-        /* CONTACT */
-        .contact {
-            padding: 120px 5%;
-            text-align: center;
-        }
-
-        /* FOOTER */
-        footer {
-            padding: 40px 5%;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        /* ANIMATIONS */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    <title>AicloudPay — Modern Web Development</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-<header>
-    <div class="logo">WEB DESIGN STUDIO</div>
-    <nav>
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
+    <!-- NAVBAR -->
+    <nav class="flex justify-between items-center px-8 py-4 bg-white shadow-sm">
+        <h1 class="text-2xl font-bold">AicloudPay</h1>
+        <a href="#contact" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            Contact
+        </a>
     </nav>
-</header>
 
-<section class="hero">
-    <div class="hero-text">
-        <div class="hero-badge">Based in Munich — Working Worldwide</div>
-
-        <h1 class="hero-title">Premium Web Development & Automation</h1>
-
-        <p class="hero-subtitle">
-            Modern websites. Clear structure. Fast delivery.
+    <!-- HERO -->
+    <section class="text-center py-28">
+        <h2 class="text-5xl font-extrabold mb-6">Modern Websites for Growing Businesses</h2>
+        <p class="text-xl text-gray-600 mb-8">
+            Fast, clean and professional websites built with care and precision.
         </p>
+        <a href="#packages" class="px-8 py-4 bg-blue-600 text-white rounded-lg text-lg shadow hover:bg-blue-700">
+            View Packages
+        </a>
+    </section>
 
-        <a href="#contact" class="btn-primary">Start Project</a>
-    </div>
+    <!-- PACKAGES -->
+    <section id="packages" class="py-20 max-w-6xl mx-auto px-6">
+        <h3 class="text-3xl font-bold text-center mb-12">Website Packages</h3>
 
-    <div class="hero-image">
-        <img src="/assets/hero-mockup.png" alt="Web Design Studio Mockup">
-    </div>
-</section>
+        <div class="grid md:grid-cols-3 gap-10">
 
-<section id="services" class="services">
-    <h2>Our Services</h2>
+            <div class="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
+                <h4 class="text-xl font-semibold mb-4">Starter</h4>
+                <p class="text-gray-600 mb-4">Simple landing page with clean design.</p>
+                <p class="text-3xl font-bold mb-6">€99</p>
+            </div>
 
-    <div class="service-grid">
-        <div class="service-box">Web Design</div>
-        <div class="service-box">Automation</div>
-        <div class="service-box">SEO Optimization</div>
-        <div class="service-box">Maintenance & Support</div>
-    </div>
-</section>
+            <div class="bg-white p-8 rounded-xl shadow border-2 border-blue-600 hover:shadow-lg transition">
+                <h4 class="text-xl font-semibold mb-4">Business</h4>
+                <p class="text-gray-600 mb-4">3–5 pages, contact form, gallery, basic SEO.</p>
+                <p class="text-3xl font-bold mb-6">€249</p>
+            </div>
 
-<section id="pricing" class="pricing">
-    <h2>Pricing</h2>
+            <div class="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
+                <h4 class="text-xl font-semibold mb-4">Premium</h4>
+                <p class="text-gray-600 mb-4">Custom design, integrations, automations.</p>
+                <p class="text-3xl font-bold mb-6">€499+</p>
+            </div>
 
-    <div class="pricing-grid">
-        <div class="price-box">
-            <h3>Starter</h3>
-            <ul>
-                <li>1 Page</li>
-                <li>Modern Design</li>
-                <li>Contact Form</li>
-            </ul>
-            <a class="btn-primary" href="#contact">Request</a>
         </div>
+    </section>
 
-        <div class="price-box">
-            <h3>Business</h3>
-            <ul>
-                <li>Up to 5 Pages</li>
-                <li>Premium Design</li>
-                <li>Automation Included</li>
-            </ul>
-            <a class="btn-primary" href="#contact">Request</a>
+    <!-- WHY US -->
+    <section class="py-20 bg-blue-50">
+        <h3 class="text-3xl font-bold text-center mb-12">Why Choose Us</h3>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
+            <div class="p-6 bg-white rounded-xl shadow">Modern & clean design</div>
+            <div class="p-6 bg-white rounded-xl shadow">Fast delivery</div>
+            <div class="p-6 bg-white rounded-xl shadow">Transparent pricing</div>
         </div>
+    </section>
 
-        <div class="price-box">
-            <h3>Enterprise</h3>
-            <ul>
-                <li>Unlimited Pages</li>
-                <li>Custom Design</li>
-                <li>Full Automation</li>
-            </ul>
-            <a class="btn-primary" href="#contact">Request</a>
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 max-w-4xl mx-auto px-6">
+        <h3 class="text-3xl font-bold text-center mb-8">Contact</h3>
+
+        <div class="text-center">
+            <p class="text-lg mb-2">Email: <strong>info@aicloudpay.net</strong></p>
+            <p class="text-lg mb-6">WhatsApp: <strong>+49 XXX XXX</strong></p>
+
+            <a href="https://wa.me/49XXXXXXXXX" class="px-6 py-3 bg-green-600 text-white rounded-lg shadow hover:bg-green-700">
+                Message on WhatsApp
+            </a>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>Email us: info@aicloudpay.net</p>
-</section>
-
-<footer>
-    © 2024 Web Design Studio. All rights reserved.
-</footer>
+    <footer class="py-6 text-center text-gray-500">
+        © 2026 AicloudPay — All rights reserved.
+    </footer>
 
 </body>
 </html>
