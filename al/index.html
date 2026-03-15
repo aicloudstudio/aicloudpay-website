@@ -100,7 +100,6 @@
             color: #444;
             max-width: 550px;
             margin-bottom: 40px;
-            line-height: 1.6;
         }
 
         .btn-primary {
@@ -224,11 +223,28 @@
             background: #ffffff;
             border: 1px solid #eee;
             transition: 0.3s;
+            position: relative;
         }
 
         .price-card:hover {
             transform: translateY(-6px);
             border-color: #007aff;
+        }
+
+        .recommended {
+            border: 2px solid #007aff;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: -14px;
+            right: 20px;
+            background: #007aff;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
         .price {
@@ -253,6 +269,23 @@
             text-decoration: none;
         }
 
+        /* LEGAL */
+        .legal-section {
+            padding: 60px 5%;
+            background: #fafafa;
+            border-top: 1px solid #eee;
+        }
+
+        .legal-section h3 {
+            margin-bottom: 12px;
+        }
+
+        .legal-section p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
         /* FOOTER */
         footer {
             padding: 40px 5%;
@@ -260,7 +293,6 @@
             color: #777;
             font-size: 0.95rem;
             border-top: 1px solid #eee;
-            margin-top: 80px;
         }
     </style>
 </head>
@@ -381,26 +413,39 @@
     <!-- PRICING -->
     <section id="pricing">
         <h2>Çmimet</h2>
-        <p class="section-subtitle">Çmime të thjeshta, transparente dhe të drejta.</p>
+        <p class="section-subtitle">Zgjidh paketën që i përshtatet më së miri biznesit tuaj.</p>
 
         <div class="pricing-grid">
+
+            <!-- STARTER -->
             <div class="price-card">
-                <h3>Starter Website</h3>
-                <div class="price">€299</div>
+                <h3>Starter</h3>
+                <div class="price">€399</div>
                 <p>Ideale për biznese të vogla që duan një prezencë moderne online.</p>
             </div>
 
+            <!-- STANDARD -->
             <div class="price-card">
-                <h3>Business Website</h3>
-                <div class="price">€499</div>
-                <p>Përfshin automatizim, dizajn premium dhe shumëgjuhësi.</p>
+                <h3>Standard</h3>
+                <div class="price">€599</div>
+                <p>3 faqe, strukturë profesionale, SEO bazik dhe optimizim shpejtësie.</p>
             </div>
 
-            <div class="price-card">
-                <h3>Full Automation</h3>
-                <div class="price">€799</div>
-                <p>Sistem i plotë automatizimi me WhatsApp, Make.com dhe CRM.</p>
+            <!-- BUSINESS (RECOMMENDED) -->
+            <div class="price-card recommended">
+                <div class="recommended-badge">Recommended</div>
+                <h3>Business</h3>
+                <div class="price">€899</div>
+                <p>5 faqe, automatizime, WhatsApp bot, Google Sheets dhe analitika.</p>
             </div>
+
+            <!-- PREMIUM -->
+            <div class="price-card">
+                <h3>Premium</h3>
+                <div class="price">€1200</div>
+                <p>Pako e plotë me 7+ faqe, automatizime të avancuara dhe dizajn premium.</p>
+            </div>
+
         </div>
     </section>
 
@@ -414,6 +459,18 @@
             <p>Lokacioni: München, Gjermani</p>
         </div>
     </section>
+
+    <!-- LEGAL -->
+    <div class="legal-section">
+        <h3>Datenschutz</h3>
+        <p>Ne i trajtojmë të dhënat tuaja me kujdes dhe nuk i ndajmë me palë të treta. Të gjitha informacionet ruhen vetëm për qëllime komunikimi dhe ofrimi të shërbimeve.</p>
+
+        <h3>Cookies</h3>
+        <p>Faqja përdor cookies bazike për funksionim teknik dhe përmirësim të përvojës së përdoruesit. Duke vazhduar përdorimin e faqes, ju pranoni përdorimin e cookies.</p>
+
+        <h3>Copyright</h3>
+        <p>Të gjitha materialet, dizajnet dhe përmbajtjet janë të mbrojtura nga e drejta e autorit © AI Cloud Studio. Ndalohet kopjimi ose përdorimi pa leje.</p>
+    </div>
 
     <!-- FOOTER -->
     <footer>
