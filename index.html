@@ -1,86 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AicloudPay — Modern Web Development</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #f8f8f8, #ffffff);
+            color: #111;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #eee;
+        }
+
+        nav .logo {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        nav a.cta {
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: #111;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 120px 20px 100px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .hero .btn {
+            padding: 14px 28px;
+            background: #111;
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Packages Section */
+        .section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Why Choose Us */
+        .why {
+            text-align: center;
+        }
+
+        .why-items {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .why-item {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        .contact a.btn {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 14px 28px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+            border-top: 1px solid #eee;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-    <!-- NAVBAR -->
-    <nav class="flex justify-between items-center px-8 py-4 bg-white shadow-sm">
-        <h1 class="text-2xl font-bold">AicloudPay</h1>
-        <a href="#contact" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-            Contact
-        </a>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">AicloudPay</div>
+        <a href="#contact" class="cta">Get a Quote</a>
     </nav>
 
-    <!-- HERO -->
-    <section class="text-center py-28">
-        <h2 class="text-5xl font-extrabold mb-6">Modern Websites for Growing Businesses</h2>
-        <p class="text-xl text-gray-600 mb-8">
-            Fast, clean and professional websites built with care and precision.
-        </p>
-        <a href="#packages" class="px-8 py-4 bg-blue-600 text-white rounded-lg text-lg shadow hover:bg-blue-700">
-            View Packages
-        </a>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Modern Websites for Growing Businesses</h1>
+        <p>Fast, clean and professional websites built with care and precision.</p>
+        <a href="#packages" class="btn">View Packages</a>
     </section>
 
-    <!-- PACKAGES -->
-    <section id="packages" class="py-20 max-w-6xl mx-auto px-6">
-        <h3 class="text-3xl font-bold text-center mb-12">Website Packages</h3>
+    <!-- Packages -->
+    <section id="packages" class="section">
+        <h2>Website Packages</h2>
 
-        <div class="grid md:grid-cols-3 gap-10">
-
-            <div class="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
-                <h4 class="text-xl font-semibold mb-4">Starter</h4>
-                <p class="text-gray-600 mb-4">Simple landing page with clean design.</p>
-                <p class="text-3xl font-bold mb-6">€99</p>
+        <div class="cards">
+            <div class="card">
+                <h3>Starter</h3>
+                <p>Simple landing page with clean design.</p>
+                <div class="price">€99</div>
             </div>
 
-            <div class="bg-white p-8 rounded-xl shadow border-2 border-blue-600 hover:shadow-lg transition">
-                <h4 class="text-xl font-semibold mb-4">Business</h4>
-                <p class="text-gray-600 mb-4">3–5 pages, contact form, gallery, basic SEO.</p>
-                <p class="text-3xl font-bold mb-6">€249</p>
+            <div class="card">
+                <h3>Business</h3>
+                <p>3–5 pages, contact form, gallery, basic SEO.</p>
+                <div class="price">€249</div>
             </div>
 
-            <div class="bg-white p-8 rounded-xl shadow hover:shadow-lg transition">
-                <h4 class="text-xl font-semibold mb-4">Premium</h4>
-                <p class="text-gray-600 mb-4">Custom design, integrations, automations.</p>
-                <p class="text-3xl font-bold mb-6">€499+</p>
+            <div class="card">
+                <h3>Premium</h3>
+                <p>Custom design, integrations, automations.</p>
+                <div class="price">€499+</div>
             </div>
-
         </div>
     </section>
 
-    <!-- WHY US -->
-    <section class="py-20 bg-blue-50">
-        <h3 class="text-3xl font-bold text-center mb-12">Why Choose Us</h3>
+    <!-- Why Choose Us -->
+    <section class="section why">
+        <h2>Why Choose Us</h2>
 
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
-            <div class="p-6 bg-white rounded-xl shadow">Modern & clean design</div>
-            <div class="p-6 bg-white rounded-xl shadow">Fast delivery</div>
-            <div class="p-6 bg-white rounded-xl shadow">Transparent pricing</div>
+        <div class="why-items">
+            <div class="why-item">✨ Modern & clean design</div>
+            <div class="why-item">⚡ Fast delivery</div>
+            <div class="why-item">💶 Transparent pricing</div>
         </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="py-20 max-w-4xl mx-auto px-6">
-        <h3 class="text-3xl font-bold text-center mb-8">Contact</h3>
-
-        <div class="text-center">
-            <p class="text-lg mb-2">Email: <strong>info@aicloudpay.net</strong></p>
-            <p class="text-lg mb-6">WhatsApp: <strong>+49 XXX XXX</strong></p>
-
-            <a href="https://wa.me/49XXXXXXXXX" class="px-6 py-3 bg-green-600 text-white rounded-lg shadow hover:bg-green-700">
-                Message on WhatsApp
-            </a>
-        </div>
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+        <h2>Contact</h2>
+        <p>Email: info@aicloudpay.net</p>
+        <p>WhatsApp: +49 XXX XXX</p>
+        <a href="https://wa.me/49XXXXXXXXX" class="btn">Message on WhatsApp</a>
     </section>
 
-    <footer class="py-6 text-center text-gray-500">
+    <!-- Footer -->
+    <footer>
         © 2026 AicloudPay — All rights reserved.
     </footer>
 
