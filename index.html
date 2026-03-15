@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Cloud Studio — Modern Web Development</title>
-    <meta name="description" content="AI Cloud Studio builds clean, fast and professional websites for small and growing businesses.">
+    <meta name="description" content="AI Cloud Studio builds clean, fast and professional websites using modern design and AI-powered workflows.">
 
     <style>
         * {
@@ -92,12 +92,6 @@
             font-size: 15px;
         }
 
-        .hero-subnote {
-            margin-top: 18px;
-            font-size: 13px;
-            color: #777;
-        }
-
         /* Sections */
         .section {
             padding: 70px 20px;
@@ -111,30 +105,20 @@
             margin-bottom: 40px;
         }
 
-        /* What You Get */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 24px;
-        }
-
-        .feature {
-            background: #fff;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.04);
-            font-size: 15px;
-        }
-
-        .feature-title {
-            font-weight: 600;
-            margin-bottom: 8px;
+        /* Why Us */
+        .why-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 17px;
+            color: #444;
+            line-height: 1.7;
         }
 
         /* Packages */
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 28px;
         }
 
@@ -156,22 +140,10 @@
             margin-bottom: 6px;
         }
 
-        .card p {
-            color: #555;
-            margin-bottom: 16px;
-            font-size: 15px;
-        }
-
-        .price {
-            font-size: 26px;
-            font-weight: 600;
-            margin-bottom: 14px;
-        }
-
         .card ul {
             list-style: none;
             text-align: left;
-            font-size: 14px;
+            font-size: 15px;
             color: #444;
             margin-bottom: 16px;
         }
@@ -180,62 +152,10 @@
             margin-bottom: 6px;
         }
 
-        .card small {
-            font-size: 12px;
-            color: #888;
-        }
-
-        /* Why Us */
-        .why {
-            text-align: center;
-        }
-
-        .why-items {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .why-item {
-            font-size: 16px;
-            color: #333;
-        }
-
-        /* Process */
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 24px;
-        }
-
-        .step {
-            background: #fff;
-            border-radius: 16px;
-            padding: 22px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.04);
-            font-size: 15px;
-        }
-
-        .step-title {
+        .price {
+            font-size: 26px;
             font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .step-number {
-            font-size: 13px;
-            color: #999;
-            margin-bottom: 4px;
-        }
-
-        /* About */
-        .about {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 15px;
-            color: #444;
+            margin-top: 10px;
         }
 
         /* Contact */
@@ -274,24 +194,6 @@
             text-decoration: none;
             margin: 0 8px;
         }
-
-        @media (max-width: 640px) {
-            nav {
-                padding: 16px 18px;
-            }
-            .hero h1 {
-                font-size: 32px;
-            }
-            .hero p {
-                font-size: 16px;
-            }
-            .nav-links {
-                gap: 14px;
-            }
-            .nav-links a {
-                font-size: 14px;
-            }
-        }
     </style>
 </head>
 
@@ -310,47 +212,81 @@
     <!-- Hero -->
     <section class="hero">
         <h1>Websites that Build Trust and Convert Clients</h1>
-        <p>Clean, fast and professional websites designed to make your business look world‑class.</p>
+        <p>Clean, fast and professional websites designed with modern design principles and AI‑powered workflows.</p>
         <a href="#packages" class="btn">View Packages</a>
-        <div class="hero-subnote">Based in Dachau — working with small and growing businesses.</div>
     </section>
 
-    <!-- What You Get -->
-    <section class="section">
-        <h2>What You Get</h2>
-        <div class="features">
-            <div class="feature">
-                <div class="feature-title">Modern & premium design</div>
-                Clean, minimal and professional layouts that make your business look serious and trustworthy.
-            </div>
-            <div class="feature">
-                <div class="feature-title">Fast & mobile‑friendly</div>
-                Optimized for speed and fully responsive, so your website looks great on any device.
-            </div>
-            <div class="feature">
-                <div class="feature-title">SEO‑ready structure</div>
-                Clear structure and best practices that help search engines understand your business.
-            </div>
-            <div class="feature">
-                <div class="feature-title">Easy updates & support</div>
-                Simple structure and ongoing support options so your website can grow with your business.
-            </div>
+    <!-- Why Us -->
+    <section id="why" class="section">
+        <h2>Why Choose AI Cloud Studio</h2>
+        <div class="why-text">
+            AI Cloud Studio is a modern digital studio combining clean design, automation and AI‑enhanced workflows.  
+            We focus on clarity, speed and long‑term value — building websites that look premium, load fast and help your business grow.  
+            As a new AI‑driven studio, we deliver efficient, future‑ready solutions without unnecessary complexity.
         </div>
     </section>
 
     <!-- Packages -->
     <section id="packages" class="section">
-        <h2>Website Packages</h2>
+        <h2>Our Packages</h2>
 
         <div class="cards">
+
+            <!-- Basic -->
             <div class="card">
-                <h3>Starter</h3>
-                <p>Perfect for small businesses that need a clean, modern landing page.</p>
-                <div class="price">€99</div>
+                <h3>Basic — The Digital Starter</h3>
                 <ul>
-                    <li>1 page</li>
-                    <li>Mobile‑friendly layout</li>
-                    <li>Contact button</li>
-                    <li>Basic SEO setup</li>
+                    <li><strong>Scope:</strong> 1 page (Landing Page)</li>
+                    <li><strong>Structure:</strong> Clean, modern, mobile‑optimized</li>
+                    <li><strong>Technology:</strong> Fast loading, SEO‑ready</li>
+                    <li><strong>Price:</strong> €99</li>
                 </ul>
-                <small>Ideal if
+            </div>
+
+            <!-- Standard -->
+            <div class="card" style="border: 2px solid #111;">
+                <h3>Standard — The Business All‑Rounder (Recommended)</h3>
+                <ul>
+                    <li><strong>Scope:</strong> 3–5 pages (Home, About, Services, Contact, etc.)</li>
+                    <li><strong>Structure:</strong> Professional layout, clear navigation</li>
+                    <li><strong>Technology:</strong> Contact form, SEO optimization, fast performance</li>
+                    <li><strong>Price:</strong> €249</li>
+                </ul>
+            </div>
+
+            <!-- Premium -->
+            <div class="card">
+                <h3>Premium — The Complete Care Package</h3>
+                <ul>
+                    <li><strong>Scope:</strong> Unlimited pages</li>
+                    <li><strong>Design:</strong> Fully custom premium design</li>
+                    <li><strong>Custom:</strong> Automations (WhatsApp, Email, CRM), special features</li>
+                    <li><strong>Price:</strong> €499+</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+        <h2>Let’s Build Your Website</h2>
+        <p>Email: info@aicloudpay.net</p>
+        <p>WhatsApp: +49 XXX XXX</p>
+        <a href="https://wa.me/49XXXXXXXXX" class="btn">Chat on WhatsApp</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <a href="#top">Home</a> ·
+            <a href="#packages">Packages</a> ·
+            <a href="#contact">Contact</a>
+        </div>
+        <div style="margin-top: 8px;">
+            © 2026 AI Cloud Studio — Made with care.
+        </div>
+    </footer>
+
+</body>
+</html>
