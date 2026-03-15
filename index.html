@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Cloud Studio — Premium Web Development & Automation</title>
+    <title>AI Cloud Studio — Moderne Webentwicklung & Automatisierung</title>
 
     <style>
         /* GLOBAL */
@@ -67,25 +67,39 @@
 
         /* HERO */
         .hero {
-            padding-top: 160px;
-            padding-bottom: 140px;
-            text-align: center;
-            background: linear-gradient(135deg, #f5f7ff, #eef2ff);
+            padding: 160px 5% 120px;
+            background: linear-gradient(135deg, #f7f9ff, #eef1ff);
         }
 
-        .hero h1 {
-            font-size: 3.4rem;
-            margin-bottom: 20px;
+        .hero-content {
+            max-width: 1300px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
             background: linear-gradient(135deg, #007aff, #5e5ce6);
             -webkit-background-clip: text;
             color: transparent;
+            margin-bottom: 20px;
         }
 
-        .hero p {
+        .hero-text p {
             font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
             color: #444;
+            max-width: 550px;
+            margin-bottom: 40px;
         }
 
         .btn-primary {
@@ -101,6 +115,19 @@
 
         .btn-primary:hover {
             background: #005fcc;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 320px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 520px;
+            border-radius: 22px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
         }
 
         /* SECTION WRAPPER */
@@ -196,11 +223,28 @@
             background: #ffffff;
             border: 1px solid #eee;
             transition: 0.3s;
+            position: relative;
         }
 
         .price-card:hover {
             transform: translateY(-6px);
             border-color: #007aff;
+        }
+
+        .recommended {
+            border: 2px solid #007aff;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: -14px;
+            right: 20px;
+            background: #007aff;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
         .price {
@@ -225,6 +269,23 @@
             text-decoration: none;
         }
 
+        /* LEGAL */
+        .legal-section {
+            padding: 60px 5%;
+            background: #fafafa;
+            border-top: 1px solid #eee;
+        }
+
+        .legal-section h3 {
+            margin-bottom: 12px;
+        }
+
+        .legal-section p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
         /* FOOTER */
         footer {
             padding: 40px 5%;
@@ -232,7 +293,6 @@
             color: #777;
             font-size: 0.95rem;
             border-top: 1px solid #eee;
-            margin-top: 80px;
         }
     </style>
 </head>
@@ -251,133 +311,170 @@
 
     <!-- HERO -->
     <section class="hero">
-        <h1>Premium Websites & Automation</h1>
-        <p>We build modern, fast, and automated websites with Apple‑style design — crafted for businesses that want a clean, professional, and trustworthy online presence.</p>
-        <a href="#contact" class="btn-primary">Start Your Project</a>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Moderne Lösungen für Web & Automatisierung</h1>
+                <p>
+                    Wir entwickeln moderne, schnelle und professionelle Websites sowie Automatisierungssysteme
+                    für Unternehmen, die Wert auf Qualität, Effizienz und ein Apple‑inspiriertes Design legen.
+                    Mit Sitz in München arbeiten wir mit lokalen und internationalen Kunden.
+                </p>
+                <a href="#contact" class="btn-primary">Projekt starten</a>
+            </div>
+
+            <div class="hero-image">
+                <img src="/assets/hero-mockup.png" alt="AI Cloud Studio Mockup">
+            </div>
+        </div>
     </section>
 
     <!-- VALUE PROPOSITION -->
     <section>
-        <h2>Why Choose Us</h2>
-        <p class="section-subtitle">A modern approach to web development — clean, fast, automated, and built for growth.</p>
+        <h2>Warum AI Cloud Studio</h2>
+        <p class="section-subtitle">Moderne Webentwicklung — klar, schnell, automatisiert und auf Wachstum ausgerichtet.</p>
 
         <div class="value-grid">
             <div class="value-card">
                 <h3>Premium Apple‑Style Design</h3>
-                <p>Clean, elegant, and modern interfaces that build trust and elevate your brand.</p>
+                <p>Elegante, moderne Benutzeroberflächen, die Vertrauen schaffen und Ihre Marke stärken.</p>
             </div>
 
             <div class="value-card">
-                <h3>Automation‑Ready</h3>
-                <p>Integrations with WhatsApp, Make.com, Google Sheets, and more.</p>
+                <h3>Integrierte Automatisierung</h3>
+                <p>WhatsApp‑Bots, Make.com‑Workflows, Google Sheets Integrationen und mehr.</p>
             </div>
 
             <div class="value-card">
-                <h3>Fast Delivery</h3>
-                <p>Optimized workflows ensure your website is ready quickly and professionally.</p>
+                <h3>Schnelle Umsetzung</h3>
+                <p>Optimierte Prozesse für schnelle und professionelle Ergebnisse.</p>
             </div>
 
             <div class="value-card">
-                <h3>Transparent Pricing</h3>
-                <p>No hidden fees — simple, clear, and fair pricing for every business.</p>
+                <h3>Transparente Preise</h3>
+                <p>Keine versteckten Kosten — klare, faire und verständliche Preisstrukturen.</p>
             </div>
         </div>
     </section>
 
     <!-- SERVICES -->
     <section id="services">
-        <h2>Our Services</h2>
-        <p class="section-subtitle">Everything you need to build a strong digital presence.</p>
+        <h2>Unsere Dienstleistungen</h2>
+        <p class="section-subtitle">Alles, was Sie für eine starke digitale Präsenz benötigen.</p>
 
         <div class="services-grid">
             <div class="service-card">
-                <h3>Website Development</h3>
-                <p>Premium, responsive websites with clean Apple‑style UI.</p>
+                <h3>Webentwicklung</h3>
+                <p>Moderne, responsive Websites mit klarer Apple‑Style Benutzeroberfläche.</p>
             </div>
 
             <div class="service-card">
-                <h3>Automation Systems</h3>
-                <p>WhatsApp bots, Make.com workflows, CRM integrations, and more.</p>
+                <h3>Automatisierungssysteme</h3>
+                <p>WhatsApp‑Bots, Make.com‑Automationen, CRM‑Integrationen und mehr.</p>
             </div>
 
             <div class="service-card">
-                <h3>Branding & Structure</h3>
-                <p>Professional content, structure, and offer design for your business.</p>
+                <h3>Struktur & Inhalte</h3>
+                <p>Professionelle Strukturierung, Texte und Angebotsgestaltung für Ihr Unternehmen.</p>
             </div>
 
             <div class="service-card">
-                <h3>Multilingual Websites</h3>
-                <p>Clean, natural translations for EN, DE, AL — optimized for clarity.</p>
+                <h3>Mehrsprachige Websites</h3>
+                <p>Natürliche, klare Übersetzungen für DE, EN und AL.</p>
             </div>
         </div>
     </section>
 
     <!-- PROCESS -->
     <section>
-        <h2>How It Works</h2>
-        <p class="section-subtitle">A simple and efficient process designed for your success.</p>
+        <h2>Unser Prozess</h2>
+        <p class="section-subtitle">Ein klarer, effizienter Prozess — fokussiert auf Ergebnisse.</p>
 
         <div class="process-steps">
             <div class="step">
                 <div class="step-number">1</div>
-                <h3>Planning</h3>
-                <p>We define your goals, structure, and design direction.</p>
+                <h3>Planung</h3>
+                <p>Wir definieren Ziele, Struktur und Designrichtung.</p>
             </div>
 
             <div class="step">
                 <div class="step-number">2</div>
-                <h3>Development</h3>
-                <p>We build your website with clean code and modern design.</p>
+                <h3>Entwicklung</h3>
+                <p>Wir erstellen Ihre Website mit sauberem Code und modernem Design.</p>
             </div>
 
             <div class="step">
                 <div class="step-number">3</div>
-                <h3>Automation</h3>
-                <p>We integrate workflows that save time and increase efficiency.</p>
+                <h3>Automatisierung</h3>
+                <p>Wir integrieren Systeme, die Zeit sparen und Effizienz steigern.</p>
             </div>
         </div>
     </section>
 
     <!-- PRICING -->
     <section id="pricing">
-        <h2>Pricing</h2>
-        <p class="section-subtitle">Simple, transparent, and fair pricing.</p>
+        <h2>Preise</h2>
+        <p class="section-subtitle">Wählen Sie das Paket, das am besten zu Ihrem Unternehmen passt.</p>
 
         <div class="pricing-grid">
+
+            <!-- STARTER -->
             <div class="price-card">
-                <h3>Starter Website</h3>
-                <div class="price">€299</div>
-                <p>Perfect for small businesses that need a clean and modern online presence.</p>
+                <h3>Starter</h3>
+                <div class="price">€399</div>
+                <p>Ideal für kleine Unternehmen, die eine moderne Online‑Präsenz benötigen.</p>
             </div>
 
+            <!-- STANDARD -->
             <div class="price-card">
-                <h3>Business Website</h3>
-                <div class="price">€499</div>
-                <p>Includes automation, premium design, and multilingual support.</p>
+                <h3>Standard</h3>
+                <div class="price">€599</div>
+                <p>3 Seiten, professionelle Struktur, Basis‑SEO und Performance‑Optimierung.</p>
             </div>
 
-            <div class="price-card">
-                <h3>Full Automation</h3>
-                <div class="price">€799</div>
-                <p>Complete automation system with WhatsApp, Make.com, and CRM integration.</p>
+            <!-- BUSINESS (RECOMMENDED) -->
+            <div class="price-card recommended">
+                <div class="recommended-badge">Empfohlen</div>
+                <h3>Business</h3>
+                <div class="price">€899</div>
+                <p>5 Seiten, Automatisierungen, WhatsApp‑Bot, Google Sheets und erweiterte Analytik.</p>
             </div>
+
+            <!-- PREMIUM -->
+            <div class="price-card">
+                <h3>Premium</h3>
+                <div class="price">€1200</div>
+                <p>Komplettpaket mit 7+ Seiten, erweiterten Automatisierungen und Premium‑Design.</p>
+            </div>
+
         </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
-        <h2>Contact</h2>
-        <p class="section-subtitle">Ready to start your project? Let’s build something great.</p>
+        <h2>Kontakt</h2>
+        <p class="section-subtitle">Bereit zu starten? Lassen Sie uns etwas Großartiges bauen.</p>
 
         <div class="contact-box">
             <p>Email: <a href="mailto:aicloud.studio@gmail.com">aicloud.studio@gmail.com</a></p>
-            <p>Location: Dachau, Bavaria, Germany</p>
+            <p>Standort: München, Deutschland</p>
         </div>
     </section>
 
+    <!-- LEGAL -->
+    <div class="legal-section">
+        <h3>Datenschutz</h3>
+        <p>Wir behandeln Ihre Daten vertraulich und geben sie nicht an Dritte weiter. Alle Informationen werden ausschließlich zur Kommunikation und zur Bereitstellung unserer Dienstleistungen verwendet.</p>
+
+        <h3>Cookies</h3>
+        <p>Diese Website verwendet grundlegende Cookies für technische Funktionen und zur Verbesserung der Nutzererfahrung. Durch die Nutzung der Website stimmen Sie der Verwendung von Cookies zu.</p>
+
+        <h3>Urheberrecht</h3>
+        <p>Alle Inhalte, Designs und Materialien sind urheberrechtlich geschützt © AI Cloud Studio. Das Kopieren oder Verwenden ohne Genehmigung ist untersagt.</p>
+    </div>
+
     <!-- FOOTER -->
     <footer>
-        © 2024 AI Cloud Studio — Premium Web Development & Automation
+        © 2024 AI Cloud Studio — Moderne Webentwicklung & Automatisierung
     </footer>
 
 </body>
