@@ -3,382 +3,570 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Cloud Studio — Premium Web Development & Automation</title>
+    <title>AI Cloud Studio | Premium Web Design and Automation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <style>
-        /* GLOBAL */
+        :root {
+            --bg: #f4f7fb;
+            --surface: rgba(255, 255, 255, 0.72);
+            --surface-strong: rgba(255, 255, 255, 0.92);
+            --text: #0f1728;
+            --muted: #576178;
+            --line: rgba(22, 34, 58, 0.12);
+            --brand: #0a84ff;
+            --brand-2: #45b0ff;
+            --radius-lg: 28px;
+            --radius-md: 20px;
+            --shadow-soft: 0 20px 55px rgba(18, 31, 54, 0.12);
+            --shadow-card: 0 12px 34px rgba(15, 23, 40, 0.08);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Inter", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background: #ffffff;
-            color: #111;
+            font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 15% 10%, rgba(10, 132, 255, 0.14), transparent 38%),
+                radial-gradient(circle at 86% 2%, rgba(69, 176, 255, 0.12), transparent 32%),
+                linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+            min-height: 100vh;
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        p {
-            color: #555;
-            line-height: 1.6;
-        }
-
-        /* NAVIGATION */
-        nav {
-            width: 100%;
-            padding: 22px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        body::before {
+            content: "";
             position: fixed;
-            top: 0;
-            z-index: 999;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            inset: 0;
+            pointer-events: none;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.18) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+            background-size: 38px 38px;
+            mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
+            opacity: 0.38;
+            z-index: -1;
         }
 
-        nav .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #007aff, #5e5ce6);
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1150px, 92vw);
+            margin: 0 auto;
+        }
+
+        .floating-nav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 18px;
+            z-index: 1000;
+        }
+
+        .nav-shell {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.68);
+            backdrop-filter: blur(18px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .logo {
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            font-size: 1.1rem;
+            background: linear-gradient(120deg, #004fb5, #0a84ff 48%, #57c0ff);
             -webkit-background-clip: text;
+            background-clip: text;
             color: transparent;
         }
 
-        nav .languages a {
-            margin-left: 18px;
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.25s;
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        nav .languages a:hover {
-            color: #007aff;
+        .nav-links a {
+            font-size: 0.9rem;
+            color: #334160;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: 220ms ease;
         }
 
-        /* HERO */
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #0a2f71;
+            border-color: rgba(10, 132, 255, 0.34);
+            background: rgba(10, 132, 255, 0.1);
+        }
+
         .hero {
-            padding-top: 160px;
-            padding-bottom: 140px;
-            text-align: center;
-            background: linear-gradient(135deg, #f5f7ff, #eef2ff);
+            padding: 132px 0 86px;
+        }
+
+        .hero-panel {
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            background: linear-gradient(155deg, var(--surface-strong), rgba(255, 255, 255, 0.58));
+            box-shadow: var(--shadow-soft);
+            padding: clamp(34px, 5vw, 58px);
+            position: relative;
+            overflow: hidden;
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .hero-panel::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, rgba(10, 132, 255, 0.24), transparent 72%);
+            right: -90px;
+            top: -70px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+            color: #1f4e9c;
+            background: rgba(10, 132, 255, 0.12);
+            border: 1px solid rgba(10, 132, 255, 0.3);
+            border-radius: 999px;
+            padding: 7px 12px;
+            margin-bottom: 18px;
         }
 
         .hero h1 {
-            font-size: 3.4rem;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #007aff, #5e5ce6);
-            -webkit-background-clip: text;
+            font-size: clamp(2.2rem, 5vw, 4.25rem);
+            line-height: 1.03;
+            letter-spacing: -0.05em;
+            max-width: 11ch;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
             color: transparent;
+            background: linear-gradient(130deg, #005fce, #0a84ff 45%, #57c0ff);
+            -webkit-background-clip: text;
+            background-clip: text;
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            color: #444;
+        .hero .subtitle {
+            max-width: 68ch;
+            font-size: clamp(1rem, 1.7vw, 1.25rem);
+            color: var(--muted);
+            line-height: 1.75;
         }
 
-        .btn-primary {
-            padding: 16px 38px;
-            border-radius: 12px;
-            background: #007aff;
-            color: white;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: 0.25s;
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 30px 0 36px;
         }
 
-        .btn-primary:hover {
-            background: #005fcc;
+        .btn {
+            border-radius: 999px;
+            padding: 12px 22px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
         }
 
-        /* SECTION WRAPPER */
+        .btn.primary {
+            background: linear-gradient(140deg, #006be6, #0a84ff);
+            color: #fff;
+            box-shadow: 0 12px 24px rgba(10, 132, 255, 0.3);
+        }
+
+        .btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 30px rgba(10, 132, 255, 0.33);
+        }
+
+        .btn.ghost {
+            border: 1px solid rgba(15, 23, 40, 0.15);
+            background: rgba(255, 255, 255, 0.72);
+            color: #1e2d4d;
+        }
+
+        .btn.ghost:hover {
+            background: rgba(255, 255, 255, 0.92);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(130px, 1fr));
+            gap: 12px;
+        }
+
+        .stat {
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            backdrop-filter: blur(12px);
+            padding: 14px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.2rem;
+            letter-spacing: -0.03em;
+        }
+
+        .stat span {
+            font-size: 0.84rem;
+            color: var(--muted);
+        }
+
         section {
-            padding: 100px 5%;
-            max-width: 1200px;
-            margin: auto;
+            padding: 34px 0 72px;
         }
 
-        section h2 {
-            font-size: 2.4rem;
-            margin-bottom: 20px;
-            color: #111;
+        .section-head {
+            margin-bottom: 26px;
         }
 
-        section p.section-subtitle {
-            font-size: 1.15rem;
-            color: #666;
-            margin-bottom: 50px;
+        .section-head p {
+            color: var(--muted);
+            max-width: 66ch;
+            line-height: 1.8;
         }
 
-        /* VALUE PROPOSITION */
-        .value-grid {
+        h2 {
+            font-size: clamp(1.65rem, 3.4vw, 2.6rem);
+            line-height: 1.12;
+            letter-spacing: -0.04em;
+            margin-bottom: 12px;
+        }
+
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 28px;
+            gap: 16px;
         }
 
-        .value-card {
-            padding: 32px;
-            border-radius: 16px;
-            background: #fafafa;
-            border: 1px solid #eee;
-            transition: 0.25s;
+        .grid.cols-4 {
+            grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
         }
 
-        .value-card:hover {
+        .grid.cols-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .card {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background: var(--surface);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-card);
+            padding: 24px;
+            transition: transform 230ms ease, border-color 230ms ease;
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .card:hover {
             transform: translateY(-4px);
-            border-color: #007aff;
+            border-color: rgba(10, 132, 255, 0.4);
         }
 
-        /* SERVICES */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
+        .card h3 {
+            font-size: 1.12rem;
+            margin-bottom: 9px;
+            letter-spacing: -0.02em;
         }
 
-        .service-card {
-            padding: 32px;
-            border-radius: 18px;
-            background: #ffffff;
-            border: 1px solid #eee;
-            transition: 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-6px);
-            border-color: #007aff;
-        }
-
-        /* PROCESS */
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 32px;
-        }
-
-        .step {
-            padding: 32px;
-            border-radius: 16px;
-            background: #fafafa;
-            border: 1px solid #eee;
+        .card p {
+            color: var(--muted);
+            line-height: 1.7;
         }
 
         .step-number {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #006be6, #0a84ff);
+            box-shadow: 0 8px 20px rgba(10, 132, 255, 0.3);
+        }
+
+        .pricing .card {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .pricing .price {
             font-size: 2rem;
-            font-weight: 700;
-            color: #007aff;
+            letter-spacing: -0.05em;
+            color: #053b88;
+            margin: 6px 0;
+        }
+
+        .pricing .featured {
+            border-color: rgba(10, 132, 255, 0.45);
+            background: linear-gradient(175deg, rgba(255, 255, 255, 0.96), rgba(232, 244, 255, 0.82));
+        }
+
+        .contact-box {
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(10, 132, 255, 0.26);
+            background: linear-gradient(140deg, rgba(10, 132, 255, 0.15), rgba(255, 255, 255, 0.78));
+            box-shadow: var(--shadow-card);
+            padding: clamp(28px, 5vw, 42px);
+            text-align: center;
+        }
+
+        .contact-box h2 {
             margin-bottom: 10px;
         }
 
-        /* PRICING */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-        }
-
-        .price-card {
-            padding: 40px;
-            border-radius: 20px;
-            background: #ffffff;
-            border: 1px solid #eee;
-            transition: 0.3s;
-        }
-
-        .price-card:hover {
-            transform: translateY(-6px);
-            border-color: #007aff;
-        }
-
-        .price {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 18px 0;
-            color: #007aff;
-        }
-
-        /* CONTACT */
-        .contact-box {
-            padding: 40px;
-            border-radius: 20px;
-            background: #f8f9ff;
-            border: 1px solid #e0e4ff;
-            text-align: center;
+        .contact-box p {
+            color: #2f3e5f;
+            line-height: 1.9;
         }
 
         .contact-box a {
-            color: #007aff;
-            font-weight: 600;
-            text-decoration: none;
+            color: #0149b0;
+            font-weight: 700;
         }
 
-        /* FOOTER */
         footer {
-            padding: 40px 5%;
+            padding: 16px 0 36px;
             text-align: center;
-            color: #777;
-            font-size: 0.95rem;
-            border-top: 1px solid #eee;
-            margin-top: 80px;
+            color: #64718d;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 820px) {
+            .floating-nav {
+                top: 12px;
+            }
+
+            .nav-shell {
+                border-radius: 18px;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .hero {
+                padding-top: 150px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-
 <body>
-
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="logo">AI Cloud Studio</div>
-        <div class="languages">
-            <a href="/en">EN</a>
-            <a href="/de">DE</a>
-            <a href="/al">AL</a>
+    <header class="floating-nav" aria-label="Main navigation">
+        <div class="container nav-shell">
+            <div class="logo">AI Cloud Studio</div>
+            <nav class="nav-links" aria-label="Language switcher">
+                <a class="active" href="/">EN</a>
+                <a href="/de">DE</a>
+                <a href="/al">AL</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1>Premium Websites & Automation</h1>
-        <p>We build modern, fast, and automated websites with Apple‑style design — crafted for businesses that want a clean, professional, and trustworthy online presence.</p>
-        <a href="#contact" class="btn-primary">Start Your Project</a>
-    </section>
+    <main>
+        <section class="hero">
+            <div class="container hero-panel">
+                <div class="eyebrow">Premium digital presence</div>
+                <h1>Modern websites with <span>Apple-style elegance</span>.</h1>
+                <p class="subtitle">We design and build fast, premium websites with automation workflows that save time and increase trust. Your brand gets a cleaner story, better presentation, and a sharper online conversion path.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn primary">Start Your Project</a>
+                    <a href="#services" class="btn ghost">Explore Services</a>
+                </div>
 
-    <!-- VALUE PROPOSITION -->
-    <section>
-        <h2>Why Choose Us</h2>
-        <p class="section-subtitle">A modern approach to web development — clean, fast, automated, and built for growth.</p>
-
-        <div class="value-grid">
-            <div class="value-card">
-                <h3>Premium Apple‑Style Design</h3>
-                <p>Clean, elegant, and modern interfaces that build trust and elevate your brand.</p>
+                <div class="hero-stats" aria-label="Key client outcomes">
+                    <div class="stat">
+                        <strong>72h</strong>
+                        <span>Design direction draft</span>
+                    </div>
+                    <div class="stat">
+                        <strong>+40%</strong>
+                        <span>Average clarity in messaging</span>
+                    </div>
+                    <div class="stat">
+                        <strong>3 Languages</strong>
+                        <span>EN, DE, AL ready</span>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="value-card">
-                <h3>Automation‑Ready</h3>
-                <p>Integrations with WhatsApp, Make.com, Google Sheets, and more.</p>
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <h2>Why clients choose AI Cloud Studio</h2>
+                    <p>A premium visual system, clean text hierarchy, and practical automation combine into websites that look expensive and perform like a serious sales asset.</p>
+                </div>
+
+                <div class="grid cols-4">
+                    <article class="card">
+                        <h3>Polished visual identity</h3>
+                        <p>Glassmorphism, depth, spacing rhythm, and elegant typography create a modern first impression instantly.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Conversion-oriented structure</h3>
+                        <p>Headlines, sections, and call-to-action flow are organized to guide visitors from interest to contact.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Automation-ready stack</h3>
+                        <p>WhatsApp, Make.com, CRM, and operational workflows can be connected without bloating the UI.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Fast rollout process</h3>
+                        <p>Efficient planning and implementation let you launch a premium website quickly and confidently.</p>
+                    </article>
+                </div>
             </div>
+        </section>
 
-            <div class="value-card">
-                <h3>Fast Delivery</h3>
-                <p>Optimized workflows ensure your website is ready quickly and professionally.</p>
+        <section id="services">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Services tailored for growth</h2>
+                    <p>Everything from design language to multilingual deployment is built to support brand confidence and business momentum.</p>
+                </div>
+
+                <div class="grid cols-4">
+                    <article class="card">
+                        <h3>Website design and development</h3>
+                        <p>Responsive pages with a premium aesthetic, smooth interactions, and concise content layout.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Automation systems</h3>
+                        <p>Workflow integrations that reduce manual work and improve lead handling from day one.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Content and positioning</h3>
+                        <p>Refined messaging that explains your value quickly and clearly to potential clients.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Multilingual rollout</h3>
+                        <p>Consistent tone and clear localization for English, German, and Albanian pages.</p>
+                    </article>
+                </div>
             </div>
+        </section>
 
-            <div class="value-card">
-                <h3>Transparent Pricing</h3>
-                <p>No hidden fees — simple, clear, and fair pricing for every business.</p>
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <h2>How we work</h2>
+                    <p>A focused three-step path keeps communication clear and progress visible.</p>
+                </div>
+
+                <div class="grid cols-3">
+                    <article class="card">
+                        <div class="step-number">1</div>
+                        <h3>Planning and strategy</h3>
+                        <p>We map goals, page structure, and visual direction before implementation begins.</p>
+                    </article>
+                    <article class="card">
+                        <div class="step-number">2</div>
+                        <h3>Design and build</h3>
+                        <p>We craft the interface and codebase with clean hierarchy, spacing, and responsive precision.</p>
+                    </article>
+                    <article class="card">
+                        <div class="step-number">3</div>
+                        <h3>Automation and launch</h3>
+                        <p>We connect workflows, verify performance, and prepare the site for business-ready publishing.</p>
+                    </article>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SERVICES -->
-    <section id="services">
-        <h2>Our Services</h2>
-        <p class="section-subtitle">Everything you need to build a strong digital presence.</p>
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Pricing</h2>
+                    <p>Simple plans with transparent scope and room to scale.</p>
+                </div>
 
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Website Development</h3>
-                <p>Premium, responsive websites with clean Apple‑style UI.</p>
+                <div class="grid cols-3">
+                    <article class="card">
+                        <h3>Starter Website</h3>
+                        <div class="price">EUR 299</div>
+                        <p>Perfect for small businesses that need a professional online identity fast.</p>
+                    </article>
+                    <article class="card featured">
+                        <h3>Business Website</h3>
+                        <div class="price">EUR 499</div>
+                        <p>Includes premium visual direction, multilingual support, and automation foundation.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Full Automation</h3>
+                        <div class="price">EUR 799</div>
+                        <p>Complete system with workflow integrations, lead handling, and scalable operations.</p>
+                    </article>
+                </div>
             </div>
+        </section>
 
-            <div class="service-card">
-                <h3>Automation Systems</h3>
-                <p>WhatsApp bots, Make.com workflows, CRM integrations, and more.</p>
+        <section id="contact">
+            <div class="container contact-box">
+                <h2>Ready to modernize your client experience?</h2>
+                <p>Email: <a href="mailto:aicloud.studio@gmail.com">aicloud.studio@gmail.com</a></p>
+                <p>Location: Dachau, Bavaria, Germany</p>
             </div>
+        </section>
+    </main>
 
-            <div class="service-card">
-                <h3>Branding & Structure</h3>
-                <p>Professional content, structure, and offer design for your business.</p>
-            </div>
-
-            <div class="service-card">
-                <h3>Multilingual Websites</h3>
-                <p>Clean, natural translations for EN, DE, AL — optimized for clarity.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section>
-        <h2>How It Works</h2>
-        <p class="section-subtitle">A simple and efficient process designed for your success.</p>
-
-        <div class="process-steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Planning</h3>
-                <p>We define your goals, structure, and design direction.</p>
-            </div>
-
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Development</h3>
-                <p>We build your website with clean code and modern design.</p>
-            </div>
-
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Automation</h3>
-                <p>We integrate workflows that save time and increase efficiency.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRICING -->
-    <section id="pricing">
-        <h2>Pricing</h2>
-        <p class="section-subtitle">Simple, transparent, and fair pricing.</p>
-
-        <div class="pricing-grid">
-            <div class="price-card">
-                <h3>Starter Website</h3>
-                <div class="price">€299</div>
-                <p>Perfect for small businesses that need a clean and modern online presence.</p>
-            </div>
-
-            <div class="price-card">
-                <h3>Business Website</h3>
-                <div class="price">€499</div>
-                <p>Includes automation, premium design, and multilingual support.</p>
-            </div>
-
-            <div class="price-card">
-                <h3>Full Automation</h3>
-                <div class="price">€799</div>
-                <p>Complete automation system with WhatsApp, Make.com, and CRM integration.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p class="section-subtitle">Ready to start your project? Let’s build something great.</p>
-
-        <div class="contact-box">
-            <p>Email: <a href="mailto:aicloud.studio@gmail.com">aicloud.studio@gmail.com</a></p>
-            <p>Location: Dachau, Bavaria, Germany</p>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
     <footer>
-        © 2024 AI Cloud Studio — Premium Web Development & Automation
+        <p id="copyright"></p>
     </footer>
 
+    <script>
+        document.getElementById("copyright").textContent = "© " + new Date().getFullYear() + " AI Cloud Studio | Premium Web Design and Automation";
+    </script>
 </body>
 </html>
