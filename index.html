@@ -287,8 +287,7 @@
             backdrop-filter: blur(10px);
             box-shadow: var(--shadow-card);
             padding: 24px;
-            transition: transform 230ms ease, border-color 230ms ease;
-            animation: fadeUp 0.7s ease both;
+            transition: opacity 0.55s ease, transform 0.55s ease, border-color 230ms ease;
         }
 
         .card:hover {
@@ -572,7 +571,148 @@
             .hero-stats {
                 grid-template-columns: 1fr;
             }
+            .nav-sections { display: none; }
+            .floating-cta {
+                bottom: 18px;
+                right: 18px;
+                padding: 11px 18px;
+                font-size: 0.85rem;
+            }
         }
+
+        /* Animated background orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.16;
+            pointer-events: none;
+            animation: drift 22s ease-in-out infinite;
+            z-index: -1;
+        }
+        .orb-1 { width: 520px; height: 520px; background: radial-gradient(circle, #0a84ff, #57c0ff); top: -130px; left: -110px; animation-duration: 22s; }
+        .orb-2 { width: 360px; height: 360px; background: radial-gradient(circle, #006be6, #45b0ff); bottom: 8%; right: -70px; animation-duration: 28s; animation-delay: -9s; }
+        .orb-3 { width: 240px; height: 240px; background: radial-gradient(circle, #57c0ff, #005fce); top: 50%; left: 44%; animation-duration: 36s; animation-delay: -15s; }
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33%  { transform: translate(28px, -18px) scale(1.04); }
+            66%  { transform: translate(-18px, 26px) scale(0.97); }
+        }
+
+        /* Scroll reveal */
+        .reveal { opacity: 0; transform: translateY(20px); }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        /* Stagger within grids */
+        .grid .card:nth-child(2) { transition-delay: 0.09s; }
+        .grid .card:nth-child(3) { transition-delay: 0.18s; }
+        .grid .card:nth-child(4) { transition-delay: 0.27s; }
+
+        /* Nav section links */
+        .nav-sections { flex: 1; justify-content: center; }
+        .nav-lang { flex-shrink: 0; }
+
+        /* Pricing feature list */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 4px;
+            display: grid;
+            gap: 7px;
+        }
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            font-size: 0.875rem;
+            color: #374766;
+            line-height: 1.5;
+        }
+        .feature-list li::before {
+            content: "\2713";
+            font-weight: 800;
+            color: #0a84ff;
+            flex-shrink: 0;
+        }
+
+        /* Star rating */
+        .stars { color: #f5a72a; font-size: 0.88rem; letter-spacing: 2px; margin-bottom: 12px; }
+
+        /* FAQ accordion */
+        .faq-grid { display: grid; gap: 10px; max-width: 780px; margin: 0 auto; }
+        .faq-item {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background: var(--surface);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            transition: border-color 220ms ease;
+        }
+        .faq-item:hover { border-color: rgba(10, 132, 255, 0.35); }
+        .faq-q {
+            width: 100%;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            text-align: left;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+        .faq-icon {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: rgba(10, 132, 255, 0.1);
+            display: grid;
+            place-items: center;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #0a84ff;
+            transition: transform 280ms ease, background 220ms ease;
+        }
+        .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(10, 132, 255, 0.2); }
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 360ms ease, padding 250ms ease;
+            padding: 0 24px;
+            color: var(--muted);
+            line-height: 1.85;
+            font-size: 0.94rem;
+        }
+        .faq-item.open .faq-a { max-height: 260px; padding: 0 24px 22px; }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 900;
+            border-radius: 999px;
+            padding: 13px 22px;
+            background: linear-gradient(140deg, #006be6, #0a84ff);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 12px 30px rgba(10, 132, 255, 0.38);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 220ms ease, box-shadow 220ms ease, opacity 300ms ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .floating-cta.visible { opacity: 1; pointer-events: auto; }
+        .floating-cta:hover { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(10, 132, 255, 0.44); }
     </style>
 </head>
 <body>
@@ -591,7 +731,12 @@
                 </svg>
                 MODERN WEB DESIGN
             </div>
-            <nav class="nav-links" aria-label="Language switcher">
+            <nav class="nav-links nav-sections" aria-label="Site navigation">
+                <a href="#services">Services</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <nav class="nav-links nav-lang" aria-label="Language switcher">
                 <a class="active" href="/">EN</a>
                 <a href="/de">DE</a>
                 <a href="/al">AL</a>
@@ -732,25 +877,44 @@
                         <h3>Starter Website</h3>
                         <div class="price">from EUR 790</div>
                         <p>Ideal for local businesses needing a high-quality one-page or compact multi-section website with clear conversion flow.</p>
-                        <p><strong>Delivery:</strong> 5-7 business days</p>
-                        <p><strong>Includes:</strong> 1 landing page, contact form, basic on-page SEO</p>
-                        <p><strong>Revisions:</strong> up to 2 rounds</p>
+                        <ul class="feature-list">
+                            <li>1 landing page</li>
+                            <li>Mobile responsive design</li>
+                            <li>Contact form</li>
+                            <li>Basic on-page SEO</li>
+                            <li>Delivery in 5&ndash;7 business days</li>
+                            <li>2 revision rounds</li>
+                        </ul>
                     </article>
                     <article class="card featured">
                         <h3>Standard Website <span class="recommend-badge">Recommended</span></h3>
                         <div class="price">from EUR 1,690</div>
                         <p>Most selected offer for growing businesses: custom UI direction, multilingual setup, SEO basics, and robust lead capture structure.</p>
-                        <p><strong>Delivery:</strong> 10-14 business days</p>
-                        <p><strong>Includes:</strong> up to 5 pages, EN/DE setup, analytics, lead form automation basics</p>
-                        <p><strong>Revisions:</strong> up to 3 rounds</p>
+                        <ul class="feature-list">
+                            <li>Up to 5 pages</li>
+                            <li>EN + DE multilingual setup</li>
+                            <li>Analytics integration</li>
+                            <li>Lead form automation basics</li>
+                            <li>Basic SEO setup</li>
+                            <li>Delivery in 10&ndash;14 business days</li>
+                            <li>3 revision rounds</li>
+                            <li>72h email support</li>
+                        </ul>
                     </article>
                     <article class="card">
                         <h3>Growth + Automation</h3>
                         <div class="price">from EUR 2,990</div>
                         <p>End-to-end system with workflow integrations, CRM-ready lead handling, analytics setup, and scalable operations.</p>
-                        <p><strong>Delivery:</strong> 3-4 weeks</p>
-                        <p><strong>Includes:</strong> up to 10 pages, advanced workflows, CRM handoff, reporting dashboard</p>
-                        <p><strong>Revisions:</strong> up to 4 rounds</p>
+                        <ul class="feature-list">
+                            <li>Up to 10 pages</li>
+                            <li>Advanced workflow automation</li>
+                            <li>CRM handoff setup</li>
+                            <li>Reporting dashboard</li>
+                            <li>WhatsApp + Make.com integration</li>
+                            <li>Delivery in 3&ndash;4 weeks</li>
+                            <li>4 revision rounds</li>
+                            <li>36h priority support</li>
+                        </ul>
                     </article>
                 </div>
             </div>
@@ -820,19 +984,53 @@
                 <div class="grid cols-3">
                     <article class="card">
                         <div class="testimonial-avatar" aria-hidden="true">LS</div>
+                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
                         <p class="testimonial-quote">"The new page finally explains our offer clearly. We started receiving better inquiry messages within the first week."</p>
                         <p class="testimonial-author">Local Service Business &mdash; Munich Area</p>
                     </article>
                     <article class="card">
                         <div class="testimonial-avatar" aria-hidden="true">CB</div>
+                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
                         <p class="testimonial-quote">"Fast process, transparent communication, and the website looks premium without feeling overloaded."</p>
                         <p class="testimonial-author">Consulting Brand &mdash; Bavaria</p>
                     </article>
                     <article class="card">
                         <div class="testimonial-avatar" aria-hidden="true">SM</div>
+                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
                         <p class="testimonial-quote">"Automation and maintenance setup saved us weekly admin time. The quote and scope were very clear from day one."</p>
-                        <p class="testimonial-author">SME Team &mdash; Dachau</p>
+                        <p class="testimonial-author">SME Team &mdash; Munich</p>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Frequently asked questions</h2>
+                    <p>Quick answers before starting a project.</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">How long does the project take from start to launch? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">Depending on the package: Starter is ready in 5&ndash;7 business days, Standard in 10&ndash;14 days, and Growth + Automation in 3&ndash;4 weeks. You receive a written timeline before work begins.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">Do I need to provide the website text myself? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">You can provide an outline or rough draft and we refine it into conversion-focused copy. The optional Copywriting Pack add-on covers core sections end-to-end.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">Can I update the website myself after delivery? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">Yes. You receive the full codebase and update instructions. Monthly maintenance plans are also available if you prefer a hands-off approach.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">Do you work with clients outside Munich? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">Yes. The entire process runs by email. Munich is our primary market, but we work with businesses across the DACH region and internationally.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">What if I need changes after delivery? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">Revisions within the agreed rounds are included. After delivery, additional changes are available at an hourly rate or via a Monthly Maintenance plan.</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -849,7 +1047,7 @@
                         <h3>Impressum</h3>
                         <ul class="legal-list">
                             <li><strong>Provider:</strong> MODERN WEB DESIGN</li>
-                            <li><strong>Address:</strong> Dachau, Bavaria, Germany</li>
+                            <li><strong>Address:</strong> Munich, Bavaria, Germany</li>
                             <li><strong>Email:</strong> info@aicloudpay.net</li>
                             <li><strong>Responsible for content:</strong> MODERN WEB DESIGN</li>
                         </ul>
@@ -873,7 +1071,7 @@
                 <p>Email: <a href="mailto:info@aicloudpay.net">info@aicloudpay.net</a></p>
                 <p>For a fast quote, include your package, timeline, and language requirements.</p>
                 <p>You get a clear scope, timeline, and payment milestones before work starts.</p>
-                <p>Location: Dachau, Bavaria, Germany</p>
+                <p>Location: Munich, Bavaria, Germany</p>
             </div>
         </section>
     </main>
@@ -887,8 +1085,82 @@
         <p id="copyright"></p>
     </footer>
 
+    <a class="floating-cta" href="mailto:info@aicloudpay.net?subject=Quote%20Request%20-%20MODERN%20WEB%20DESIGN&amp;body=Hi%20MODERN%20WEB%20DESIGN,%0A%0AI%20would%20like%20a%20quote%20for:%0A-%20Package:%0A-%20Language(s):%0A-%20Timeline:%0A-%20Monthly%20maintenance:%20Yes%2FNo%0A%0AThanks!" aria-label="Get a project quote">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Get a Quote
+    </a>
+
     <script>
-        document.getElementById("copyright").textContent = "© " + new Date().getFullYear() + " MODERN WEB DESIGN | Premium Web Design and Automation";
+        document.getElementById("copyright").textContent = "\u00a9 " + new Date().getFullYear() + " MODERN WEB DESIGN | Premium Web Design and Automation";
+
+        // Animated background orbs
+        ["orb-1", "orb-2", "orb-3"].forEach(function(cls) {
+            var el = document.createElement("div");
+            el.className = "orb " + cls;
+            document.body.appendChild(el);
+        });
+
+        // Scroll reveal with per-card stagger via sibling index
+        var revealTargets = document.querySelectorAll(".card, .contact-box, .faq-item");
+        revealTargets.forEach(function(el) {
+            var siblings = Array.from(el.parentElement.children);
+            var idx = siblings.indexOf(el);
+            el.style.transitionDelay = (idx * 0.08) + "s";
+            el.classList.add("reveal");
+            el.addEventListener("transitionend", function() {
+                el.style.transitionDelay = "";
+            }, { once: true });
+        });
+        var revealObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    setTimeout(function() { entry.target.classList.add("visible"); }, 40);
+                    revealObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealTargets.forEach(function(el) { revealObs.observe(el); });
+
+        // Animated counters for hero stats
+        function countUp(el, target, suffix, prefix) {
+            var dur = 1200, start;
+            function step(ts) {
+                if (!start) start = ts;
+                var p = Math.min((ts - start) / dur, 1);
+                var v = Math.round((1 - Math.pow(1 - p, 3)) * target);
+                el.textContent = (prefix || "") + v + (suffix || "");
+                if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+        var statObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (!e.isIntersecting) return;
+                var el = e.target;
+                var raw = el.textContent.trim();
+                if (raw === "72h") countUp(el, 72, "h");
+                if (raw === "+40%") countUp(el, 40, "%", "+");
+                statObs.unobserve(el);
+            });
+        }, { threshold: 0.6 });
+        document.querySelectorAll(".stat strong").forEach(function(el) { statObs.observe(el); });
+
+        // FAQ accordion
+        document.querySelectorAll(".faq-q").forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                var item = btn.closest(".faq-item");
+                var isOpen = item.classList.contains("open");
+                document.querySelectorAll(".faq-item.open").forEach(function(i) { i.classList.remove("open"); });
+                if (!isOpen) item.classList.add("open");
+                btn.setAttribute("aria-expanded", String(!isOpen));
+            });
+        });
+
+        // Floating CTA visibility on scroll
+        var floatingCta = document.querySelector(".floating-cta");
+        window.addEventListener("scroll", function() {
+            floatingCta.classList.toggle("visible", window.scrollY > 320);
+        }, { passive: true });
     </script>
 </body>
 </html>
