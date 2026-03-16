@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Cloud Studio | Premium Webdesign und Automatisierung</title>
+    <title>MODERN WEB DESIGN | Premium Webdesign und Automatisierung</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -339,6 +339,75 @@
             background: linear-gradient(175deg, rgba(255, 255, 255, 0.96), rgba(232, 244, 255, 0.82));
         }
 
+        .pricing .card p {
+            margin: 0;
+        }
+
+        .pricing .card p strong {
+            color: #1f355c;
+        }
+
+        .pricing .card h3 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .recommend-badge {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #0c4da0;
+            background: rgba(10, 132, 255, 0.14);
+            border: 1px solid rgba(10, 132, 255, 0.3);
+            border-radius: 999px;
+            padding: 4px 8px;
+        }
+
+        .mini-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+
+        .mini-table th,
+        .mini-table td {
+            text-align: left;
+            vertical-align: top;
+            padding: 8px 0;
+            color: #374766;
+        }
+
+        .mini-table th {
+            color: #1f355c;
+            font-weight: 700;
+        }
+
+        .mini-table tr + tr td,
+        .mini-table tr + tr th {
+            border-top: 1px dashed var(--line);
+        }
+
+        .quote-row {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quote-row .btn {
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .trust-note {
+            margin-top: 10px;
+            text-align: center;
+            color: #4d5f82;
+            font-size: 0.9rem;
+        }
+
         .contact-box {
             border-radius: var(--radius-lg);
             border: 1px solid rgba(10, 132, 255, 0.26);
@@ -360,6 +429,54 @@
         .contact-box a {
             color: #0149b0;
             font-weight: 700;
+        }
+
+        .testimonial-quote {
+            color: #263a5f;
+            font-size: 0.98rem;
+            line-height: 1.75;
+        }
+
+        .testimonial-author {
+            margin-top: 10px;
+            color: #5e6d89;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        .legal-grid {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+
+        .legal-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 8px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .legal-list li {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .footer-links a {
+            color: #486083;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            color: #0a2f71;
         }
 
         footer {
@@ -405,7 +522,7 @@
 <body>
     <header class="floating-nav" aria-label="Hauptnavigation">
         <div class="container nav-shell">
-            <div class="logo">AI Cloud Studio</div>
+            <div class="logo">MODERN WEB DESIGN</div>
             <nav class="nav-links" aria-label="Sprachauswahl">
                 <a href="/">EN</a>
                 <a class="active" href="/de">DE</a>
@@ -445,7 +562,7 @@
         <section>
             <div class="container">
                 <div class="section-head">
-                    <h2>Warum Kunden AI Cloud Studio waehlen</h2>
+                    <h2>Warum Kunden MODERN WEB DESIGN waehlen</h2>
                     <p>Ein Premium-Designsystem, klare Texthierarchie und praktische Automatisierung ergeben Websites, die hochwertig wirken und als echtes Vertriebswerkzeug arbeiten.</p>
                 </div>
 
@@ -528,25 +645,142 @@
         <section id="pricing" class="pricing">
             <div class="container">
                 <div class="section-head">
-                    <h2>Preise</h2>
-                    <p>Einfache Pakete mit transparentem Umfang und Raum fuer Wachstum.</p>
+                    <h2>Freelancer-Preise fuer den Muenchner Markt</h2>
+                    <p>Pakete orientiert an typischen Freelancer-Website-Angeboten im Raum Muenchen, mit transparentem Umfang und Raum fuer Wachstum. Vor dem Start erhalten Sie Scope, Zeitplan und Meilensteine schriftlich.</p>
                 </div>
 
                 <div class="grid cols-3">
                     <article class="card">
                         <h3>Starter Website</h3>
-                        <div class="price">EUR 299</div>
-                        <p>Ideal fuer kleine Unternehmen, die schnell einen professionellen Online-Auftritt brauchen.</p>
+                        <div class="price">ab EUR 790</div>
+                        <p>Ideal fuer lokale Unternehmen mit Bedarf an einer hochwertigen Onepager- oder kompakten Firmenwebsite.</p>
+                        <p><strong>Lieferzeit:</strong> 5-7 Werktage</p>
+                        <p><strong>Enthalten:</strong> 1 Landingpage, Kontaktformular, On-Page SEO Basis</p>
+                        <p><strong>Korrekturen:</strong> bis zu 2 Runden</p>
                     </article>
                     <article class="card featured">
-                        <h3>Business Website</h3>
-                        <div class="price">EUR 499</div>
-                        <p>Enthaelt Premium-Designrichtung, Mehrsprachigkeit und eine starke Automatisierungsbasis.</p>
+                        <h3>Standard Website <span class="recommend-badge">Empfohlen</span></h3>
+                        <div class="price">ab EUR 1.690</div>
+                        <p>Meist gewaehlt fuer wachsende Unternehmen: individuelle UI-Richtung, Mehrsprachigkeit, SEO-Basics und starke Lead-Struktur.</p>
+                        <p><strong>Lieferzeit:</strong> 10-14 Werktage</p>
+                        <p><strong>Enthalten:</strong> bis zu 5 Seiten, EN/DE Setup, Analytics, Lead-Formular Automation Basis</p>
+                        <p><strong>Korrekturen:</strong> bis zu 3 Runden</p>
                     </article>
                     <article class="card">
-                        <h3>Full Automation</h3>
-                        <div class="price">EUR 799</div>
-                        <p>Komplettes System mit Workflow-Integrationen, Lead-Handling und skalierbaren Prozessen.</p>
+                        <h3>Growth + Automation</h3>
+                        <div class="price">ab EUR 2.990</div>
+                        <p>Ganzheitliches System mit Workflow-Integrationen, CRM-faehigem Lead-Handling, Analytics-Setup und skalierbaren Prozessen.</p>
+                        <p><strong>Lieferzeit:</strong> 3-4 Wochen</p>
+                        <p><strong>Enthalten:</strong> bis zu 10 Seiten, Advanced Workflows, CRM Handoff, Reporting Dashboard</p>
+                        <p><strong>Korrekturen:</strong> bis zu 4 Runden</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="addons">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Optionale Add-ons</h2>
+                    <p>Flexible Erweiterungen, die Sie direkt zum Projektstart oder nach dem Launch buchen koennen.</p>
+                </div>
+
+                <div class="grid cols-3">
+                    <article class="card">
+                        <h3>SEO Boost</h3>
+                        <div class="price">ab EUR 190</div>
+                        <p>Keyword-Mapping, Meta-Daten Optimierung, interne Verlinkung und Indexierungs-Check.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Textpaket</h3>
+                        <div class="price">ab EUR 290</div>
+                        <p>Conversion-orientierte Textueberarbeitung fuer Kernbereiche mit klarer CTA-Sprache.</p>
+                    </article>
+                    <article class="card featured">
+                        <h3>Monatliche Wartung (optional)</h3>
+                        <div class="price">EUR 79-249/Monat</div>
+                        <p>Waehlen Sie den Care-Plan passend zu Seitenumfang und Update-Bedarf.</p>
+                        <table class="mini-table" aria-label="Monatliche Wartungsplaene">
+                            <tr>
+                                <th>Plan</th>
+                                <th>Preis</th>
+                                <th>Enthalten</th>
+                            </tr>
+                            <tr>
+                                <td>Starter Care</td>
+                                <td>EUR 79/Monat</td>
+                                <td>1 Update-Batch, woechentliches Backup, 72h Reaktion</td>
+                            </tr>
+                            <tr>
+                                <td>Standard Care</td>
+                                <td>EUR 149/Monat</td>
+                                <td>2 Update-Batches, 2 Backups/Woche, 48h Reaktion</td>
+                            </tr>
+                            <tr>
+                                <td>Growth Care</td>
+                                <td>EUR 249/Monat</td>
+                                <td>4 Update-Batches, taegliches Backup, 24h Reaktion</td>
+                            </tr>
+                        </table>
+                    </article>
+                </div>
+
+                <div class="quote-row">
+                    <a class="btn primary" href="mailto:info@aicloudpay.net?subject=Angebotsanfrage%20-%20MODERN%20WEB%20DESIGN&amp;body=Hallo%20MODERN%20WEB%20DESIGN,%0A%0AIch%20moechte%20ein%20Angebot%20fuer:%0A-%20Paket:%0A-%20Sprache(n):%0A-%20Zeitrahmen:%0A-%20Monatliche%20Wartung:%20Ja/Nein%0A%0ADanke!">Angebot per E-Mail anfragen</a>
+                </div>
+                <p class="trust-note">Schriftliche Angebotsantwort innerhalb von 24 Geschaeftsstunden.</p>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Kundenfeedback</h2>
+                    <p>Aktuelle anonymisierte Rueckmeldungen aus lokalen Projekten.</p>
+                </div>
+
+                <div class="grid cols-3">
+                    <article class="card">
+                        <p class="testimonial-quote">"Die neue Seite erklaert unser Angebot endlich klar. Bereits in der ersten Woche kamen bessere Anfragen."</p>
+                        <p class="testimonial-author">Lokaler Dienstleister - Raum Muenchen</p>
+                    </article>
+                    <article class="card">
+                        <p class="testimonial-quote">"Schneller Ablauf, transparente Kommunikation und ein hochwertiger Auftritt ohne visuelle Ueberladung."</p>
+                        <p class="testimonial-author">Beratungsmarke - Bayern</p>
+                    </article>
+                    <article class="card">
+                        <p class="testimonial-quote">"Automatisierung und Wartung sparen uns jede Woche Zeit. Angebot und Scope waren von Anfang an klar."</p>
+                        <p class="testimonial-author">KMU Team - Dachau</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="legal">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Rechtliches und Datenschutz</h2>
+                    <p>Wichtige Angaben fuer Transparenz und Compliance vor Projektstart.</p>
+                </div>
+
+                <div class="grid legal-grid">
+                    <article class="card" id="impressum">
+                        <h3>Impressum</h3>
+                        <ul class="legal-list">
+                            <li><strong>Anbieter:</strong> MODERN WEB DESIGN</li>
+                            <li><strong>Adresse:</strong> Dachau, Bayern, Deutschland</li>
+                            <li><strong>E-Mail:</strong> info@aicloudpay.net</li>
+                            <li><strong>Inhaltlich verantwortlich:</strong> MODERN WEB DESIGN</li>
+                        </ul>
+                    </article>
+                    <article class="card" id="privacy">
+                        <h3>Datenschutzerklaerung</h3>
+                        <p>Wir verarbeiten nur Daten, die Sie per E-Mail oder Projektkommunikation senden. Die Daten werden nur fuer Angebot, Umsetzung und Support genutzt.</p>
+                        <ul class="legal-list">
+                            <li><strong>Erhobene Daten:</strong> Name, E-Mail, Projektanforderungen, Zeitrahmen</li>
+                            <li><strong>Zweck:</strong> Angebotserstellung und Projektdurchfuehrung</li>
+                            <li><strong>Kontakt:</strong> info@aicloudpay.net fuer Datenschutzanfragen</li>
+                        </ul>
                     </article>
                 </div>
             </div>
@@ -555,18 +789,25 @@
         <section id="contact">
             <div class="container contact-box">
                 <h2>Bereit, Ihr Kundenerlebnis zu modernisieren?</h2>
-                <p>E-Mail: <a href="mailto:aicloud.studio@gmail.com">aicloud.studio@gmail.com</a></p>
+                <p>E-Mail: <a href="mailto:info@aicloudpay.net">info@aicloudpay.net</a></p>
+                <p>Fuer ein schnelles Angebot senden Sie Paket, Zeitrahmen und Sprachwuensche direkt per E-Mail.</p>
+                <p>Vor Projektstart erhalten Sie einen klaren Scope, Zeitplan und Zahlungs-Meilensteine.</p>
                 <p>Standort: Dachau, Bayern, Deutschland</p>
             </div>
         </section>
     </main>
 
     <footer>
+        <div class="footer-links" aria-label="Footer-Links">
+            <a href="#testimonials">Kundenfeedback</a>
+            <a href="#impressum">Impressum</a>
+            <a href="#privacy">Datenschutz</a>
+        </div>
         <p id="copyright"></p>
     </footer>
 
     <script>
-        document.getElementById("copyright").textContent = "© " + new Date().getFullYear() + " AI Cloud Studio | Premium Webdesign und Automatisierung";
+        document.getElementById("copyright").textContent = "© " + new Date().getFullYear() + " MODERN WEB DESIGN | Premium Webdesign und Automatisierung";
     </script>
 </body>
 </html>

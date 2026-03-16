@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Cloud Studio | Zhvillim Premium i Web-it dhe Automatizim</title>
+    <title>MODERN WEB DESIGN | Zhvillim Premium i Web-it dhe Automatizim</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -339,6 +339,75 @@
             background: linear-gradient(175deg, rgba(255, 255, 255, 0.96), rgba(232, 244, 255, 0.82));
         }
 
+        .pricing .card p {
+            margin: 0;
+        }
+
+        .pricing .card p strong {
+            color: #1f355c;
+        }
+
+        .pricing .card h3 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .recommend-badge {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #0c4da0;
+            background: rgba(10, 132, 255, 0.14);
+            border: 1px solid rgba(10, 132, 255, 0.3);
+            border-radius: 999px;
+            padding: 4px 8px;
+        }
+
+        .mini-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+
+        .mini-table th,
+        .mini-table td {
+            text-align: left;
+            vertical-align: top;
+            padding: 8px 0;
+            color: #374766;
+        }
+
+        .mini-table th {
+            color: #1f355c;
+            font-weight: 700;
+        }
+
+        .mini-table tr + tr td,
+        .mini-table tr + tr th {
+            border-top: 1px dashed var(--line);
+        }
+
+        .quote-row {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quote-row .btn {
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .trust-note {
+            margin-top: 10px;
+            text-align: center;
+            color: #4d5f82;
+            font-size: 0.9rem;
+        }
+
         .contact-box {
             border-radius: var(--radius-lg);
             border: 1px solid rgba(10, 132, 255, 0.26);
@@ -360,6 +429,54 @@
         .contact-box a {
             color: #0149b0;
             font-weight: 700;
+        }
+
+        .testimonial-quote {
+            color: #263a5f;
+            font-size: 0.98rem;
+            line-height: 1.75;
+        }
+
+        .testimonial-author {
+            margin-top: 10px;
+            color: #5e6d89;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        .legal-grid {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+
+        .legal-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 8px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .legal-list li {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .footer-links a {
+            color: #486083;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            color: #0a2f71;
         }
 
         footer {
@@ -405,7 +522,7 @@
 <body>
     <header class="floating-nav" aria-label="Navigimi kryesor">
         <div class="container nav-shell">
-            <div class="logo">AI Cloud Studio</div>
+            <div class="logo">MODERN WEB DESIGN</div>
             <nav class="nav-links" aria-label="Nderrimi i gjuhes">
                 <a href="/">EN</a>
                 <a href="/de">DE</a>
@@ -445,7 +562,7 @@
         <section>
             <div class="container">
                 <div class="section-head">
-                    <h2>Pse klientet zgjedhin AI Cloud Studio</h2>
+                    <h2>Pse klientet zgjedhin MODERN WEB DESIGN</h2>
                     <p>Nje sistem vizual premium, hierarki e qarte e tekstit dhe automatizim praktik krijojne web-faqe qe duken te nivelit te larte dhe punojne si aset serioz shitjeje.</p>
                 </div>
 
@@ -528,25 +645,142 @@
         <section id="pricing" class="pricing">
             <div class="container">
                 <div class="section-head">
-                    <h2>Cmimet</h2>
-                    <p>Paketa te thjeshta me scope transparent dhe hapesire per zgjerim.</p>
+                    <h2>Cmime freelancer per tregun e Mynihut</h2>
+                    <p>Paketa te bazuara ne ofertat tipike te freelance web services ne zonen e Mynihut, me scope transparent dhe hapesire per zgjerim. Para nisjes, merrni me shkrim scope, afat dhe milestones pagese.</p>
                 </div>
 
                 <div class="grid cols-3">
                     <article class="card">
                         <h3>Starter Website</h3>
-                        <div class="price">EUR 299</div>
-                        <p>Ideale per biznese te vogla qe kane nevoje per prezence profesionale online ne kohe te shpejte.</p>
+                        <div class="price">nga EUR 790</div>
+                        <p>Ideale per biznese lokale qe duan one-page ose web-faqe te vogel profesionale me strukture te qarte konvertimi.</p>
+                        <p><strong>Koha e dorezimit:</strong> 5-7 dite pune</p>
+                        <p><strong>Perfshihet:</strong> 1 landing page, formular kontakti, SEO bazik on-page</p>
+                        <p><strong>Rishikime:</strong> deri ne 2 raunde</p>
                     </article>
                     <article class="card featured">
-                        <h3>Business Website</h3>
-                        <div class="price">EUR 499</div>
-                        <p>Perfshin drejtim premium vizual, mbeshtetje shumegjuheshe dhe baze te forte automatizimi.</p>
+                        <h3>Standard Website <span class="recommend-badge">E rekomanduar</span></h3>
+                        <div class="price">nga EUR 1,690</div>
+                        <p>Oferta me e zgjedhur per biznese ne rritje: drejtim i personalizuar UI, konfigurim shumegjuhesh, SEO bazik dhe baze e forte per lead-e.</p>
+                        <p><strong>Koha e dorezimit:</strong> 10-14 dite pune</p>
+                        <p><strong>Perfshihet:</strong> deri ne 5 faqe, setup EN/DE, analytics, baze automatizimi per formular lead-esh</p>
+                        <p><strong>Rishikime:</strong> deri ne 3 raunde</p>
                     </article>
                     <article class="card">
-                        <h3>Full Automation</h3>
-                        <div class="price">EUR 799</div>
-                        <p>Sistem i plote me integrime workflow, menaxhim lead-esh dhe procese te shkallezueshme.</p>
+                        <h3>Growth + Automation</h3>
+                        <div class="price">nga EUR 2,990</div>
+                        <p>Sistem i plote me integrime workflow, menaxhim lead-esh i gatshem per CRM, analytics dhe procese te shkallezueshme.</p>
+                        <p><strong>Koha e dorezimit:</strong> 3-4 jave</p>
+                        <p><strong>Perfshihet:</strong> deri ne 10 faqe, advanced workflows, CRM handoff, dashboard raportimi</p>
+                        <p><strong>Rishikime:</strong> deri ne 4 raunde</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="addons">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Add-ons opsionale</h2>
+                    <p>Sherbime shtese fleksibel qe mund t'i shtoni ne fillim te projektit ose pas lancimit.</p>
+                </div>
+
+                <div class="grid cols-3">
+                    <article class="card">
+                        <h3>SEO Boost</h3>
+                        <div class="price">nga EUR 190</div>
+                        <p>Keyword mapping, optimizim meta tags, lidhje te brendshme dhe kontroll i indeksimit.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Copywriting Pack</h3>
+                        <div class="price">nga EUR 290</div>
+                        <p>Perditesim i teksteve kryesore me fokus ne konvertime dhe CTA me e qarte.</p>
+                    </article>
+                    <article class="card featured">
+                        <h3>Mirembajtje mujore (opsionale)</h3>
+                        <div class="price">EUR 79-249/muaj</div>
+                        <p>Zgjidhni planin sipas madhesise se faqes dhe ritmit te perditesimeve.</p>
+                        <table class="mini-table" aria-label="Planet e mirembajtjes mujore">
+                            <tr>
+                                <th>Plani</th>
+                                <th>Cmimi</th>
+                                <th>Perfshihet</th>
+                            </tr>
+                            <tr>
+                                <td>Starter Care</td>
+                                <td>EUR 79/muaj</td>
+                                <td>1 batch updates, backup javor, pergjigje 72h</td>
+                            </tr>
+                            <tr>
+                                <td>Standard Care</td>
+                                <td>EUR 149/muaj</td>
+                                <td>2 batch updates, 2 backup/jave, pergjigje 48h</td>
+                            </tr>
+                            <tr>
+                                <td>Growth Care</td>
+                                <td>EUR 249/muaj</td>
+                                <td>4 batch updates, backup ditor, pergjigje 24h</td>
+                            </tr>
+                        </table>
+                    </article>
+                </div>
+
+                <div class="quote-row">
+                    <a class="btn primary" href="mailto:info@aicloudpay.net?subject=Kerkese%20oferte%20-%20MODERN%20WEB%20DESIGN&amp;body=Pershendetje%20MODERN%20WEB%20DESIGN,%0A%0ADua%20nje%20oferte%20per:%0A-%20Paketa:%0A-%20Gjuha(t):%0A-%20Afati:%0A-%20Mirembajtje%20mujore:%20Po/Jo%0A%0AFaleminderit!">Kerko oferte me email</a>
+                </div>
+                <p class="trust-note">Pergjigje me oferte te shkruar brenda 24 oreve te punes.</p>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Feedback nga klientet</h2>
+                    <p>Disa komente te anonimizuara nga projekte lokale te fundit.</p>
+                </div>
+
+                <div class="grid cols-3">
+                    <article class="card">
+                        <p class="testimonial-quote">"Faqja e re e shpjegon oferten tone shume me qarte. Brenda javes se pare morrem kerkesa me cilesore."</p>
+                        <p class="testimonial-author">Biznes sherbimesh lokale - Zona e Mynihut</p>
+                    </article>
+                    <article class="card">
+                        <p class="testimonial-quote">"Proces i shpejte, komunikim transparent dhe rezultat premium pa e renduar dizajnin."</p>
+                        <p class="testimonial-author">Brand konsulence - Bavari</p>
+                    </article>
+                    <article class="card">
+                        <p class="testimonial-quote">"Automatizimi dhe mirembajtja mujore na kursejne kohe cdo jave. Oferta dhe scope ishin te qarta qe ne fillim."</p>
+                        <p class="testimonial-author">Ekip SME - Dachau</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="legal">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Ligjore dhe privatesia</h2>
+                    <p>Informacion thelbesor per transparence dhe perputhshmeri para nisjes se projektit.</p>
+                </div>
+
+                <div class="grid legal-grid">
+                    <article class="card" id="impressum">
+                        <h3>Impressum</h3>
+                        <ul class="legal-list">
+                            <li><strong>Ofruesi:</strong> MODERN WEB DESIGN</li>
+                            <li><strong>Adresa:</strong> Dachau, Bavari, Gjermani</li>
+                            <li><strong>Email:</strong> info@aicloudpay.net</li>
+                            <li><strong>Pergjegjes per permbajtjen:</strong> MODERN WEB DESIGN</li>
+                        </ul>
+                    </article>
+                    <article class="card" id="privacy">
+                        <h3>Politika e privatesise</h3>
+                        <p>Ne perpunojme vetem te dhenat qe ndani me email ose gjate komunikimit te projektit. Te dhenat perdoren vetem per oferte, zbatim dhe mbeshtetje.</p>
+                        <ul class="legal-list">
+                            <li><strong>Te dhenat e mbledhura:</strong> Emri, email, kerkesat e projektit, afati</li>
+                            <li><strong>Qellimi:</strong> Pergatitja e ofertes dhe zbatimi i projektit</li>
+                            <li><strong>Kontakt:</strong> info@aicloudpay.net per kerkesa mbi te dhenat</li>
+                        </ul>
                     </article>
                 </div>
             </div>
@@ -555,18 +789,25 @@
         <section id="contact">
             <div class="container contact-box">
                 <h2>Gati ta modernizojme eksperiencen e klienteve tuaj?</h2>
-                <p>Email: <a href="mailto:aicloud.studio@gmail.com">aicloud.studio@gmail.com</a></p>
+                <p>Email: <a href="mailto:info@aicloudpay.net">info@aicloudpay.net</a></p>
+                <p>Per oferte te shpejte, dergoni me email paketen, afatin dhe gjuhet qe ju duhen.</p>
+                <p>Para fillimit te punes, ju dergojme scope te qarte, afat dhe milestones pagese.</p>
                 <p>Lokacioni: Dachau, Bavari, Gjermani</p>
             </div>
         </section>
     </main>
 
     <footer>
+        <div class="footer-links" aria-label="Linqet ne footer">
+            <a href="#testimonials">Feedback</a>
+            <a href="#impressum">Impressum</a>
+            <a href="#privacy">Privatesia</a>
+        </div>
         <p id="copyright"></p>
     </footer>
 
     <script>
-        document.getElementById("copyright").textContent = "© " + new Date().getFullYear() + " AI Cloud Studio | Zhvillim Premium i Web-it dhe Automatizim";
+        document.getElementById("copyright").textContent = "© " + new Date().getFullYear() + " MODERN WEB DESIGN | Zhvillim Premium i Web-it dhe Automatizim";
     </script>
 </body>
 </html>
