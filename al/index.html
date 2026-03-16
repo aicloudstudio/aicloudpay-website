@@ -486,6 +486,54 @@
             font-size: 0.9rem;
         }
 
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-visual {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            width: 100%;
+            aspect-ratio: 4/3;
+            box-shadow: 0 28px 60px rgba(15, 23, 40, 0.18);
+        }
+
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 700ms ease;
+        }
+
+        .hero-visual img:hover {
+            transform: scale(1.04);
+        }
+
+        .logo-mark {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: #fff;
+            background: linear-gradient(135deg, #006be6, #0a84ff);
+            box-shadow: 0 4px 12px rgba(10, 132, 255, 0.3);
+            margin-bottom: 14px;
+            flex-shrink: 0;
+        }
+
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -513,6 +561,14 @@
                 padding-top: 150px;
             }
 
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
             .hero-stats {
                 grid-template-columns: 1fr;
             }
@@ -522,7 +578,19 @@
 <body>
     <header class="floating-nav" aria-label="Navigimi kryesor">
         <div class="container nav-shell">
-            <div class="logo">MODERN WEB DESIGN</div>
+            <div class="logo logo-mark">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect width="26" height="26" rx="6" fill="url(#logo-grad)"/>
+                    <polyline points="6,19 6,9 13,16 20,9 20,19" stroke="white" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0" y1="0" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#0060d0"/>
+                            <stop offset="1" stop-color="#45b0ff"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                MODERN WEB DESIGN
+            </div>
             <nav class="nav-links" aria-label="Nderrimi i gjuhes">
                 <a href="/">EN</a>
                 <a href="/de">DE</a>
@@ -534,26 +602,36 @@
     <main>
         <section class="hero">
             <div class="container hero-panel">
-                <div class="eyebrow">Prezence digjitale premium</div>
-                <h1>Web-faqe moderne me <span>elegance Apple-style</span>.</h1>
-                <p class="subtitle">Ne dizajnojme dhe ndertojme web-faqe premium te shpejta me workflow automatizimi qe kursejne kohe dhe rrisin besimin. Marka juaj fiton mesazh me te qarte, prezantim me profesional dhe nje rruge me te forte drejt konvertimit.</p>
-                <div class="hero-actions">
-                    <a href="#contact" class="btn primary">Fillo Projektin</a>
-                    <a href="#services" class="btn ghost">Shiko Sherbimet</a>
-                </div>
-
-                <div class="hero-stats" aria-label="Rezultate kryesore per klientet">
-                    <div class="stat">
-                        <strong>72h</strong>
-                        <span>Draft i drejtimit te dizajnit</span>
+                <div class="hero-inner">
+                    <div class="hero-text">
+                        <div class="eyebrow">Prezence digjitale premium</div>
+                        <h1>Web-faqe moderne me <span>elegance Apple-style</span>.</h1>
+                        <p class="subtitle">Ne dizajnojme dhe ndertojme web-faqe premium te shpejta me workflow automatizimi qe kursejne kohe dhe rrisin besimin. Marka juaj fiton mesazh me te qarte, prezantim me profesional dhe nje rruge me te forte drejt konvertimit.</p>
+                        <div class="hero-actions">
+                            <a href="#contact" class="btn primary">Fillo Projektin</a>
+                            <a href="#services" class="btn ghost">Shiko Sherbimet</a>
+                        </div>
+                        <div class="hero-stats" aria-label="Rezultate kryesore per klientet">
+                            <div class="stat">
+                                <strong>72h</strong>
+                                <span>Draft i drejtimit te dizajnit</span>
+                            </div>
+                            <div class="stat">
+                                <strong>+40%</strong>
+                                <span>Me shume qartesi ne komunikim</span>
+                            </div>
+                            <div class="stat">
+                                <strong>3 Gjuhe</strong>
+                                <span>EN, DE, AL gati</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <strong>+40%</strong>
-                        <span>Me shume qartesi ne komunikim</span>
-                    </div>
-                    <div class="stat">
-                        <strong>3 Gjuhe</strong>
-                        <span>EN, DE, AL gati</span>
+                    <div class="hero-visual" aria-hidden="true">
+                        <img
+                            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=85&auto=format&fit=crop"
+                            alt="Workspace profesionale per dizajn web"
+                            loading="lazy"
+                        />
                     </div>
                 </div>
             </div>
@@ -741,16 +819,19 @@
 
                 <div class="grid cols-3">
                     <article class="card">
+                        <div class="testimonial-avatar" aria-hidden="true">BL</div>
                         <p class="testimonial-quote">"Faqja e re e shpjegon oferten tone shume me qarte. Brenda javes se pare morrem kerkesa me cilesore."</p>
-                        <p class="testimonial-author">Biznes sherbimesh lokale - Zona e Mynihut</p>
+                        <p class="testimonial-author">Biznes sherbimesh lokale &mdash; Zona e Mynihut</p>
                     </article>
                     <article class="card">
+                        <div class="testimonial-avatar" aria-hidden="true">BK</div>
                         <p class="testimonial-quote">"Proces i shpejte, komunikim transparent dhe rezultat premium pa e renduar dizajnin."</p>
-                        <p class="testimonial-author">Brand konsulence - Bavari</p>
+                        <p class="testimonial-author">Brand konsulence &mdash; Bavari</p>
                     </article>
                     <article class="card">
+                        <div class="testimonial-avatar" aria-hidden="true">ES</div>
                         <p class="testimonial-quote">"Automatizimi dhe mirembajtja mujore na kursejne kohe cdo jave. Oferta dhe scope ishin te qarta qe ne fillim."</p>
-                        <p class="testimonial-author">Ekip SME - Dachau</p>
+                        <p class="testimonial-author">Ekip SME &mdash; Dachau</p>
                     </article>
                 </div>
             </div>
