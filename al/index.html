@@ -287,8 +287,7 @@
             backdrop-filter: blur(10px);
             box-shadow: var(--shadow-card);
             padding: 24px;
-            transition: transform 230ms ease, border-color 230ms ease;
-            animation: fadeUp 0.7s ease both;
+            transition: opacity 0.55s ease, transform 0.55s ease, border-color 230ms ease;
         }
 
         .card:hover {
@@ -572,7 +571,148 @@
             .hero-stats {
                 grid-template-columns: 1fr;
             }
+            .nav-sections { display: none; }
+            .floating-cta {
+                bottom: 18px;
+                right: 18px;
+                padding: 11px 18px;
+                font-size: 0.85rem;
+            }
         }
+
+        /* Animated background orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.16;
+            pointer-events: none;
+            animation: drift 22s ease-in-out infinite;
+            z-index: -1;
+        }
+        .orb-1 { width: 520px; height: 520px; background: radial-gradient(circle, #0a84ff, #57c0ff); top: -130px; left: -110px; animation-duration: 22s; }
+        .orb-2 { width: 360px; height: 360px; background: radial-gradient(circle, #006be6, #45b0ff); bottom: 8%; right: -70px; animation-duration: 28s; animation-delay: -9s; }
+        .orb-3 { width: 240px; height: 240px; background: radial-gradient(circle, #57c0ff, #005fce); top: 50%; left: 44%; animation-duration: 36s; animation-delay: -15s; }
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33%  { transform: translate(28px, -18px) scale(1.04); }
+            66%  { transform: translate(-18px, 26px) scale(0.97); }
+        }
+
+        /* Scroll reveal */
+        .reveal { opacity: 0; transform: translateY(20px); }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        /* Stagger within grids */
+        .grid .card:nth-child(2) { transition-delay: 0.09s; }
+        .grid .card:nth-child(3) { transition-delay: 0.18s; }
+        .grid .card:nth-child(4) { transition-delay: 0.27s; }
+
+        /* Nav section links */
+        .nav-sections { flex: 1; justify-content: center; }
+        .nav-lang { flex-shrink: 0; }
+
+        /* Pricing feature list */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 4px;
+            display: grid;
+            gap: 7px;
+        }
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            font-size: 0.875rem;
+            color: #374766;
+            line-height: 1.5;
+        }
+        .feature-list li::before {
+            content: "\2713";
+            font-weight: 800;
+            color: #0a84ff;
+            flex-shrink: 0;
+        }
+
+        /* Star rating */
+        .stars { color: #f5a72a; font-size: 0.88rem; letter-spacing: 2px; margin-bottom: 12px; }
+
+        /* FAQ accordion */
+        .faq-grid { display: grid; gap: 10px; max-width: 780px; margin: 0 auto; }
+        .faq-item {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background: var(--surface);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            transition: border-color 220ms ease;
+        }
+        .faq-item:hover { border-color: rgba(10, 132, 255, 0.35); }
+        .faq-q {
+            width: 100%;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            text-align: left;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+        .faq-icon {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: rgba(10, 132, 255, 0.1);
+            display: grid;
+            place-items: center;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #0a84ff;
+            transition: transform 280ms ease, background 220ms ease;
+        }
+        .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(10, 132, 255, 0.2); }
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 360ms ease, padding 250ms ease;
+            padding: 0 24px;
+            color: var(--muted);
+            line-height: 1.85;
+            font-size: 0.94rem;
+        }
+        .faq-item.open .faq-a { max-height: 260px; padding: 0 24px 22px; }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 900;
+            border-radius: 999px;
+            padding: 13px 22px;
+            background: linear-gradient(140deg, #006be6, #0a84ff);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 12px 30px rgba(10, 132, 255, 0.38);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 220ms ease, box-shadow 220ms ease, opacity 300ms ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .floating-cta.visible { opacity: 1; pointer-events: auto; }
+        .floating-cta:hover { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(10, 132, 255, 0.44); }
     </style>
 </head>
 <body>
@@ -591,7 +731,12 @@
                 </svg>
                 MODERN WEB DESIGN
             </div>
-            <nav class="nav-links" aria-label="Nderrimi i gjuhes">
+            <nav class="nav-links nav-sections" aria-label="Navigimi i seksioneve">
+                <a href="#services">Sherbime</a>
+                <a href="#pricing">Cmime</a>
+                <a href="#contact">Kontakt</a>
+            </nav>
+            <nav class="nav-links nav-lang" aria-label="Nderrimi i gjuhes">
                 <a href="/">EN</a>
                 <a href="/de">DE</a>
                 <a class="active" href="/al">AL</a>
@@ -730,27 +875,46 @@
                 <div class="grid cols-3">
                     <article class="card">
                         <h3>Starter Website</h3>
-                        <div class="price">nga EUR 790</div>
+                        <div class="price">nga EUR 699</div>
                         <p>Ideale per biznese lokale qe duan one-page ose web-faqe te vogel profesionale me strukture te qarte konvertimi.</p>
-                        <p><strong>Koha e dorezimit:</strong> 5-7 dite pune</p>
-                        <p><strong>Perfshihet:</strong> 1 landing page, formular kontakti, SEO bazik on-page</p>
-                        <p><strong>Rishikime:</strong> deri ne 2 raunde</p>
+                        <ul class="feature-list">
+                            <li>1 landing page</li>
+                            <li>Dizajn responsive per mobile</li>
+                            <li>Formular kontakti</li>
+                            <li>SEO bazik on-page</li>
+                            <li>Dorezim 5&ndash;7 dite pune</li>
+                            <li>2 raunde rishikimesh</li>
+                        </ul>
                     </article>
                     <article class="card featured">
                         <h3>Standard Website <span class="recommend-badge">E rekomanduar</span></h3>
-                        <div class="price">nga EUR 1,690</div>
+                        <div class="price">nga EUR 1,490</div>
                         <p>Oferta me e zgjedhur per biznese ne rritje: drejtim i personalizuar UI, konfigurim shumegjuhesh, SEO bazik dhe baze e forte per lead-e.</p>
-                        <p><strong>Koha e dorezimit:</strong> 10-14 dite pune</p>
-                        <p><strong>Perfshihet:</strong> deri ne 5 faqe, setup EN/DE, analytics, baze automatizimi per formular lead-esh</p>
-                        <p><strong>Rishikime:</strong> deri ne 3 raunde</p>
+                        <ul class="feature-list">
+                            <li>Deri ne 5 faqe</li>
+                            <li>Konfigurim EN + DE</li>
+                            <li>Integrimi i analytics</li>
+                            <li>Automatizim bazik i formularit te lead-eve</li>
+                            <li>Konfigurim SEO baze</li>
+                            <li>Dorezim 10&ndash;14 dite pune</li>
+                            <li>3 raunde rishikimesh</li>
+                            <li>Support me email 72h</li>
+                        </ul>
                     </article>
                     <article class="card">
                         <h3>Growth + Automation</h3>
-                        <div class="price">nga EUR 2,990</div>
+                        <div class="price">nga EUR 2,490</div>
                         <p>Sistem i plote me integrime workflow, menaxhim lead-esh i gatshem per CRM, analytics dhe procese te shkallezueshme.</p>
-                        <p><strong>Koha e dorezimit:</strong> 3-4 jave</p>
-                        <p><strong>Perfshihet:</strong> deri ne 10 faqe, advanced workflows, CRM handoff, dashboard raportimi</p>
-                        <p><strong>Rishikime:</strong> deri ne 4 raunde</p>
+                        <ul class="feature-list">
+                            <li>Deri ne 10 faqe</li>
+                            <li>Automatizim i avancuar i workflow</li>
+                            <li>Setup i CRM handoff</li>
+                            <li>Dashboard raportimi</li>
+                            <li>Integrimi WhatsApp + Make.com</li>
+                            <li>Dorezim 3&ndash;4 jave</li>
+                            <li>4 raunde rishikimesh</li>
+                            <li>Support prioritar 36h</li>
+                        </ul>
                     </article>
                 </div>
             </div>
@@ -766,12 +930,12 @@
                 <div class="grid cols-3">
                     <article class="card">
                         <h3>SEO Boost</h3>
-                        <div class="price">nga EUR 190</div>
+                        <div class="price">nga EUR 149</div>
                         <p>Keyword mapping, optimizim meta tags, lidhje te brendshme dhe kontroll i indeksimit.</p>
                     </article>
                     <article class="card">
                         <h3>Copywriting Pack</h3>
-                        <div class="price">nga EUR 290</div>
+                        <div class="price">nga EUR 249</div>
                         <p>Perditesim i teksteve kryesore me fokus ne konvertime dhe CTA me e qarte.</p>
                     </article>
                     <article class="card featured">
@@ -820,19 +984,53 @@
                 <div class="grid cols-3">
                     <article class="card">
                         <div class="testimonial-avatar" aria-hidden="true">BL</div>
+                        <div class="stars" aria-label="5 yje nga 5">★★★★★</div>
                         <p class="testimonial-quote">"Faqja e re e shpjegon oferten tone shume me qarte. Brenda javes se pare morrem kerkesa me cilesore."</p>
                         <p class="testimonial-author">Biznes sherbimesh lokale &mdash; Zona e Mynihut</p>
                     </article>
                     <article class="card">
                         <div class="testimonial-avatar" aria-hidden="true">BK</div>
+                        <div class="stars" aria-label="5 yje nga 5">★★★★★</div>
                         <p class="testimonial-quote">"Proces i shpejte, komunikim transparent dhe rezultat premium pa e renduar dizajnin."</p>
                         <p class="testimonial-author">Brand konsulence &mdash; Bavari</p>
                     </article>
                     <article class="card">
                         <div class="testimonial-avatar" aria-hidden="true">ES</div>
+                        <div class="stars" aria-label="5 yje nga 5">★★★★★</div>
                         <p class="testimonial-quote">"Automatizimi dhe mirembajtja mujore na kursejne kohe cdo jave. Oferta dhe scope ishin te qarta qe ne fillim."</p>
                         <p class="testimonial-author">Ekip SME &mdash; Munich</p>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Pyetje te shpeshta</h2>
+                    <p>Pergjigje te shpejta para nisjes se projektit.</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">Sa kohe zgjat projekti nga fillimi deri ne lansim? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">Varet nga paketa: Starter eshte gati ne 5&ndash;7 dite pune, Standard ne 10&ndash;14 dite dhe Growth + Automation ne 3&ndash;4 jave. Merrni nje plan kohor me shkrim para fillimit te punes.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">A duhet te siguroj vete tekstin e web-faqes? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">Mund te siguroni nje skice ose ide te pergjithshme dhe ne e rafimojme ne tekst me fokus konvertimi. Copywriting Pack opsional mbulon te gjitha seksionet kryesore.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">A mund ta perditesoj vete web-faqen pas dorezimit? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">Po. Merrni kodin e plote burimor dhe udhezimet per perditesime. Planet e mirembajtjes mujore jane gjithashtu te disponueshme nese preferoni nje qasje pa mundim.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">A punoni me klientet jashte Mynihut? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">Po. I gjithe procesi zhvillohet me email. Mynihu eshte tregu yne kryesor, por punojme me biznese ne gjithe zonen DACH dhe nderkombetar.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">Cfare ndodh nese kam nevoje per ndryshime pas dorezimit? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">Rishikimet brenda raundeve te rena ne marreveshje jane te perfshira. Ndryshimet shtese pas dorezimit jane te disponueshme me tarife orare ose nepermjet nje plani mirembajtje mujore.</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -887,8 +1085,77 @@
         <p id="copyright"></p>
     </footer>
 
+    <a class="floating-cta" href="mailto:info@aicloudpay.net?subject=Kerkese%20oferte%20-%20MODERN%20WEB%20DESIGN&amp;body=Pershendetje%20MODERN%20WEB%20DESIGN,%0A%0ADua%20nje%20oferte%20per:%0A-%20Paketa:%0A-%20Gjuha(t):%0A-%20Afati:%0A-%20Mirembajtje%20mujore:%20Po%2FJo%0A%0AFaleminderit!" aria-label="Kerko oferte me email">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Kerko Oferte
+    </a>
+
     <script>
-        document.getElementById("copyright").textContent = "© " + new Date().getFullYear() + " MODERN WEB DESIGN | Zhvillim Premium i Web-it dhe Automatizim";
+        document.getElementById("copyright").textContent = "\u00a9 " + new Date().getFullYear() + " MODERN WEB DESIGN | Zhvillim Premium i Web-it dhe Automatizim";
+
+        ["orb-1", "orb-2", "orb-3"].forEach(function(cls) {
+            var el = document.createElement("div");
+            el.className = "orb " + cls;
+            document.body.appendChild(el);
+        });
+
+        var revealTargets = document.querySelectorAll(".card, .contact-box, .faq-item");
+        revealTargets.forEach(function(el) {
+            var siblings = Array.from(el.parentElement.children);
+            var idx = siblings.indexOf(el);
+            el.style.transitionDelay = (idx * 0.08) + "s";
+            el.classList.add("reveal");
+            el.addEventListener("transitionend", function() {
+                el.style.transitionDelay = "";
+            }, { once: true });
+        });
+        var revealObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    setTimeout(function() { entry.target.classList.add("visible"); }, 40);
+                    revealObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealTargets.forEach(function(el) { revealObs.observe(el); });
+
+        function countUp(el, target, suffix, prefix) {
+            var dur = 1200, start;
+            function step(ts) {
+                if (!start) start = ts;
+                var p = Math.min((ts - start) / dur, 1);
+                var v = Math.round((1 - Math.pow(1 - p, 3)) * target);
+                el.textContent = (prefix || "") + v + (suffix || "");
+                if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+        var statObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (!e.isIntersecting) return;
+                var el = e.target;
+                var raw = el.textContent.trim();
+                if (raw === "72h") countUp(el, 72, "h");
+                if (raw === "+40%") countUp(el, 40, "%", "+");
+                statObs.unobserve(el);
+            });
+        }, { threshold: 0.6 });
+        document.querySelectorAll(".stat strong").forEach(function(el) { statObs.observe(el); });
+
+        document.querySelectorAll(".faq-q").forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                var item = btn.closest(".faq-item");
+                var isOpen = item.classList.contains("open");
+                document.querySelectorAll(".faq-item.open").forEach(function(i) { i.classList.remove("open"); });
+                if (!isOpen) item.classList.add("open");
+                btn.setAttribute("aria-expanded", String(!isOpen));
+            });
+        });
+
+        var floatingCta = document.querySelector(".floating-cta");
+        window.addEventListener("scroll", function() {
+            floatingCta.classList.toggle("visible", window.scrollY > 320);
+        }, { passive: true });
     </script>
 </body>
 </html>
