@@ -679,10 +679,12 @@
         }
         .nav-lang a {
             display: inline-flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 5px 7px;
-            min-width: 36px;
+            gap: 2px;
+            padding: 4px 7px 3px;
+            min-width: 40px;
             text-align: center;
         }
         .lang-flag {
@@ -697,6 +699,13 @@
         .flag-gb { background-image: url("https://flagcdn.com/w40/gb.png"); }
         .flag-de { background-image: url("https://flagcdn.com/w40/de.png"); }
         .flag-al { background-image: url("https://flagcdn.com/w40/al.png"); }
+        .lang-code {
+            font-size: 0.56rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: #334160;
+            line-height: 1;
+        }
         .nav-lang a:hover,
         .nav-lang a.active {
             background: rgba(15, 111, 255, 0.14);
@@ -1060,9 +1069,9 @@
             </nav>
             <nav class="nav-links nav-lang" aria-label="Nderrimi i gjuhes">
                 <span class="lang-globe" aria-hidden="true">🌐</span>
-                <a href="/" aria-label="English"><span class="lang-flag flag-gb" aria-hidden="true"></span></a>
-                <a href="/de" aria-label="Deutsch"><span class="lang-flag flag-de" aria-hidden="true"></span></a>
-                <a class="active" href="/al" aria-label="Shqip"><span class="lang-flag flag-al" aria-hidden="true"></span></a>
+                <a href="/" aria-label="English"><span class="lang-flag flag-gb" aria-hidden="true"></span><span class="lang-code">GB</span></a>
+                <a href="/de" aria-label="Deutsch"><span class="lang-flag flag-de" aria-hidden="true"></span><span class="lang-code">DE</span></a>
+                <a class="active" href="/al" aria-label="Shqip"><span class="lang-flag flag-al" aria-hidden="true"></span><span class="lang-code">AL</span></a>
             </nav>
         </div>
     </header>
