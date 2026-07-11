@@ -478,6 +478,35 @@
             color: #0a2f71;
         }
 
+        .legal-compact {
+            padding: 10px 0 24px;
+        }
+
+        .legal-inline {
+            display: grid;
+            gap: 8px;
+        }
+
+        .legal-inline details {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--surface);
+            padding: 10px 12px;
+        }
+
+        .legal-inline summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: #253453;
+        }
+
+        .legal-inline p {
+            margin-top: 8px;
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 0.9rem;
+        }
+
         footer {
             padding: 16px 0 36px;
             text-align: center;
@@ -1034,8 +1063,8 @@
                 <div class="hero-inner">
                     <div class="hero-text">
                         <div class="eyebrow">Premium digitaler Auftritt</div>
-                        <h1>Moderne Websites mit <span>Tesla-inspirierter Praezision</span>.</h1>
-                        <p class="subtitle">Wir gestalten und entwickeln schnelle Premium-Websites mit PwC-aehnlicher Service-Disziplin und Automatisierungs-Workflows, die Zeit sparen und Vertrauen steigern.</p>
+                        <h1>Moderne Websites mit <span>high-tech Praezision</span>.</h1>
+                        <p class="subtitle">Wir gestalten und entwickeln schnelle Premium-Websites mit einem strukturierten Serviceprozess und Automatisierungs-Workflows, die Zeit sparen und Vertrauen steigern.</p>
                         <div class="hero-actions">
                             <a href="#contact" class="btn primary">Projekt starten</a>
                             <a href="#services" class="btn ghost">Leistungen ansehen</a>
@@ -1057,7 +1086,8 @@
                     </div>
                     <div class="hero-visual" aria-hidden="true">
                         <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=85&auto=format&fit=crop">
-                            <source src="https://cdn.coverr.co/videos/coverr-man-working-on-a-laptop-1579/1080p.mp4" type="video/mp4" />
+                            <source src="https://videos.pexels.com/video-files/3130284/3130284-hd_1920_1080_30fps.mp4" type="video/mp4" />
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
                             <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=85&auto=format&fit=crop" alt="Professioneller Webdesign-Arbeitsplatz" loading="lazy" />
                         </video>
                     </div>
@@ -1379,52 +1409,6 @@
             </div>
         </section>
 
-        <section id="legal">
-            <div class="container">
-                <div class="section-head">
-                    <h2>Rechtliches und Datenschutz</h2>
-                    <p>Wichtige Angaben fuer Transparenz und Compliance vor Projektstart.</p>
-                </div>
-
-                <div class="grid legal-grid">
-                    <article class="card" id="disclaimer">
-                        <h3>Disclaimer (Haftungsausschluss)</h3>
-                        <ul class="legal-list">
-                            <li><strong>Haftung fuer Inhalte:</strong> Alle Inhalte werden sorgfaeltig erstellt, jedoch ohne Gewaehr fuer Vollstaendigkeit, Richtigkeit und Aktualitaet.</li>
-                            <li><strong>Externe Links:</strong> Fuer Inhalte verlinkter Drittseiten uebernehmen wir keine Haftung.</li>
-                            <li><strong>Keine Rechtsberatung:</strong> Die Website-Inhalte dienen nur der Information und ersetzen keine rechtliche oder steuerliche Beratung.</li>
-                        </ul>
-                    </article>
-                    <article class="card" id="impressum">
-                        <h3>Impressum</h3>
-                        <ul class="legal-list">
-                            <li><strong>Anbieter:</strong> WEB DESIGN STUDIO</li>
-                            <li><strong>Adresse:</strong> München, Bayern, Deutschland</li>
-                            <li><strong>E-Mail:</strong> info@aicloudpay.net</li>
-                            <li><strong>Inhaltlich verantwortlich:</strong> WEB DESIGN STUDIO</li>
-                        </ul>
-                    </article>
-                    <article class="card" id="privacy">
-                        <h3>Datenschutzerklaerung</h3>
-                        <p>Wir verarbeiten nur Daten, die Sie per E-Mail oder Projektkommunikation senden. Die Daten werden nur fuer Angebot, Umsetzung und Support genutzt.</p>
-                        <ul class="legal-list">
-                            <li><strong>Erhobene Daten:</strong> Name, E-Mail, Projektanforderungen, Zeitrahmen</li>
-                            <li><strong>Zweck:</strong> Angebotserstellung und Projektdurchfuehrung</li>
-                            <li><strong>Kontakt:</strong> info@aicloudpay.net fuer Datenschutzanfragen</li>
-                        </ul>
-                    </article>
-                    <article class="card" id="cookies">
-                        <h3>Cookie-Einstellungen</h3>
-                        <ul class="legal-list">
-                            <li><strong>Essenzielle Cookies:</strong> Erforderlich fuer Grundfunktionen und Sicherheit der Website.</li>
-                            <li><strong>Analyse-Cookies:</strong> Optional zur Verbesserung von Performance und Nutzererlebnis.</li>
-                            <li><strong>Ihre Auswahl:</strong> Cookie-Praeferenzen koennen jederzeit per E-Mail an info@aicloudpay.net angepasst werden.</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
         <section id="contact">
             <div class="container contact-box">
                 <h2>Bereit, Ihr Kundenerlebnis zu modernisieren?</h2>
@@ -1432,6 +1416,27 @@
                 <p>Fuer ein schnelles Angebot senden Sie Paket, Zeitrahmen und Sprachwuensche direkt per E-Mail.</p>
                 <p>Vor Projektstart erhalten Sie einen klaren Scope, Zeitplan und Zahlungs-Meilensteine.</p>
                 <p>Standort: München, Bayern, Deutschland</p>
+            </div>
+        </section>
+
+        <section id="legal" class="legal-compact">
+            <div class="container legal-inline">
+                <details id="disclaimer">
+                    <summary>Disclaimer</summary>
+                    <p>Alle Angaben erfolgen nach bestem Wissen als allgemeine Information und ohne Gewaehr fuer rechtliche Vollstaendigkeit im Einzelfall.</p>
+                </details>
+                <details id="impressum">
+                    <summary>Impressum</summary>
+                    <p>Anbieter: WEB DESIGN STUDIO, Muenchen, Deutschland. Kontakt: info@aicloudpay.net. Inhaltlich verantwortlich: WEB DESIGN STUDIO.</p>
+                </details>
+                <details id="privacy">
+                    <summary>Datenschutzerklaerung</summary>
+                    <p>Wir verarbeiten nur Daten aus E-Mail und Projektkommunikation fuer Angebot, Umsetzung und Support. Anfragen an info@aicloudpay.net.</p>
+                </details>
+                <details id="cookies">
+                    <summary>Cookie-Einstellungen</summary>
+                    <p>Essenzielle Cookies koennen fuer Grundfunktionen genutzt werden. Analyse-Cookies sind optional und jederzeit per E-Mail anpassbar.</p>
+                </details>
             </div>
         </section>
     </main>

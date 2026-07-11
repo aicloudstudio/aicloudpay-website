@@ -478,6 +478,35 @@
             color: #0a2f71;
         }
 
+        .legal-compact {
+            padding: 10px 0 24px;
+        }
+
+        .legal-inline {
+            display: grid;
+            gap: 8px;
+        }
+
+        .legal-inline details {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--surface);
+            padding: 10px 12px;
+        }
+
+        .legal-inline summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: #253453;
+        }
+
+        .legal-inline p {
+            margin-top: 8px;
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 0.9rem;
+        }
+
         footer {
             padding: 16px 0 36px;
             text-align: center;
@@ -1034,8 +1063,8 @@
                 <div class="hero-inner">
                     <div class="hero-text">
                         <div class="eyebrow">Prezence digjitale premium</div>
-                        <h1>Web-faqe moderne me <span>precision te inspiruar nga Tesla</span>.</h1>
-                        <p class="subtitle">Ne dizajnojme dhe ndertojme web-faqe premium te shpejta me qasje sherbimi consulting-grade ne stil PwC dhe workflow automatizimi qe kursejne kohe e rrisin besimin.</p>
+                        <h1>Web-faqe moderne me <span>precision high-tech</span>.</h1>
+                        <p class="subtitle">Ne dizajnojme dhe ndertojme web-faqe premium te shpejta me proces te strukturuar sherbimi dhe workflow automatizimi qe kursejne kohe e rrisin besimin.</p>
                         <div class="hero-actions">
                             <a href="#contact" class="btn primary">Fillo Projektin</a>
                             <a href="#services" class="btn ghost">Shiko Sherbimet</a>
@@ -1057,7 +1086,8 @@
                     </div>
                     <div class="hero-visual" aria-hidden="true">
                         <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=85&auto=format&fit=crop">
-                            <source src="https://cdn.coverr.co/videos/coverr-man-working-on-a-laptop-1579/1080p.mp4" type="video/mp4" />
+                            <source src="https://videos.pexels.com/video-files/3130284/3130284-hd_1920_1080_30fps.mp4" type="video/mp4" />
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
                             <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=85&auto=format&fit=crop" alt="Workspace profesionale per dizajn web" loading="lazy" />
                         </video>
                     </div>
@@ -1469,52 +1499,6 @@
             </div>
         </section>
 
-        <section id="legal">
-            <div class="container">
-                <div class="section-head">
-                    <h2>Ligjore dhe privatesia</h2>
-                    <p>Informacion thelbesor per transparence dhe perputhshmeri para nisjes se projektit.</p>
-                </div>
-
-                <div class="grid legal-grid">
-                    <article class="card" id="disclaimer">
-                        <h3>Disclaimer (Kufizim pergjegjesie)</h3>
-                        <ul class="legal-list">
-                            <li><strong>Pergjegjesia per permbajtjen:</strong> Permbajtja pergatitet me kujdes, por pa garanci per saktesi, plotesi ose perditesim.</li>
-                            <li><strong>Lidhjet e jashtme:</strong> Nuk mbajme pergjegjesi per permbajtjen e faqeve te paleve te treta.</li>
-                            <li><strong>Jo keshille ligjore:</strong> Ky website ka qellim informues dhe nuk zevendeson keshillen ligjore ose fiskale.</li>
-                        </ul>
-                    </article>
-                    <article class="card" id="impressum">
-                        <h3>Impressum</h3>
-                        <ul class="legal-list">
-                            <li><strong>Ofruesi:</strong> WEB DESIGN STUDIO</li>
-                            <li><strong>Adresa:</strong> Munich, Bavari, Gjermani</li>
-                            <li><strong>Email:</strong> info@aicloudpay.net</li>
-                            <li><strong>Pergjegjes per permbajtjen:</strong> WEB DESIGN STUDIO</li>
-                        </ul>
-                    </article>
-                    <article class="card" id="privacy">
-                        <h3>Datenschutzerklaerung (Politika e privatesise)</h3>
-                        <p>Ne perpunojme vetem te dhenat qe ndani me email ose gjate komunikimit te projektit. Te dhenat perdoren vetem per oferte, zbatim dhe mbeshtetje.</p>
-                        <ul class="legal-list">
-                            <li><strong>Te dhenat e mbledhura:</strong> Emri, email, kerkesat e projektit, afati</li>
-                            <li><strong>Qellimi:</strong> Pergatitja e ofertes dhe zbatimi i projektit</li>
-                            <li><strong>Kontakt:</strong> info@aicloudpay.net per kerkesa mbi te dhenat</li>
-                        </ul>
-                    </article>
-                    <article class="card" id="cookies">
-                        <h3>Cookie-Einstellungen</h3>
-                        <ul class="legal-list">
-                            <li><strong>Cookie esenciale:</strong> Te nevojshme per funksionimin bazik dhe sigurine e faqes.</li>
-                            <li><strong>Cookie analitike:</strong> Opsionale per matje performance dhe permiresim eksperience.</li>
-                            <li><strong>Zgjedhja juaj:</strong> Mund te kerkoni ndryshim te preferencave te cookie ne cdo kohe ne info@aicloudpay.net.</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
         <section id="contact">
             <div class="container contact-box">
                 <h2>Gati ta modernizojme eksperiencen e klienteve tuaj?</h2>
@@ -1522,6 +1506,27 @@
                 <p>Per oferte te shpejte, dergoni me email paketen, afatin dhe gjuhet qe ju duhen.</p>
                 <p>Para fillimit te punes, ju dergojme scope te qarte, afat dhe milestones pagese.</p>
                 <p>Lokacioni: Munich, Bavari, Gjermani</p>
+            </div>
+        </section>
+
+        <section id="legal" class="legal-compact">
+            <div class="container legal-inline">
+                <details id="disclaimer">
+                    <summary>Disclaimer</summary>
+                    <p>Informacioni ne faqe jepet me mirebesim per orientim te pergjithshem dhe pa garanci per vlefshmeri ligjore ne cdo rast.</p>
+                </details>
+                <details id="impressum">
+                    <summary>Impressum</summary>
+                    <p>Ofruesi: WEB DESIGN STUDIO, Munich, Gjermani. Kontakt: info@aicloudpay.net. Pergjegjes per permbajtjen: WEB DESIGN STUDIO.</p>
+                </details>
+                <details id="privacy">
+                    <summary>Datenschutzerklaerung</summary>
+                    <p>Perpunojme vetem te dhenat qe ndani me email ose komunikim projekti per oferte, zbatim dhe support. Kerkesat dergojini ne info@aicloudpay.net.</p>
+                </details>
+                <details id="cookies">
+                    <summary>Cookie-Einstellungen</summary>
+                    <p>Cookie esenciale mund te perdoren per funksionim bazik. Cookie analitike jane opsionale dhe preferencat ndryshohen ne cdo kohe me email.</p>
+                </details>
             </div>
         </section>
     </main>
