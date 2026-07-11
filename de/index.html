@@ -10,18 +10,18 @@
 
     <style>
         :root {
-            --bg: #f4f7fb;
-            --surface: rgba(255, 255, 255, 0.72);
-            --surface-strong: rgba(255, 255, 255, 0.92);
-            --text: #0f1728;
-            --muted: #576178;
-            --line: rgba(22, 34, 58, 0.12);
-            --brand: #0a84ff;
-            --brand-2: #45b0ff;
+            --bg: #eef3f8;
+            --surface: rgba(255, 255, 255, 0.78);
+            --surface-strong: rgba(255, 255, 255, 0.95);
+            --text: #0b1220;
+            --muted: #4f5d74;
+            --line: rgba(15, 23, 42, 0.14);
+            --brand: #0f6fff;
+            --brand-2: #15b8d6;
             --radius-lg: 28px;
             --radius-md: 20px;
-            --shadow-soft: 0 20px 55px rgba(18, 31, 54, 0.12);
-            --shadow-card: 0 12px 34px rgba(15, 23, 40, 0.08);
+            --shadow-soft: 0 24px 60px rgba(12, 24, 46, 0.14);
+            --shadow-card: 0 14px 36px rgba(12, 24, 46, 0.1);
         }
 
         * {
@@ -38,8 +38,8 @@
             font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
             color: var(--text);
             background:
-                radial-gradient(circle at 15% 10%, rgba(10, 132, 255, 0.14), transparent 38%),
-                radial-gradient(circle at 86% 2%, rgba(69, 176, 255, 0.12), transparent 32%),
+                radial-gradient(circle at 12% 8%, rgba(15, 111, 255, 0.12), transparent 38%),
+                radial-gradient(circle at 86% 2%, rgba(21, 184, 214, 0.1), transparent 34%),
                 linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
             min-height: 100vh;
             overflow-x: hidden;
@@ -83,7 +83,7 @@
             padding: 14px 20px;
             border-radius: 999px;
             border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.68);
+            background: rgba(255, 255, 255, 0.74);
             backdrop-filter: blur(18px);
             box-shadow: var(--shadow-card);
         }
@@ -498,9 +498,20 @@
             width: 100%;
             aspect-ratio: 4/3;
             box-shadow: 0 28px 60px rgba(15, 23, 40, 0.18);
+            position: relative;
+            background: #09111f;
         }
 
-        .hero-visual img {
+        .hero-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(11, 18, 32, 0.02), rgba(11, 18, 32, 0.24));
+            pointer-events: none;
+        }
+
+        .hero-visual img,
+        .hero-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -508,7 +519,8 @@
             transition: transform 700ms ease;
         }
 
-        .hero-visual img:hover {
+        .hero-visual:hover img,
+        .hero-visual:hover .hero-video {
             transform: scale(1.04);
         }
 
@@ -562,10 +574,13 @@
 
             .hero-inner {
                 grid-template-columns: 1fr;
+                gap: 22px;
             }
 
             .hero-visual {
-                display: none;
+                display: block;
+                order: -1;
+                aspect-ratio: 16/9;
             }
 
             .hero-stats {
@@ -610,7 +625,31 @@
 
         /* Nav section links */
         .nav-sections { flex: 1; justify-content: center; }
-        .nav-lang { flex-shrink: 0; }
+        .nav-lang {
+            flex-shrink: 0;
+            gap: 6px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.72);
+        }
+        .nav-lang .lang-globe {
+            font-size: 0.9rem;
+            opacity: 0.75;
+            padding: 0 2px;
+        }
+        .nav-lang a {
+            font-size: 1rem;
+            line-height: 1;
+            padding: 6px 8px;
+            min-width: 34px;
+            text-align: center;
+        }
+        .nav-lang a:hover,
+        .nav-lang a.active {
+            background: rgba(15, 111, 255, 0.14);
+            border-color: rgba(15, 111, 255, 0.34);
+        }
 
         /* Pricing feature list */
         .feature-list {
@@ -968,9 +1007,10 @@
                 <a href="#contact">Kontakt</a>
             </nav>
             <nav class="nav-links nav-lang" aria-label="Sprachauswahl">
-                <a href="/">EN</a>
-                <a class="active" href="/de">DE</a>
-                <a href="/al">AL</a>
+                <span class="lang-globe" aria-hidden="true">🌐</span>
+                <a href="/" aria-label="English">🇬🇧</a>
+                <a class="active" href="/de" aria-label="Deutsch">🇩🇪</a>
+                <a href="/al" aria-label="Shqip">🇦🇱</a>
             </nav>
         </div>
     </header>
@@ -981,8 +1021,8 @@
                 <div class="hero-inner">
                     <div class="hero-text">
                         <div class="eyebrow">Premium digitaler Auftritt</div>
-                        <h1>Moderne Websites mit <span>Apple-Style Eleganz</span>.</h1>
-                        <p class="subtitle">Wir gestalten und entwickeln schnelle Premium-Websites mit Automatisierungs-Workflows, die Zeit sparen und Vertrauen steigern. Ihre Marke bekommt eine klare Botschaft, eine hochwertige Praesentation und einen staerkeren Conversion-Weg.</p>
+                        <h1>Moderne Websites mit <span>Tesla-inspirierter Praezision</span>.</h1>
+                        <p class="subtitle">Wir gestalten und entwickeln schnelle Premium-Websites mit PwC-aehnlicher Service-Disziplin und Automatisierungs-Workflows, die Zeit sparen und Vertrauen steigern.</p>
                         <div class="hero-actions">
                             <a href="#contact" class="btn primary">Projekt starten</a>
                             <a href="#services" class="btn ghost">Leistungen ansehen</a>
@@ -1003,11 +1043,10 @@
                         </div>
                     </div>
                     <div class="hero-visual" aria-hidden="true">
-                        <img
-                            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=85&auto=format&fit=crop"
-                            alt="Professioneller Webdesign-Arbeitsplatz"
-                            loading="lazy"
-                        />
+                        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=85&auto=format&fit=crop">
+                            <source src="https://cdn.coverr.co/videos/coverr-man-working-on-a-laptop-1579/1080p.mp4" type="video/mp4" />
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=85&auto=format&fit=crop" alt="Professioneller Webdesign-Arbeitsplatz" loading="lazy" />
+                        </video>
                     </div>
                 </div>
             </div>
@@ -1017,7 +1056,7 @@
             <div class="container">
                 <div class="section-head">
                     <h2>Warum Kunden WEB DESIGN STUDIO waehlen</h2>
-                    <p>Ein Premium-Designsystem, klare Texthierarchie und praktische Automatisierung ergeben Websites, die hochwertig wirken und als echtes Vertriebswerkzeug arbeiten.</p>
+                    <p>Beratungsstarke Service-Struktur und high-tech Designpraezision liefern Premium-Websites, die professionell wirken und messbaren Geschaeftswert erzeugen.</p>
                 </div>
 
                 <div class="grid cols-4">
