@@ -639,12 +639,25 @@
             padding: 0 2px;
         }
         .nav-lang a {
-            font-size: 1rem;
-            line-height: 1;
-            padding: 6px 8px;
-            min-width: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 7px;
+            min-width: 36px;
             text-align: center;
         }
+        .lang-flag {
+            width: 20px;
+            height: 14px;
+            border-radius: 3px;
+            border: 1px solid rgba(15, 23, 42, 0.18);
+            background-size: cover;
+            background-position: center;
+            display: inline-block;
+        }
+        .flag-gb { background-image: url("https://flagcdn.com/w40/gb.png"); }
+        .flag-de { background-image: url("https://flagcdn.com/w40/de.png"); }
+        .flag-al { background-image: url("https://flagcdn.com/w40/al.png"); }
         .nav-lang a:hover,
         .nav-lang a.active {
             background: rgba(15, 111, 255, 0.14);
@@ -1008,9 +1021,9 @@
             </nav>
             <nav class="nav-links nav-lang" aria-label="Language switcher">
                 <span class="lang-globe" aria-hidden="true">🌐</span>
-                <a class="active" href="/" aria-label="English">🇬🇧</a>
-                <a href="/de" aria-label="Deutsch">🇩🇪</a>
-                <a href="/al" aria-label="Shqip">🇦🇱</a>
+                <a class="active" href="/" aria-label="English"><span class="lang-flag flag-gb" aria-hidden="true"></span></a>
+                <a href="/de" aria-label="Deutsch"><span class="lang-flag flag-de" aria-hidden="true"></span></a>
+                <a href="/al" aria-label="Shqip"><span class="lang-flag flag-al" aria-hidden="true"></span></a>
             </nav>
         </div>
     </header>
@@ -1374,6 +1387,14 @@
                 </div>
 
                 <div class="grid legal-grid">
+                    <article class="card" id="disclaimer">
+                        <h3>Disclaimer</h3>
+                        <ul class="legal-list">
+                            <li><strong>Liability for content:</strong> All content is prepared with care, but no guarantee is given for completeness, accuracy, or timeliness.</li>
+                            <li><strong>External links:</strong> We are not responsible for the content of third-party websites linked from this page.</li>
+                            <li><strong>No legal advice:</strong> Website content is informational and does not replace legal, tax, or compliance advice.</li>
+                        </ul>
+                    </article>
                     <article class="card" id="impressum">
                         <h3>Impressum</h3>
                         <ul class="legal-list">
@@ -1384,12 +1405,20 @@
                         </ul>
                     </article>
                     <article class="card" id="privacy">
-                        <h3>Privacy Policy</h3>
+                        <h3>Datenschutzerklaerung (Privacy Policy)</h3>
                         <p>We only process data that you share by email or project communication. Your data is used only for quote preparation, project delivery, and support.</p>
                         <ul class="legal-list">
                             <li><strong>Data collected:</strong> Name, email, project requirements, timeline</li>
                             <li><strong>Purpose:</strong> Quote preparation and project execution</li>
                             <li><strong>Contact:</strong> info@aicloudpay.net for data-related requests</li>
+                        </ul>
+                    </article>
+                    <article class="card" id="cookies">
+                        <h3>Cookie-Einstellungen (Cookie Settings)</h3>
+                        <ul class="legal-list">
+                            <li><strong>Essential cookies:</strong> Required for core website functionality and security.</li>
+                            <li><strong>Analytics cookies:</strong> Optional usage insights to improve website performance and user experience.</li>
+                            <li><strong>Your choice:</strong> You can request to update your cookie preferences anytime via info@aicloudpay.net.</li>
                         </ul>
                     </article>
                 </div>
@@ -1410,8 +1439,10 @@
     <footer>
         <div class="footer-links" aria-label="Footer links">
             <a href="#testimonials">Client feedback</a>
+            <a href="#disclaimer">Disclaimer</a>
             <a href="#impressum">Impressum</a>
-            <a href="#privacy">Privacy Policy</a>
+            <a href="#privacy">Datenschutzerklaerung</a>
+            <a href="#cookies">Cookie-Einstellungen</a>
         </div>
         <p id="copyright"></p>
     </footer>
