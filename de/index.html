@@ -3,31 +3,33 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WEB DESIGN STUDIO | Premium Webdesign und Automatisierung</title>
+    <title>Demo Redesign | Elektro Seeber - Moderne Website mit mehr Anfragen</title>
+    <meta name="description" content="Demo-Entwurf fuer die Modernisierung einer lokalen Elektriker-Website: mehr Vertrauen, mehr Sichtbarkeit, mehr qualifizierte Anfragen." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
     <style>
         :root {
-            --bg: #eef3f8;
-            --surface: rgba(255, 255, 255, 0.78);
-            --surface-strong: rgba(255, 255, 255, 0.95);
-            --text: #0b1220;
-            --muted: #4f5d74;
-            --line: rgba(15, 23, 42, 0.14);
-            --brand: #0f6fff;
-            --brand-2: #15b8d6;
-            --radius-lg: 28px;
-            --radius-md: 20px;
-            --shadow-soft: 0 24px 60px rgba(12, 24, 46, 0.14);
-            --shadow-card: 0 14px 36px rgba(12, 24, 46, 0.1);
+            --bg-0: #f3efe7;
+            --bg-1: #fff9f0;
+            --ink: #1f1a14;
+            --muted: #6a5b4b;
+            --line: rgba(61, 47, 35, 0.18);
+            --card: rgba(255, 255, 255, 0.75);
+            --brand: #d65a0b;
+            --brand-deep: #9a3c05;
+            --teal: #0e8b8e;
+            --radius-xl: 30px;
+            --radius-lg: 22px;
+            --radius-md: 16px;
+            --shadow-lg: 0 28px 60px rgba(58, 34, 16, 0.18);
+            --shadow-card: 0 14px 30px rgba(58, 34, 16, 0.12);
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html {
@@ -35,13 +37,13 @@
         }
 
         body {
-            font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
-            color: var(--text);
-            background:
-                radial-gradient(circle at 12% 8%, rgba(15, 111, 255, 0.12), transparent 38%),
-                radial-gradient(circle at 86% 2%, rgba(21, 184, 214, 0.1), transparent 34%),
-                linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
             min-height: 100vh;
+            color: var(--ink);
+            font-family: "Manrope", "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at 8% 10%, rgba(214, 90, 11, 0.15), transparent 34%),
+                radial-gradient(circle at 92% 0%, rgba(14, 139, 142, 0.14), transparent 30%),
+                linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
             overflow-x: hidden;
         }
 
@@ -50,11 +52,13 @@
             position: fixed;
             inset: 0;
             pointer-events: none;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.18) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
-            background-size: 38px 38px;
-            mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
-            opacity: 0.38;
             z-index: -1;
+            opacity: 0.42;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.42) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.42) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: radial-gradient(circle at center, black 48%, transparent 96%);
         }
 
         a {
@@ -67,1602 +71,676 @@
             margin: 0 auto;
         }
 
-        .floating-nav {
+        .topbar {
             position: fixed;
+            top: 14px;
             left: 0;
             right: 0;
-            top: 18px;
-            z-index: 1000;
+            z-index: 100;
         }
 
-        .nav-shell {
+        .topbar-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            padding: 14px 20px;
+            gap: 12px;
+            padding: 12px 16px;
             border-radius: 999px;
             border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.74);
-            backdrop-filter: blur(18px);
+            background: rgba(255, 251, 245, 0.78);
+            backdrop-filter: blur(12px);
             box-shadow: var(--shadow-card);
         }
 
         .logo {
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            font-size: 1.1rem;
-            background: linear-gradient(120deg, #004fb5, #0a84ff 48%, #57c0ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-badge {
+            width: 30px;
+            height: 30px;
+            display: grid;
+            place-items: center;
+            border-radius: 8px;
+            color: #fff;
+            background: linear-gradient(145deg, var(--brand), var(--brand-deep));
+            font-size: 0.86rem;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .nav-links a {
-            font-size: 0.9rem;
-            color: #334160;
             padding: 8px 12px;
+            font-size: 0.88rem;
+            color: #514334;
             border-radius: 999px;
             border: 1px solid transparent;
-            transition: 220ms ease;
+            transition: 200ms ease;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #0a2f71;
-            border-color: rgba(10, 132, 255, 0.34);
-            background: rgba(10, 132, 255, 0.1);
+        .nav-links a:hover {
+            border-color: rgba(214, 90, 11, 0.35);
+            background: rgba(214, 90, 11, 0.1);
+            color: #2e241a;
+        }
+
+        .btn {
+            border-radius: 999px;
+            border: none;
+            font: inherit;
+            font-weight: 700;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+        }
+
+        .btn.primary {
+            color: #fff;
+            background: linear-gradient(145deg, var(--brand), #c04700);
+            box-shadow: 0 14px 28px rgba(186, 78, 7, 0.32);
+        }
+
+        .btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 34px rgba(186, 78, 7, 0.35);
+        }
+
+        .btn.ghost {
+            color: #31261b;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.56);
+        }
+
+        .btn.ghost:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.9);
         }
 
         .hero {
-            padding: 132px 0 86px;
+            padding: 126px 0 64px;
         }
 
-        .hero-panel {
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(255, 255, 255, 0.72);
-            background: linear-gradient(155deg, var(--surface-strong), rgba(255, 255, 255, 0.58));
-            box-shadow: var(--shadow-soft);
-            padding: clamp(34px, 5vw, 58px);
+        .hero-card {
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255, 255, 255, 0.74);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 251, 245, 0.72));
+            box-shadow: var(--shadow-lg);
+            padding: clamp(28px, 5vw, 56px);
             position: relative;
             overflow: hidden;
-            animation: fadeUp 0.8s ease both;
+            animation: riseIn 680ms ease both;
         }
 
-        .hero-panel::before {
+        .hero-card::after {
             content: "";
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 320px;
+            height: 320px;
             border-radius: 50%;
-            background: radial-gradient(circle at center, rgba(10, 132, 255, 0.24), transparent 72%);
-            right: -90px;
-            top: -70px;
+            background: radial-gradient(circle at center, rgba(214, 90, 11, 0.2), transparent 72%);
+            right: -110px;
+            top: -110px;
+            pointer-events: none;
         }
 
         .eyebrow {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.84rem;
-            font-weight: 700;
-            letter-spacing: 0.11em;
+            border-radius: 999px;
+            border: 1px solid rgba(214, 90, 11, 0.3);
+            background: rgba(214, 90, 11, 0.1);
+            color: #8f3603;
+            font-size: 0.78rem;
+            font-weight: 800;
             text-transform: uppercase;
-            color: #1f4e9c;
-            background: rgba(10, 132, 255, 0.12);
-            border: 1px solid rgba(10, 132, 255, 0.3);
-            border-radius: 999px;
+            letter-spacing: 0.09em;
             padding: 7px 12px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
-        .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 4.25rem);
-            line-height: 1.03;
-            letter-spacing: -0.05em;
-            max-width: 11ch;
-            margin-bottom: 18px;
-        }
-
-        .hero h1 span {
-            color: transparent;
-            background: linear-gradient(130deg, #005fce, #0a84ff 45%, #57c0ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-        }
-
-        .hero .subtitle {
-            max-width: 68ch;
-            font-size: clamp(1rem, 1.7vw, 1.25rem);
-            color: var(--muted);
-            line-height: 1.75;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 30px 0 36px;
-        }
-
-        .btn {
-            border-radius: 999px;
-            padding: 12px 22px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
-        }
-
-        .btn.primary {
-            background: linear-gradient(140deg, #006be6, #0a84ff);
-            color: #fff;
-            box-shadow: 0 12px 24px rgba(10, 132, 255, 0.3);
-        }
-
-        .btn.primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 16px 30px rgba(10, 132, 255, 0.33);
-        }
-
-        .btn.ghost {
-            border: 1px solid rgba(15, 23, 40, 0.15);
-            background: rgba(255, 255, 255, 0.72);
-            color: #1e2d4d;
-        }
-
-        .btn.ghost:hover {
-            background: rgba(255, 255, 255, 0.92);
-            transform: translateY(-2px);
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(130px, 1fr));
-            gap: 12px;
-        }
-
-        .stat {
-            border-radius: 16px;
-            border: 1px solid var(--line);
-            background: var(--surface);
-            backdrop-filter: blur(12px);
-            padding: 14px;
-        }
-
-        .stat strong {
-            display: block;
-            font-size: 1.2rem;
+        h1, h2, h3 {
+            font-family: "Space Grotesk", sans-serif;
             letter-spacing: -0.03em;
         }
 
-        .stat span {
-            font-size: 0.84rem;
+        h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.04;
+            max-width: 13ch;
+            margin-bottom: 16px;
+        }
+
+        .hero-sub {
+            max-width: 66ch;
             color: var(--muted);
+            line-height: 1.75;
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+        }
+
+        .hero-row {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 16px;
+        }
+
+        .stack {
+            display: grid;
+            gap: 12px;
+        }
+
+        .micro-card {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            background: var(--card);
+            backdrop-filter: blur(8px);
+            padding: 14px;
+        }
+
+        .micro-card strong {
+            display: block;
+            font-size: 1.04rem;
+            margin-bottom: 4px;
+        }
+
+        .micro-card p {
+            color: var(--muted);
+            line-height: 1.55;
+            font-size: 0.9rem;
+        }
+
+        .hero-actions {
+            margin-top: 26px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         section {
-            padding: 34px 0 72px;
+            padding: 22px 0 64px;
         }
 
         .section-head {
-            margin-bottom: 26px;
+            margin-bottom: 20px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+            margin-bottom: 10px;
         }
 
         .section-head p {
             color: var(--muted);
-            max-width: 66ch;
-            line-height: 1.8;
-        }
-
-        h2 {
-            font-size: clamp(1.65rem, 3.4vw, 2.6rem);
-            line-height: 1.12;
-            letter-spacing: -0.04em;
-            margin-bottom: 12px;
+            max-width: 70ch;
+            line-height: 1.75;
         }
 
         .grid {
             display: grid;
-            gap: 16px;
+            gap: 14px;
         }
 
-        .grid.cols-4 {
-            grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+        .grid.cols-2 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
 
         .grid.cols-3 {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         }
 
-        .card {
-            border-radius: var(--radius-md);
+        .panel {
             border: 1px solid var(--line);
-            background: var(--surface);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-card);
-            padding: 24px;
-            transition: opacity 0.55s ease, transform 0.55s ease, border-color 230ms ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(10, 132, 255, 0.4);
-        }
-
-        .card h3 {
-            font-size: 1.12rem;
-            margin-bottom: 9px;
-            letter-spacing: -0.02em;
-        }
-
-        .card p {
-            color: var(--muted);
-            line-height: 1.7;
-        }
-
-        .step-number {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            font-size: 0.92rem;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #006be6, #0a84ff);
-            box-shadow: 0 8px 20px rgba(10, 132, 255, 0.3);
-        }
-
-        .pricing .card {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .pricing .price {
-            font-size: 2rem;
-            letter-spacing: -0.05em;
-            color: #053b88;
-            margin: 6px 0;
-        }
-
-        .pricing .featured {
-            border-color: rgba(10, 132, 255, 0.45);
-            background: linear-gradient(175deg, rgba(255, 255, 255, 0.96), rgba(232, 244, 255, 0.82));
-        }
-
-        .pricing .card p {
-            margin: 0;
-        }
-
-        .pricing .card p strong {
-            color: #1f355c;
-        }
-
-        .pricing .card h3 {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .recommend-badge {
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: #0c4da0;
-            background: rgba(10, 132, 255, 0.14);
-            border: 1px solid rgba(10, 132, 255, 0.3);
-            border-radius: 999px;
-            padding: 4px 8px;
-        }
-
-        .mini-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.88rem;
-        }
-
-        .mini-table th,
-        .mini-table td {
-            text-align: left;
-            vertical-align: top;
-            padding: 8px 0;
-            color: #374766;
-        }
-
-        .mini-table th {
-            color: #1f355c;
-            font-weight: 700;
-        }
-
-        .mini-table tr + tr td,
-        .mini-table tr + tr th {
-            border-top: 1px dashed var(--line);
-        }
-
-        .quote-row {
-            margin-top: 24px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .quote-row .btn {
-            min-width: 250px;
-            text-align: center;
-        }
-
-        .trust-note {
-            margin-top: 10px;
-            text-align: center;
-            color: #4d5f82;
-            font-size: 0.9rem;
-        }
-
-        .contact-box {
             border-radius: var(--radius-lg);
-            border: 1px solid rgba(10, 132, 255, 0.26);
-            background: linear-gradient(140deg, rgba(10, 132, 255, 0.15), rgba(255, 255, 255, 0.78));
+            background: var(--card);
             box-shadow: var(--shadow-card);
-            padding: clamp(28px, 5vw, 42px);
-            text-align: center;
+            padding: 20px;
         }
 
-        .contact-box h2 {
-            margin-bottom: 10px;
+        .panel h3 {
+            margin-bottom: 8px;
+            font-size: 1.12rem;
         }
 
-        .contact-box p {
-            color: #2f3e5f;
-            line-height: 1.9;
-        }
-
-        .contact-box a {
-            color: #0149b0;
-            font-weight: 700;
-        }
-
-        .testimonial-quote {
-            color: #263a5f;
-            font-size: 0.98rem;
-            line-height: 1.75;
-        }
-
-        .testimonial-author {
-            margin-top: 10px;
-            color: #5e6d89;
-            font-size: 0.85rem;
-            letter-spacing: 0.02em;
-            text-transform: uppercase;
-        }
-
-        .legal-grid {
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        }
-
-        .legal-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 8px;
-            display: grid;
-            gap: 8px;
-        }
-
-        .legal-list li {
+        .panel p {
             color: var(--muted);
-            line-height: 1.7;
+            line-height: 1.68;
         }
 
-        .footer-links {
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .footer-links a {
-            color: #486083;
-            font-weight: 600;
-        }
-
-        .footer-links a:hover {
-            color: #0a2f71;
-        }
-
-        .legal-compact {
-            padding: 10px 0 24px;
-        }
-
-        .legal-inline {
-            display: grid;
-            gap: 8px;
-        }
-
-        .legal-inline details {
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            background: var(--surface);
-            padding: 10px 12px;
-        }
-
-        .legal-inline summary {
-            cursor: pointer;
-            font-weight: 700;
-            color: #253453;
-        }
-
-        .legal-inline p {
-            margin-top: 8px;
-            color: var(--muted);
-            line-height: 1.7;
-            font-size: 0.9rem;
-        }
-
-        footer {
-            padding: 16px 0 36px;
-            text-align: center;
-            color: #64718d;
-            font-size: 0.9rem;
-        }
-
-        .hero-inner {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 22px;
-            align-items: center;
-        }
-
-        .hero-visual {
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            width: 100%;
-            aspect-ratio: 16/7;
-            box-shadow: 0 28px 60px rgba(15, 23, 40, 0.18);
-            position: relative;
-            background: #09111f;
-            order: -1;
-        }
-
-        .hero-visual::before {
-            content: none;
-        }
-
-        .hero-visual::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(11, 18, 32, 0.02), rgba(11, 18, 32, 0.24));
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .hero-visual img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 55%;
-            filter: saturate(1.04) contrast(1.03);
-            display: block;
-            transition: transform 700ms ease;
-            position: relative;
-            z-index: 0;
-        }
-
-        .hero-visual:hover img {
-            transform: scale(1.04);
-        }
-
-        .logo-mark {
+        .flag {
             display: inline-flex;
             align-items: center;
-            gap: 9px;
+            gap: 7px;
+            border-radius: 999px;
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 5px 9px;
+            margin-bottom: 10px;
         }
 
-        .testimonial-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
+        .flag.bad {
+            color: #8a2f2f;
+            border: 1px solid rgba(168, 64, 64, 0.35);
+            background: rgba(168, 64, 64, 0.1);
+        }
+
+        .flag.good {
+            color: #0e5e60;
+            border: 1px solid rgba(14, 139, 142, 0.35);
+            background: rgba(14, 139, 142, 0.1);
+        }
+
+        .bullet {
+            list-style: none;
             display: grid;
-            place-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .bullet li {
+            color: #4f4236;
+            font-size: 0.92rem;
+            line-height: 1.55;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .bullet li::before {
+            content: "\2713";
+            color: var(--brand);
             font-weight: 800;
-            font-size: 0.9rem;
-            color: #fff;
-            background: linear-gradient(135deg, #006be6, #0a84ff);
-            box-shadow: 0 4px 12px rgba(10, 132, 255, 0.3);
-            margin-bottom: 14px;
             flex-shrink: 0;
         }
 
-        @keyframes fadeUp {
+        .kpi-strip {
+            margin-top: 12px;
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+
+        .kpi {
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.55);
+            border-radius: 14px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .kpi strong {
+            display: block;
+            font-size: 1.4rem;
+            color: #7f3306;
+            letter-spacing: -0.02em;
+        }
+
+        .kpi span {
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .roadmap {
+            display: grid;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .step {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.58);
+            padding: 14px;
+            display: grid;
+            grid-template-columns: 34px 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .step .n {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            font-weight: 800;
+            background: linear-gradient(145deg, var(--brand), #a84408);
+        }
+
+        .step p {
+            color: var(--muted);
+            font-size: 0.92rem;
+            margin-top: 4px;
+            line-height: 1.55;
+        }
+
+        .cta {
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(214, 90, 11, 0.3);
+            background: linear-gradient(135deg, rgba(214, 90, 11, 0.16), rgba(255, 255, 255, 0.76));
+            box-shadow: var(--shadow-card);
+            padding: clamp(24px, 5vw, 44px);
+            text-align: center;
+        }
+
+        .cta h2 {
+            margin-bottom: 10px;
+            font-size: clamp(1.6rem, 3.6vw, 2.8rem);
+        }
+
+        .cta p {
+            max-width: 62ch;
+            margin: 0 auto;
+            color: #4f4134;
+            line-height: 1.7;
+        }
+
+        .cta-actions {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        footer {
+            padding: 26px 0 36px;
+            text-align: center;
+            color: #6f5f50;
+            font-size: 0.88rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 540ms ease, transform 540ms ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @keyframes riseIn {
             from {
                 opacity: 0;
-                transform: translateY(18px);
+                transform: translateY(16px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        @media (max-width: 820px) {
-            .floating-nav {
-                top: 12px;
+        @media (max-width: 860px) {
+            .topbar-inner {
+                flex-direction: column;
+                border-radius: 16px;
+                align-items: flex-start;
             }
 
-            .nav-shell {
-                border-radius: 18px;
-                align-items: flex-start;
-                flex-direction: column;
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
             }
 
             .hero {
-                padding-top: 150px;
+                padding-top: 172px;
             }
 
-            .hero-inner {
+            .hero-row {
                 grid-template-columns: 1fr;
-                gap: 22px;
-            }
-
-            .hero-visual {
-                aspect-ratio: 16/9;
-            }
-
-            .hero-visual::before {
-                content: none;
-            }
-
-            .hero-stats {
-                grid-template-columns: 1fr;
-            }
-            .nav-sections { display: none; }
-            .floating-cta {
-                bottom: 18px;
-                right: 18px;
-                padding: 11px 18px;
-                font-size: 0.85rem;
-            }
-        }
-
-        /* Animated background orbs */
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.16;
-            pointer-events: none;
-            animation: drift 22s ease-in-out infinite;
-            z-index: -1;
-        }
-        .orb-1 { width: 520px; height: 520px; background: radial-gradient(circle, #0a84ff, #57c0ff); top: -130px; left: -110px; animation-duration: 22s; }
-        .orb-2 { width: 360px; height: 360px; background: radial-gradient(circle, #006be6, #45b0ff); bottom: 8%; right: -70px; animation-duration: 28s; animation-delay: -9s; }
-        .orb-3 { width: 240px; height: 240px; background: radial-gradient(circle, #57c0ff, #005fce); top: 50%; left: 44%; animation-duration: 36s; animation-delay: -15s; }
-        @keyframes drift {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33%  { transform: translate(28px, -18px) scale(1.04); }
-            66%  { transform: translate(-18px, 26px) scale(0.97); }
-        }
-
-        /* Scroll reveal */
-        .reveal { opacity: 0; transform: translateY(20px); }
-        .reveal.visible { opacity: 1; transform: none; }
-
-        /* Stagger within grids */
-        .grid .card:nth-child(2) { transition-delay: 0.09s; }
-        .grid .card:nth-child(3) { transition-delay: 0.18s; }
-        .grid .card:nth-child(4) { transition-delay: 0.27s; }
-
-        /* Nav section links */
-        .nav-sections { flex: 1; justify-content: center; }
-        .nav-lang {
-            flex-shrink: 0;
-            gap: 6px;
-            padding: 4px 8px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.72);
-        }
-        .nav-lang .lang-globe {
-            font-size: 0.9rem;
-            opacity: 0.75;
-            padding: 0 2px;
-        }
-        .nav-lang a {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2px;
-            padding: 4px 7px 3px;
-            min-width: 40px;
-            text-align: center;
-        }
-        .lang-flag {
-            width: 20px;
-            height: 14px;
-            border-radius: 3px;
-            border: 1px solid rgba(15, 23, 42, 0.18);
-            background-size: cover;
-            background-position: center;
-            display: inline-block;
-        }
-        .flag-gb { background-image: url("https://flagcdn.com/w40/gb.png"); }
-        .flag-de { background-image: url("https://flagcdn.com/w40/de.png"); }
-        .flag-al { background-image: url("https://flagcdn.com/w40/al.png"); }
-        .lang-code {
-            font-size: 0.56rem;
-            font-weight: 800;
-            letter-spacing: 0.06em;
-            color: #334160;
-            line-height: 1;
-        }
-        .nav-lang a:hover,
-        .nav-lang a.active {
-            background: rgba(15, 111, 255, 0.14);
-            border-color: rgba(15, 111, 255, 0.34);
-        }
-
-        /* Pricing feature list */
-        .feature-list {
-            list-style: none;
-            padding: 0;
-            margin: 12px 0 4px;
-            display: grid;
-            gap: 7px;
-        }
-        .feature-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 9px;
-            font-size: 0.875rem;
-            color: #374766;
-            line-height: 1.5;
-        }
-        .feature-list li::before {
-            content: "\2713";
-            font-weight: 800;
-            color: #0a84ff;
-            flex-shrink: 0;
-        }
-
-        /* Star rating */
-        .stars { color: #f5a72a; font-size: 0.88rem; letter-spacing: 2px; margin-bottom: 12px; }
-
-        /* FAQ accordion */
-        .faq-grid { display: grid; gap: 10px; max-width: 780px; margin: 0 auto; }
-        .faq-item {
-            border-radius: var(--radius-md);
-            border: 1px solid var(--line);
-            background: var(--surface);
-            backdrop-filter: blur(10px);
-            overflow: hidden;
-            transition: border-color 220ms ease;
-        }
-        .faq-item:hover { border-color: rgba(10, 132, 255, 0.35); }
-        .faq-q {
-            width: 100%;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 20px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            text-align: left;
-            font-family: inherit;
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text);
-            letter-spacing: -0.02em;
-        }
-        .faq-icon {
-            flex-shrink: 0;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            background: rgba(10, 132, 255, 0.1);
-            display: grid;
-            place-items: center;
-            font-size: 1.15rem;
-            font-weight: 400;
-            color: #0a84ff;
-            transition: transform 280ms ease, background 220ms ease;
-        }
-        .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(10, 132, 255, 0.2); }
-        .faq-a {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 360ms ease, padding 250ms ease;
-            padding: 0 24px;
-            color: var(--muted);
-            line-height: 1.85;
-            font-size: 0.94rem;
-        }
-        .faq-item.open .faq-a { max-height: 260px; padding: 0 24px 22px; }
-
-        /* Floating CTA */
-        .floating-cta {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            z-index: 900;
-            border-radius: 999px;
-            padding: 13px 22px;
-            background: linear-gradient(140deg, #006be6, #0a84ff);
-            color: #fff;
-            font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 0 12px 30px rgba(10, 132, 255, 0.38);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 220ms ease, box-shadow 220ms ease, opacity 300ms ease;
-            opacity: 0;
-            pointer-events: none;
-        }
-        .floating-cta.visible { opacity: 1; pointer-events: auto; }
-        .floating-cta:hover { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(10, 132, 255, 0.44); }
-
-        /* Pricing card clickable */
-        .pricing .card {
-            cursor: pointer;
-            position: relative;
-        }
-        .pricing .card::after {
-            content: "Click to select";
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: #0a84ff;
-            opacity: 0;
-            transition: opacity 220ms ease;
-        }
-        .pricing .card:hover::after {
-            opacity: 1;
-        }
-
-        /* Modal overlay and backdrop */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 40, 0.68);
-            backdrop-filter: blur(8px);
-            z-index: 1100;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 300ms ease;
-        }
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.94);
-            max-width: 520px;
-            width: 92vw;
-            max-height: 88vh;
-            background: var(--surface-strong);
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            box-shadow: var(--shadow-soft);
-            z-index: 1101;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 300ms ease, transform 300ms ease;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .modal-overlay.active ~ .modal {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .modal-header {
-            padding: 24px;
-            border-bottom: 1px solid var(--line);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-        }
-        .modal-header h2 {
-            margin: 0;
-            font-size: 1.4rem;
-            color: var(--text);
-        }
-        .modal-close {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: rgba(10, 132, 255, 0.1);
-            border: none;
-            cursor: pointer;
-            display: grid;
-            place-items: center;
-            font-size: 1.4rem;
-            color: #0a84ff;
-            transition: background 220ms ease, color 220ms ease;
-            flex-shrink: 0;
-        }
-        .modal-close:hover {
-            background: rgba(10, 132, 255, 0.2);
-            color: #005fce;
-        }
-
-        .modal-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 24px;
-        }
-
-        .checkout-section {
-            margin-bottom: 24px;
-        }
-        .checkout-section h3 {
-            font-size: 1rem;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-
-        .form-group {
-            margin-bottom: 14px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #374766;
-        }
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.5);
-            font-family: inherit;
-            font-size: 0.9rem;
-            color: var(--text);
-            transition: border-color 220ms ease, background 220ms ease;
-        }
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: rgba(10, 132, 255, 0.6);
-            background: rgba(255, 255, 255, 0.92);
-        }
-
-        .payment-methods {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-        .payment-option {
-            position: relative;
-        }
-        .payment-option input[type="radio"] {
-            display: none;
-        }
-        .payment-option label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px;
-            border: 1.5px solid var(--line);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 220ms ease;
-        }
-        .payment-option input[type="radio"]:checked + label {
-            border-color: #0a84ff;
-            background: rgba(10, 132, 255, 0.15);
-            color: #0149b0;
-        }
-
-        .cart-summary {
-            background: rgba(10, 132, 255, 0.08);
-            border: 1px solid rgba(10, 132, 255, 0.2);
-            border-radius: 12px;
-            padding: 16px;
-            margin-top: 20px;
-        }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-        .cart-item strong {
-            color: var(--text);
-        }
-        .cart-item .price {
-            color: #0149b0;
-            font-weight: 700;
-            font-size: 1.05rem;
-        }
-        .cart-total {
-            padding-top: 12px;
-            border-top: 1px solid rgba(10, 132, 255, 0.3);
-            display: flex;
-            justify-content: space-between;
-            font-weight: 700;
-            color: #053b88;
-        }
-
-        .modal-footer {
-            padding: 20px 24px;
-            border-top: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.2);
-            display: flex;
-            gap: 12px;
-        }
-        .modal-footer .btn {
-            flex: 1;
-        }
-        .modal-footer .btn.ghost {
-            flex: 0.8;
-        }
-
-        @media (max-width: 640px) {
-            .modal {
-                max-width: 100%;
-                width: 95vw;
-                max-height: 90vh;
-            }
-            .payment-methods {
-                grid-template-columns: 1fr;
-            }
-            .modal-content {
-                padding: 18px;
             }
         }
     </style>
 </head>
 <body>
-    <header class="floating-nav" aria-label="Hauptnavigation">
-        <div class="container nav-shell">
-            <div class="logo logo-mark">
-                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <rect width="26" height="26" rx="6" fill="url(#logo-grad)"/>
-                    <polyline points="6,19 6,9 13,16 20,9 20,19" stroke="white" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
-                    <defs>
-                        <linearGradient id="logo-grad" x1="0" y1="0" x2="26" y2="26" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#0060d0"/>
-                            <stop offset="1" stop-color="#45b0ff"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                WEB DESIGN STUDIO
-            </div>
-            <nav class="nav-links nav-sections" aria-label="Seitennavigation">
-                <a href="#services">Leistungen</a>
-                <a href="#pricing">Preise</a>
-                <a href="#contact">Kontakt</a>
-            </nav>
-            <nav class="nav-links nav-lang" aria-label="Sprachauswahl">
-                <span class="lang-globe" aria-hidden="true">🌐</span>
-                <a href="/" aria-label="English"><span class="lang-flag flag-gb" aria-hidden="true"></span><span class="lang-code">GB</span></a>
-                <a class="active" href="/de" aria-label="Deutsch"><span class="lang-flag flag-de" aria-hidden="true"></span><span class="lang-code">DE</span></a>
-                <a href="/al" aria-label="Shqip"><span class="lang-flag flag-al" aria-hidden="true"></span><span class="lang-code">AL</span></a>
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <a href="#top" class="logo" aria-label="Zur Startseite springen">
+                <span class="logo-badge">ES</span>
+                <span>Demo Redesign: Elektro Seeber</span>
+            </a>
+            <nav class="nav-links" aria-label="Seitenabschnitte">
+                <a href="#audit">Audit</a>
+                <a href="#concept">Modernes Konzept</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#contact">Angebot</a>
             </nav>
         </div>
     </header>
 
-    <main>
+    <main id="top">
         <section class="hero">
-            <div class="container hero-panel">
-                <div class="hero-inner">
-                    <div class="hero-text">
-                        <div class="eyebrow">Premium digitaler Auftritt</div>
-                        <h1>Moderne Websites mit <span>high-tech Praezision</span>.</h1>
-                        <p class="subtitle">Wir gestalten und entwickeln schnelle Premium-Websites mit einem strukturierten Serviceprozess und Automatisierungs-Workflows, die Zeit sparen und Vertrauen steigern.</p>
-                        <div class="hero-actions">
-                            <a href="#contact" class="btn primary">Projekt starten</a>
-                            <a href="#services" class="btn ghost">Leistungen ansehen</a>
+            <div class="container hero-card">
+                <div class="eyebrow">Website-Milestone Demo fuer lokale Betriebe</div>
+                <h1>Von "nur online" zu einer Website, die neue Auftraege bringt.</h1>
+                <p class="hero-sub">
+                    Die aktuelle Seite von Elektro Seeber wirkt sehr reduziert und vermittelt wenig Leistungstiefe.
+                    Diese Demo zeigt, wie eine moderne Version Vertrauen aufbaut, Services klar strukturiert und
+                    in konkrete Anfragen konvertiert.
+                </p>
+
+                <div class="hero-row">
+                    <div class="stack">
+                        <div class="micro-card">
+                            <strong>Ist-Zustand</strong>
+                            <p>Praktisch nur Name und E-Mail sichtbar. Keine Services, keine Referenzen, keine lokalen Vertrauenssignale.</p>
                         </div>
-                        <div class="hero-stats" aria-label="Wichtige Kundenergebnisse">
-                            <div class="stat">
-                                <strong>72h</strong>
-                                <span>Entwurf der Designrichtung</span>
-                            </div>
-                            <div class="stat">
-                                <strong>+40%</strong>
-                                <span>Mehr Klarheit in der Kommunikation</span>
-                            </div>
-                            <div class="stat">
-                                <strong>3 Sprachen</strong>
-                                <span>EN, DE, AL bereit</span>
-                            </div>
+                        <div class="micro-card">
+                            <strong>Zielbild</strong>
+                            <p>Klare Positionierung, Service-Module, schnelle Kontaktwege, FAQ, strukturierte Inhalte fuer Google und mobile Nutzer.</p>
                         </div>
                     </div>
-                    <div class="hero-visual" aria-hidden="true">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1800&q=90&auto=format&fit=crop" alt="Professioneller Webdesign-Arbeitsplatz" loading="lazy" />
+                    <div class="stack">
+                        <div class="micro-card">
+                            <strong>Business-Impact</strong>
+                            <p>Mehr qualifizierte Erstgespraeche durch bessere Auffindbarkeit, hoehere Glaubwuerdigkeit und starke CTAs.</p>
+                        </div>
+                        <div class="micro-card">
+                            <strong>Umsetzung</strong>
+                            <p>In 7-14 Tagen als fokussiertes Redesign mit SEO-Basis, Tracking und Conversion-Elementen.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section>
-            <div class="container">
-                <div class="section-head">
-                    <h2>Warum Kunden WEB DESIGN STUDIO waehlen</h2>
-                    <p>Beratungsstarke Service-Struktur und high-tech Designpraezision liefern Premium-Websites, die professionell wirken und messbaren Geschaeftswert erzeugen.</p>
-                </div>
-
-                <div class="grid cols-4">
-                    <article class="card">
-                        <h3>Polierte visuelle Identitaet</h3>
-                        <p>Glassmorphism, Tiefe, klare Abstaende und elegante Typografie schaffen sofort einen modernen Eindruck.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Conversion-orientierte Struktur</h3>
-                        <p>Headline, Abschnitte und Call-to-Action sind so aufgebaut, dass Besucher vom Interesse zur Kontaktanfrage gefuehrt werden.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Automatisierung faehig</h3>
-                        <p>WhatsApp, Make.com, CRM und operative Workflows lassen sich integrieren, ohne die UI zu ueberladen.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Schneller Rollout</h3>
-                        <p>Effiziente Planung und Umsetzung helfen Ihnen, eine Premium-Website schnell und sicher zu veroeffentlichen.</p>
-                    </article>
+                <div class="hero-actions">
+                    <a class="btn primary" href="#contact">Demo als Angebot anfragen</a>
+                    <a class="btn ghost" href="#audit">Live-Audit ansehen</a>
                 </div>
             </div>
         </section>
 
-        <section id="services">
+        <section id="audit">
             <div class="container">
-                <div class="section-head">
-                    <h2>Leistungen fuer Wachstum</h2>
-                    <p>Von visueller Sprache bis zur mehrsprachigen Bereitstellung wird alles auf Markensicherheit und geschaeftlichen Fortschritt ausgerichtet.</p>
+                <div class="section-head reveal">
+                    <h2>1) Kurz-Audit der aktuellen Website</h2>
+                    <p>
+                        Basierend auf dem verlinkten Auftritt: Funktional vorhanden, aber stark unterinformativ.
+                        Dadurch gehen Sichtbarkeit, Vertrauen und Conversion-Potenzial verloren.
+                    </p>
                 </div>
 
-                <div class="grid cols-4">
-                    <article class="card">
-                        <h3>Webdesign und Entwicklung</h3>
-                        <p>Responsive Seiten mit Premium-Look, fluessigen Interaktionen und klarer Content-Struktur.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Automatisierungssysteme</h3>
-                        <p>Workflow-Integrationen, die manuelle Arbeit reduzieren und Lead-Bearbeitung ab dem ersten Tag verbessern.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Content und Positionierung</h3>
-                        <p>Praezise Botschaften, die Ihren Mehrwert schnell und verstaendlich fuer potenzielle Kunden erklaeren.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Mehrsprachiger Rollout</h3>
-                        <p>Konsistenter Ton und klare Lokalisierung fuer Englisch, Deutsch und Albanisch.</p>
-                    </article>
-                    <article class="card">
-                        <h3>IT &amp; Cloud Services</h3>
-                        <p>Redundante Infrastruktur, Load-Balancer-Setup, Backup-Strategie, IPSEC VPN sowie Cloud Services auf Google Cloud, AWS und Azure.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="security-reliability">
-            <div class="container">
-                <div class="section-head">
-                    <h2>Sicherheit und Zuverlaessigkeit als Standard</h2>
-                    <p>Fuer kleine Teams setzen wir ab Tag eins eine belastbare Enterprise-Basis um: Schutz am Edge, durchgehende Sichtbarkeit und klare Incident-Reaktion.</p>
-                </div>
-
-                <div class="grid cols-3">
-                    <article class="card">
-                        <h3>Edge-Schutz</h3>
-                        <p>DDoS-Abwehr, WAF-Regeln und SSL/TLS-Haertung mit automatischer Zertifikatsverlaengerung.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Monitoring und Alerting 24/7</h3>
-                        <p>Uptime-Checks, SSL-Ablaufwarnungen, synthetische Formular-Checks und sofortige Benachrichtigungen bei kritischen Vorfaellen.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Business Continuity</h3>
-                        <p>Automatisierte Backups, rollback-faehige Deployments und dokumentierte Wiederherstellungsablaeufe.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="section-head">
-                    <h2>So arbeiten wir</h2>
-                    <p>Ein fokussierter Drei-Schritte-Prozess sorgt fuer klare Kommunikation und sichtbaren Fortschritt.</p>
-                </div>
-
-                <div class="grid cols-3">
-                    <article class="card">
-                        <div class="step-number">1</div>
-                        <h3>Planung und Strategie</h3>
-                        <p>Wir definieren Ziele, Seitenstruktur und Designrichtung, bevor die Umsetzung startet.</p>
-                    </article>
-                    <article class="card">
-                        <div class="step-number">2</div>
-                        <h3>Design und Umsetzung</h3>
-                        <p>Wir bauen Interface und Code mit klarer Hierarchie, sauberem Abstandssystem und responsiver Praezision.</p>
-                    </article>
-                    <article class="card">
-                        <div class="step-number">3</div>
-                        <h3>Automatisierung und Launch</h3>
-                        <p>Wir verbinden Workflows, pruefen die Performance und bereiten die Website fuer den produktiven Start vor.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="pricing" class="pricing">
-            <div class="container">
-                <div class="section-head">
-                    <h2>Freelancer-Preise fuer den DACH-Markt</h2>
-                    <p>Pakete orientiert an typischen Freelancer-Website-Angeboten im DACH-Raum (Deutschland, Oesterreich, Schweiz), mit transparentem Umfang und Raum fuer Wachstum. Vor dem Start erhalten Sie Scope, Zeitplan und Meilensteine schriftlich.</p>
-                </div>
-
-                <article class="card">
-                    <p>Start mit transparenten Basispreisen. Das finale Angebot haengt von Umfang und Zeitrahmen ab.</p>
-                    <p>Der Preis variiert nach Seitenanzahl, Integrationen, Sicherheitsniveau und Reaktionszeit im Support.</p>
-                    <p>Senden Sie uns Ihre Ziele per E-Mail und erhalten Sie ein klares Angebot innerhalb von 24 Geschaeftsstunden.</p>
-                </article>
-
-                <div class="grid cols-3">
-                    <article class="card" data-package="starter" data-price="699">
-                        <h3>Starter Website</h3>
-                        <div class="price">ab EUR 699</div>
-                        <p>Ideal fuer lokale Unternehmen mit Bedarf an einer hochwertigen Onepager- oder kompakten Firmenwebsite.</p>
-                        <ul class="feature-list">
-                            <li>1 Landingpage</li>
-                            <li>Mobiles responsives Design</li>
-                            <li>Kontaktformular</li>
-                            <li>On-Page SEO Basis</li>
-                            <li>Lieferzeit 5&ndash;7 Werktage</li>
-                            <li>2 Korrekturphasen</li>
+                <div class="grid cols-2">
+                    <article class="panel reveal">
+                        <div class="flag bad">Aktuell fehlt</div>
+                        <h3>Vertrauen und Entscheidungsgrundlagen</h3>
+                        <ul class="bullet">
+                            <li>Keine Leistungsbereiche wie Installation, Sanierung, PV, Smart Home oder Notdienst.</li>
+                            <li>Keine Nachweise wie Projekte, Kundenstimmen, Zertifikate oder Teamvorstellung.</li>
+                            <li>Keine klare regionale Abdeckung (Orte, Einsatzradius, Reaktionszeiten).</li>
+                            <li>Nur ein Kontaktweg statt Klick-zu-Anruf, Formular und WhatsApp/Callback.</li>
                         </ul>
                     </article>
-                    <article class="card featured" data-package="standard" data-price="1499">
-                        <h3>Standard Website <span class="recommend-badge">Empfohlen</span></h3>
-                        <div class="price">ab EUR 1.499</div>
-                        <p>Meist gewaehlt fuer wachsende Unternehmen: individuelle UI-Richtung, Mehrsprachigkeit, SEO-Basics und starke Lead-Struktur.</p>
-                        <ul class="feature-list">
-                            <li>Bis zu 5 Seiten</li>
-                            <li>EN + DE Mehrsprachigkeit</li>
-                            <li>Analytics-Integration</li>
-                            <li>Lead-Formular Automation Basis</li>
-                            <li>SEO-Grundeinrichtung</li>
-                            <li>Lieferzeit 10&ndash;14 Werktage</li>
-                            <li>3 Korrekturphasen</li>
-                            <li>72h E-Mail-Support</li>
-                        </ul>
-                    </article>
-                    <article class="card" data-package="growth" data-price="2499">
-                        <h3>Growth + Automation</h3>
-                        <div class="price">ab EUR 2.499</div>
-                        <p>Ganzheitliches System mit Workflow-Integrationen, CRM-faehigem Lead-Handling, Analytics-Setup und skalierbaren Prozessen.</p>
-                        <ul class="feature-list">
-                            <li>Bis zu 10 Seiten</li>
-                            <li>Advanced Workflow-Automatisierung</li>
-                            <li>CRM Handoff-Setup</li>
-                            <li>Reporting Dashboard</li>
-                            <li>WhatsApp + Make.com Integration</li>
-                            <li>Lieferzeit 3&ndash;4 Wochen</li>
-                            <li>4 Korrekturphasen</li>
-                            <li>36h Prioritaets-Support</li>
+
+                    <article class="panel reveal">
+                        <div class="flag bad">Technische Luecken</div>
+                        <h3>SEO und Conversion nicht ausgeschoepft</h3>
+                        <ul class="bullet">
+                            <li>Sehr wenig crawlbarer Content fuer lokale Suchanfragen.</li>
+                            <li>Keine klare Seitenstruktur fuer Nutzerpfade (Start -> Service -> Kontakt).</li>
+                            <li>Keine hervorstechenden CTAs mit Nutzenversprechen.</li>
+                            <li>Keine sichtbaren Messpunkte fuer Anrufe und Formularanfragen.</li>
                         </ul>
                     </article>
                 </div>
+
+                <div class="kpi-strip reveal">
+                    <div class="kpi">
+                        <strong>+2-4x</strong>
+                        <span>mehr Content-Tiefe moeglich</span>
+                    </div>
+                    <div class="kpi">
+                        <strong>+35%</strong>
+                        <span>besserer Erst-Eindruck</span>
+                    </div>
+                    <div class="kpi">
+                        <strong>+20-60%</strong>
+                        <span>mehr qualifizierte Leads</span>
+                    </div>
+                    <div class="kpi">
+                        <strong>7-14 Tage</strong>
+                        <span>bis go-live bei Fokus-Scope</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="addons">
+        <section id="concept">
             <div class="container">
-                <div class="section-head">
-                    <h2>Optionale Add-ons</h2>
-                    <p>Flexible Erweiterungen, die Sie direkt zum Projektstart oder nach dem Launch buchen koennen.</p>
+                <div class="section-head reveal">
+                    <h2>2) So sieht die modernisierte Version aus</h2>
+                    <p>
+                        Eine klare, conversion-orientierte Struktur fuer lokale Elektrounternehmen.
+                        Jede Sektion beantwortet eine konkrete Kundenfrage und fuehrt zum Kontakt.
+                    </p>
                 </div>
 
                 <div class="grid cols-3">
-                    <article class="card">
-                        <h3>SEO Boost</h3>
-                        <div class="price">ab EUR 199</div>
-                        <p>Keyword-Mapping, Meta-Daten Optimierung, interne Verlinkung und Indexierungs-Check.</p>
+                    <article class="panel reveal">
+                        <div class="flag good">Hero mit Klarheit</div>
+                        <h3>Wofuer Sie stehen</h3>
+                        <p>
+                            Eindeutige Headline mit Region, Leistungsversprechen und Sofort-Kontakt. Dazu 2-3 Trust-Signale oberhalb des Folds.
+                        </p>
                     </article>
-                    <article class="card">
-                        <h3>Textpaket</h3>
-                        <div class="price">ab EUR 299</div>
-                        <p>Conversion-orientierte Textueberarbeitung fuer Kernbereiche mit klarer CTA-Sprache.</p>
+                    <article class="panel reveal">
+                        <div class="flag good">Service-Module</div>
+                        <h3>Was Sie konkret anbieten</h3>
+                        <p>
+                            Einzelne Servicekarten mit Nutzen: Neuinstallation, E-Check, Sanierung, Smart Home, Wallbox/PV-Vorbereitung.
+                        </p>
                     </article>
-                    <article class="card">
-                        <h3>Security &amp; Monitoring Pack</h3>
-                        <div class="price">ab EUR 249</div>
-                        <p>DDoS-Schutz, SSL-Zertifikat Einrichtung und Erneuerung, Uptime-Monitoring sowie 24/7 Alerting bei kritischen Vorfaellen.</p>
+                    <article class="panel reveal">
+                        <div class="flag good">Lokale Sichtbarkeit</div>
+                        <h3>Wo Sie aktiv sind</h3>
+                        <p>
+                            Einsatzgebiete und Zeiten sauber benennen, inklusive lokaler FAQs und strukturierter Meta-Daten fuer Google.
+                        </p>
                     </article>
-                    <article class="card featured">
-                        <h3>Monatliche Wartung (optional)</h3>
-                        <div class="price">EUR 79-249/Monat</div>
-                        <p>Waehlen Sie den Care-Plan passend zu Seitenumfang und Update-Bedarf.</p>
-                        <table class="mini-table" aria-label="Monatliche Wartungsplaene">
-                            <tr>
-                                <th>Plan</th>
-                                <th>Preis</th>
-                                <th>Enthalten</th>
-                            </tr>
-                            <tr>
-                                <td>Starter Care</td>
-                                <td>EUR 79/Monat</td>
-                                <td>1 Update-Batch, woechentliches Backup, 72h Reaktion</td>
-                            </tr>
-                            <tr>
-                                <td>Standard Care</td>
-                                <td>EUR 149/Monat</td>
-                                <td>2 Update-Batches, 2 Backups/Woche, 48h Reaktion</td>
-                            </tr>
-                            <tr>
-                                <td>Growth Care</td>
-                                <td>EUR 249/Monat</td>
-                                <td>4 Update-Batches, taegliches Backup, 24h Reaktion</td>
-                            </tr>
-                        </table>
+                    <article class="panel reveal">
+                        <div class="flag good">Projektnachweise</div>
+                        <h3>Warum man Ihnen vertraut</h3>
+                        <p>
+                            Vorher/Nachher-Projekte, 3 Kurztestimonials und Fotoelemente schaffen sofortige Glaubwuerdigkeit.
+                        </p>
                     </article>
-                </div>
-
-                <article class="card">
-                    <h3>CAPEX vs OPEX Modell</h3>
-                    <p>Nutzen Sie CAPEX fuer den initialen Aufbau und OPEX fuer laufende Qualitaet, Sicherheit und Wachstum.</p>
-                    <table class="mini-table" aria-label="CAPEX vs OPEX Modell">
-                        <tr>
-                            <th>Modell</th>
-                            <th>Typischer Umfang</th>
-                            <th>Beispiel</th>
-                        </tr>
-                        <tr>
-                            <td>CAPEX (einmalig)</td>
-                            <td>Build und Setup</td>
-                            <td>Website-Paket, Cloud-Setup, Sicherheitsbaseline</td>
-                        </tr>
-                        <tr>
-                            <td>OPEX (monatlich)</td>
-                            <td>Betrieb und Optimierung</td>
-                            <td>Monitoring 24/7, Patching, Backups, Optimierung</td>
-                        </tr>
-                    </table>
-                </article>
-
-                <div class="quote-row">
-                    <a class="btn primary" href="mailto:info@aicloudpay.net?subject=Angebotsanfrage%20-%20MODERN%20WEB%20DESIGN&amp;body=Hallo%20MODERN%20WEB%20DESIGN,%0A%0AIch%20moechte%20ein%20Angebot%20fuer:%0A-%20Paket:%0A-%20Sprache(n):%0A-%20Zeitrahmen:%0A-%20Monatliche%20Wartung:%20Ja/Nein%0A%0ADanke!">Angebot per E-Mail anfragen</a>
-                </div>
-                <p class="trust-note">Schriftliche Angebotsantwort innerhalb von 24 Geschaeftsstunden.</p>
-            </div>
-        </section>
-
-        <section id="testimonials" class="testimonials">
-            <div class="container">
-                <div class="section-head">
-                    <h2>Kundenfeedback</h2>
-                    <p>Aktuelle anonymisierte Rueckmeldungen aus lokalen Projekten.</p>
-                </div>
-
-                <div class="grid cols-3">
-                    <article class="card">
-                        <div class="testimonial-avatar" aria-hidden="true">LD</div>
-                        <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
-                        <p class="testimonial-quote">"Die neue Seite erklaert unser Angebot endlich klar. Bereits in der ersten Woche kamen bessere Anfragen."</p>
-                        <p class="testimonial-author">Lokaler Dienstleister &mdash; Raum Muenchen</p>
+                    <article class="panel reveal">
+                        <div class="flag good">Lead-System</div>
+                        <h3>Wie Anfragen reinlaufen</h3>
+                        <p>
+                            Sticky CTA, Schnellformular und klickbare Kontaktoptionen fuer Mobilnutzer. Jeder Pfad endet in einer klaren Aktion.
+                        </p>
                     </article>
-                    <article class="card">
-                        <div class="testimonial-avatar" aria-hidden="true">BM</div>
-                        <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
-                        <p class="testimonial-quote">"Schneller Ablauf, transparente Kommunikation und ein hochwertiger Auftritt ohne visuelle Ueberladung."</p>
-                        <p class="testimonial-author">Beratungsmarke &mdash; Bayern</p>
-                    </article>
-                    <article class="card">
-                        <div class="testimonial-avatar" aria-hidden="true">KT</div>
-                        <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
-                        <p class="testimonial-quote">"Automatisierung und Wartung sparen uns jede Woche Zeit. Angebot und Scope waren von Anfang an klar."</p>
-                        <p class="testimonial-author">KMU Team &mdash; München</p>
+                    <article class="panel reveal">
+                        <div class="flag good">Messbarkeit</div>
+                        <h3>Wie Erfolge sichtbar werden</h3>
+                        <p>
+                            Conversion-Tracking fuer Telefon, Formular und CTA-Klicks, damit Entscheidungen datenbasiert getroffen werden.
+                        </p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="faq">
+        <section id="roadmap">
             <div class="container">
-                <div class="section-head">
-                    <h2>H&auml;ufig gestellte Fragen</h2>
-                    <p>Schnelle Antworten vor dem Projektstart.</p>
+                <div class="section-head reveal">
+                    <h2>3) Schnelle Umsetzungs-Roadmap</h2>
+                    <p>
+                        Praktischer Ablauf, den Sie direkt als Milestone-Plan beim Kunden pitchen koennen.
+                    </p>
                 </div>
-                <div class="faq-grid">
-                    <div class="faq-item">
-                        <button class="faq-q" aria-expanded="false">Wie lange dauert das Projekt vom Start bis zum Launch? <span class="faq-icon">+</span></button>
-                        <div class="faq-a">Je nach Paket: Starter ist in 5&ndash;7 Werktagen fertig, Standard in 10&ndash;14 Tagen und Growth + Automation in 3&ndash;4 Wochen. Sie erhalten vor Beginn einen schriftlichen Zeitplan.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-q" aria-expanded="false">Muss ich den Website-Text selbst liefern? <span class="faq-icon">+</span></button>
-                        <div class="faq-a">Sie koennen einen Entwurf oder Stichpunkte liefern &ndash; wir verfeinern diesen zu conversion-orientiertem Text. Das optionale Textpaket deckt alle Kernbereiche vollstaendig ab.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-q" aria-expanded="false">Kann ich die Website nach der Lieferung selbst aktualisieren? <span class="faq-icon">+</span></button>
-                        <div class="faq-a">Ja. Sie erhalten den vollstaendigen Quellcode und Aktualisierungsanweisungen. Monatliche Wartungsplaene stehen ebenfalls zur Verfuegung.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-q" aria-expanded="false">Arbeiten Sie auch mit Kunden ausserhalb von Muenchen? <span class="faq-icon">+</span></button>
-                        <div class="faq-a">Ja. Der gesamte Prozess laeuft per E-Mail. Muenchen ist unser Hauptmarkt, aber wir arbeiten mit Unternehmen im gesamten DACH-Raum und international zusammen.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-q" aria-expanded="false">Was passiert, wenn ich nach der Lieferung &Auml;nderungen benotige? <span class="faq-icon">+</span></button>
-                        <div class="faq-a">Korrekturen innerhalb der vereinbarten Runden sind inklusive. Nachtraegliche &Auml;nderungen sind stundenweise oder ueber einen Wartungsplan moeglich.</div>
-                    </div>
+
+                <div class="roadmap">
+                    <article class="step reveal">
+                        <div class="n">1</div>
+                        <div>
+                            <h3>Positionierung + Seitenstruktur (Tag 1-2)</h3>
+                            <p>USPs definieren, Zielkunden scharf machen, neue Seitenarchitektur fuer mobile Conversion aufbauen.</p>
+                        </div>
+                    </article>
+                    <article class="step reveal">
+                        <div class="n">2</div>
+                        <div>
+                            <h3>Design + Content-Blaupause (Tag 3-6)</h3>
+                            <p>Modernes UI, Service-Sektionen, Trust-Bloecke, Projektbeispiele und lokale SEO-Texte ausarbeiten.</p>
+                        </div>
+                    </article>
+                    <article class="step reveal">
+                        <div class="n">3</div>
+                        <div>
+                            <h3>Build + Tracking + Launch (Tag 7-14)</h3>
+                            <p>Performanceoptimierung, Formular-Setup, Event-Tracking, Finaltests und sauberer Go-live.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
         <section id="contact">
-            <div class="container contact-box">
-                <h2>Bereit, Ihr Kundenerlebnis zu modernisieren?</h2>
-                <p>E-Mail: <a href="mailto:info@aicloudpay.net">info@aicloudpay.net</a></p>
-                <p>Fuer ein schnelles Angebot senden Sie Paket, Zeitrahmen und Sprachwuensche direkt per E-Mail.</p>
-                <p>Vor Projektstart erhalten Sie einen klaren Scope, Zeitplan und Zahlungs-Meilensteine.</p>
-                <p>Standort: München, Bayern, Deutschland</p>
-            </div>
-        </section>
-
-        <section id="legal" class="legal-compact">
-            <div class="container legal-inline">
-                <details id="disclaimer">
-                    <summary>Disclaimer</summary>
-                    <p>Alle Angaben erfolgen nach bestem Wissen als allgemeine Information und ohne Gewaehr fuer rechtliche Vollstaendigkeit im Einzelfall.</p>
-                </details>
-                <details id="impressum">
-                    <summary>Impressum</summary>
-                    <p>Anbieter: WEB DESIGN STUDIO, Muenchen, Deutschland. Kontakt: info@aicloudpay.net. Inhaltlich verantwortlich: WEB DESIGN STUDIO.</p>
-                </details>
-                <details id="privacy">
-                    <summary>Datenschutzerklaerung</summary>
-                    <p>Wir verarbeiten nur Daten aus E-Mail und Projektkommunikation fuer Angebot, Umsetzung und Support. Anfragen an info@aicloudpay.net.</p>
-                </details>
-                <details id="cookies">
-                    <summary>Cookie-Einstellungen</summary>
-                    <p>Essenzielle Cookies koennen fuer Grundfunktionen genutzt werden. Analyse-Cookies sind optional und jederzeit per E-Mail anpassbar.</p>
-                </details>
+            <div class="container cta reveal">
+                <h2>4) Demo in ein echtes Angebot ueberfuehren</h2>
+                <p>
+                    Wenn Sie moechten, passe ich diese Demo auf die Zielbranche und den konkreten Betrieb an
+                    und erstelle daraus ein verkaufsstarkes Angebot mit Umfang, Timeline und Preis.
+                </p>
+                <div class="cta-actions">
+                    <a class="btn primary" href="mailto:info@aicloudpay.net?subject=Website%20Redesign%20Demo%20fuer%20lokalen%20Betrieb">Angebot per E-Mail starten</a>
+                    <a class="btn ghost" href="mailto:info@aicloudpay.net?subject=Kurzaudit%20fuer%20lokale%20Unternehmensseite">Weitere Website prüfen lassen</a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-links" aria-label="Footer-Links">
-            <a href="#testimonials">Kundenfeedback</a>
-            <a href="#disclaimer">Disclaimer</a>
-            <a href="#impressum">Impressum</a>
-            <a href="#privacy">Datenschutzerklaerung</a>
-            <a href="#cookies">Cookie-Einstellungen</a>
-        </div>
-        <p id="copyright"></p>
+        Demo erstellt fuer Website-Modernisierung lokaler Unternehmen | Kontakt: info@aicloudpay.net
     </footer>
 
-    <div class="modal-overlay" id="checkoutOverlay"></div>
-    <div class="modal" id="checkoutModal">
-        <div class="modal-header">
-            <h2 id="modalTitle">Bestellung abschließen</h2>
-            <button class="modal-close" id="modalClose">&times;</button>
-        </div>
-        <div class="modal-content">
-            <div class="checkout-section">
-                <h3>Ihre Daten</h3>
-                <div class="form-group">
-                    <label for="clientName">Vollständiger Name *</label>
-                    <input type="text" id="clientName" placeholder="Max Mustermann" required />
-                </div>
-                <div class="form-group">
-                    <label for="clientEmail">Email *</label>
-                    <input type="email" id="clientEmail" placeholder="max@example.com" required />
-                </div>
-                <div class="form-group">
-                    <label for="clientPhone">Telefon</label>
-                    <input type="tel" id="clientPhone" placeholder="+49 123 45678" />
-                </div>
-                <div class="form-group">
-                    <label for="businessName">Unternehmen / Geschäftsname</label>
-                    <input type="text" id="businessName" placeholder="Ihr Unternehmen" />
-                </div>
-                <div class="form-group">
-                    <label for="businessType">Art des Unternehmens</label>
-                    <select id="businessType">
-                        <option value="">-- Wählen --</option>
-                        <option value="freelancer">Freelancer</option>
-                        <option value="startup">Startup</option>
-                        <option value="smb">Klein-/Mittelbetrieb</option>
-                        <option value="agency">Agentur</option>
-                        <option value="ecommerce">E-Commerce</option>
-                        <option value="other">Sonstiges</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="checkout-section">
-                <h3>Zahlungsart</h3>
-                <div class="payment-methods">
-                    <div class="payment-option">
-                        <input type="radio" id="payCard" name="payment" value="card" checked />
-                        <label for="payCard">💳 Kreditkarte</label>
-                    </div>
-                    <div class="payment-option">
-                        <input type="radio" id="payPal" name="payment" value="paypal" />
-                        <label for="payPal">🅿️ PayPal</label>
-                    </div>
-                    <div class="payment-option">
-                        <input type="radio" id="payBank" name="payment" value="bank" />
-                        <label for="payBank">🏦 Banküberweisung</label>
-                    </div>
-                    <div class="payment-option">
-                        <input type="radio" id="payInvoice" name="payment" value="invoice" />
-                        <label for="payInvoice">📄 Rechnung</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cart-summary">
-                <div class="cart-item">
-                    <strong id="cartPackage">Standard Website</strong>
-                    <div class="price" id="cartPrice">EUR 1.499</div>
-                </div>
-                <div class="cart-item">
-                    <span>Summe</span>
-                    <span id="subtotal">EUR 1.499</span>
-                </div>
-                <div class="cart-item">
-                    <span>MwSt (geschätzt)</span>
-                    <span id="taxAmount">–</span>
-                </div>
-                <div class="cart-total">
-                    <span>Gesamt</span>
-                    <span id="totalAmount">EUR 1.499</span>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn ghost" id="modalCancel">Abbrechen</button>
-            <button class="btn primary" id="modalCheckout">Weiter zur Zahlung</button>
-        </div>
-    </div>
-
-    <a class="floating-cta" href="mailto:info@aicloudpay.net?subject=Angebotsanfrage%20-%20WEB%20DESIGN%20STUDIO&amp;body=Hallo%20WEB%20DESIGN%20STUDIO,%0A%0AIch%20moechte%20ein%20Angebot%20fuer:%0A-%20Paket:%0A-%20Sprache(n):%0A-%20Zeitrahmen:%0A-%20Monatliche%20Wartung:%20Ja%2FNein%0A%0ADanke!" aria-label="Angebot per E-Mail anfragen">
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        Angebot anfragen
-    </a>
-
     <script>
-        document.getElementById("copyright").textContent = "\u00a9 " + new Date().getFullYear() + " WEB DESIGN STUDIO | Premium Webdesign und Automatisierung";
-
-        ["orb-1", "orb-2", "orb-3"].forEach(function(cls) {
-            var el = document.createElement("div");
-            el.className = "orb " + cls;
-            document.body.appendChild(el);
-        });
-
-        var revealTargets = document.querySelectorAll(".card, .contact-box, .faq-item");
-        revealTargets.forEach(function(el) {
-            var siblings = Array.from(el.parentElement.children);
-            var idx = siblings.indexOf(el);
-            el.style.transitionDelay = (idx * 0.08) + "s";
-            el.classList.add("reveal");
-            el.addEventListener("transitionend", function() {
-                el.style.transitionDelay = "";
-            }, { once: true });
-        });
-        var revealObs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    setTimeout(function() { entry.target.classList.add("visible"); }, 40);
-                    revealObs.unobserve(entry.target);
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
-        revealTargets.forEach(function(el) { revealObs.observe(el); });
+        }, { threshold: 0.16 });
 
-        function countUp(el, target, suffix, prefix) {
-            var dur = 1200, start;
-            function step(ts) {
-                if (!start) start = ts;
-                var p = Math.min((ts - start) / dur, 1);
-                var v = Math.round((1 - Math.pow(1 - p, 3)) * target);
-                el.textContent = (prefix || "") + v + (suffix || "");
-                if (p < 1) requestAnimationFrame(step);
-            }
-            requestAnimationFrame(step);
-        }
-        var statObs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) {
-                if (!e.isIntersecting) return;
-                var el = e.target;
-                var raw = el.textContent.trim();
-                if (raw === "72h") countUp(el, 72, "h");
-                if (raw === "+40%") countUp(el, 40, "%", "+");
-                statObs.unobserve(el);
-            });
-        }, { threshold: 0.6 });
-        document.querySelectorAll(".stat strong").forEach(function(el) { statObs.observe(el); });
-
-        document.querySelectorAll(".faq-q").forEach(function(btn) {
-            btn.addEventListener("click", function() {
-                var item = btn.closest(".faq-item");
-                var isOpen = item.classList.contains("open");
-                document.querySelectorAll(".faq-item.open").forEach(function(i) { i.classList.remove("open"); });
-                if (!isOpen) item.classList.add("open");
-                btn.setAttribute("aria-expanded", String(!isOpen));
-            });
-        });
-
-        var floatingCta = document.querySelector(".floating-cta");
-        window.addEventListener("scroll", function() {
-            floatingCta.classList.toggle("visible", window.scrollY > 320);
-        }, { passive: true });
-
-        var overlay = document.getElementById("checkoutOverlay");
-        var modal = document.getElementById("checkoutModal");
-        var closeBtn = document.getElementById("modalClose");
-        var cancelBtn = document.getElementById("modalCancel");
-        var checkoutBtn = document.getElementById("modalCheckout");
-        var packageNames = { "starter": "Starter Website", "standard": "Standard Website", "growth": "Growth + Automation" };
-        function openCheckout(pkg, price) {
-            var name = packageNames[pkg] || "Paket";
-            var fmt = parseInt(price).toLocaleString("de-DE");
-            document.getElementById("modalTitle").textContent = name + " wählen";
-            document.getElementById("cartPackage").textContent = name;
-            document.getElementById("cartPrice").textContent = "EUR " + fmt;
-            document.getElementById("subtotal").textContent = "EUR " + fmt;
-            document.getElementById("totalAmount").textContent = "EUR " + fmt;
-            modal.dataset.selectedPackage = pkg;
-            modal.dataset.selectedPrice = price;
-            overlay.classList.add("active");
-        }
-        function closeCheckout() { overlay.classList.remove("active"); document.getElementById("clientName").value = ""; document.getElementById("clientEmail").value = ""; document.getElementById("clientPhone").value = ""; document.getElementById("businessName").value = ""; document.getElementById("businessType").value = ""; document.getElementById("payCard").checked = true; }
-        document.querySelectorAll(".pricing .card[data-package]").forEach(function(c) { c.addEventListener("click", function() { openCheckout(c.dataset.package, c.dataset.price); }); });
-        closeBtn.addEventListener("click", closeCheckout);
-        cancelBtn.addEventListener("click", closeCheckout);
-        overlay.addEventListener("click", function(e) { if (e.target === overlay) closeCheckout(); });
-        checkoutBtn.addEventListener("click", function() {
-            var nm = document.getElementById("clientName").value.trim();
-            var em = document.getElementById("clientEmail").value.trim();
-            if (!nm || !em) { alert("Bitte füllen Sie Ihren Namen und Ihre E-Mail aus."); return; }
-            var pk = modal.dataset.selectedPackage;
-            var ph = document.getElementById("clientPhone").value.trim();
-            var bs = document.getElementById("businessName").value.trim();
-            var bt = document.getElementById("businessType").value;
-            var pm = document.querySelector("input[name='payment']:checked").value;
-            var pn = packageNames[pk] || "Paket";
-            var eb = "Bestellübersicht:\\n\\nPaket: " + pn + "\\nName: " + nm + "\\nEmail: " + em + (ph ? "\\nTelefon: " + ph : "") + (bs ? "\\nUnternehmen: " + bs : "") + (bt ? "\\nTyp: " + bt : "") + "\\nZahlungsart: " + pm + "\\n\\nBitte antworten Sie, um diese Bestellung zu bestätigen.";
-            var sj = "Bestellung: " + pn + " - " + nm;
-            window.location.href = "mailto:info@aicloudpay.net?subject=" + encodeURIComponent(sj) + "&body=" + encodeURIComponent(eb);
-            closeCheckout();
-        });
+        reveals.forEach((item) => observer.observe(item));
     </script>
 </body>
 </html>
